@@ -1,130 +1,121 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>MatchWork — Contratação que gera retenção e impacto</title>
-  <meta name="description" content="MatchWork: plataforma que conecta empresas e candidatos e ainda entrega capacitação, apoio emocional (Bem+) e relatórios sociais para reduzir rotatividade e comprovar impacto."/>
-  <link rel="stylesheet" href="styles.css"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MatchWork — Conectando talentos e empresas</title>
+<meta name="description" content="MatchWork: plataforma moderna de empregabilidade que conecta candidatos e empresas, com matching rápido, trilhas de capacitação e apoio emocional (Bem+).">
+<meta name="theme-color" content="#6f3aff">
+<style>
+:root{
+  --bg: #ffffff;
+  --ink: #111111;
+  --muted:#666666;
+  --line: #e5e5e5;
+  --brand:#6f3aff;
+  --brand-2:#9b6dff;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+a{text-decoration:none;color:var(--brand)}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.nav{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand img{height:40px;display:block}
+.nav .links a{margin-left:18px;font-weight:600;color:var(--ink);opacity:.9}
+.btn{display:inline-block;padding:12px 18px;border-radius:10px;font-weight:700;border:2px solid var(--brand);transition:.2s}
+.btn.primary{background:var(--brand);color:#fff}
+.btn.primary:hover{background:var(--brand-2)}
+.btn.ghost{background:#fff;color:var(--brand)}
+.hero{padding:84px 0 54px;text-align:center}
+h1{margin:0 0 10px;font-size:48px;line-height:1.1}
+.lead{color:var(--muted);font-size:20px;margin:0 0 18px;max-width:740px;margin-left:auto;margin-right:auto}
+.section{padding:64px 0;border-top:1px solid var(--line)}
+.section h2{font-size:32px;margin:0 0 10px;text-align:center;color:var(--brand)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:24px}
+.card{padding:24px;border-radius:14px;border:1px solid var(--line);background:#fafafa;text-align:center;transition:.2s}
+.card:hover{box-shadow:0 4px 18px rgba(0,0,0,.08);transform:translateY(-2px)}
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.price-card{padding:28px;border-radius:16px;border:1px solid var(--line);background:#fafafa;display:flex;flex-direction:column;gap:10px;text-align:center;transition:0.2s}
+.price-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08);transform:translateY(-2px)}
+.price{display:flex;align-items:baseline;justify-content:center;gap:6px}
+.amount{font-size:40px;font-weight:900;color:var(--brand)}
+.small{color:var(--muted);font-size:14px}
+.footer{padding:28px 0;color:var(--muted);border-top:1px solid var(--line);text-align:center;margin-top:40px;font-size:14px}
+@media (max-width: 980px){
+  .grid-3,.grid-2,.pricing{grid-template-columns:1fr}
+  h1{font-size:36px}
+}
+</style>
 </head>
 <body>
   <nav class="nav">
     <div class="container nav-inner">
-      <div class="brand"><img src="assets/logo.png" alt="MatchWork"/></div>
-      <div class="ctas">
-        <a class="btn alt" href="#como-funciona">Como funciona</a>
-        <a class="btn" href="#contato">Quero pilotar</a>
+      <div class="brand"><img src="https://via.placeholder.com/160x40?text=MatchWork" alt="Logo MatchWork"/></div>
+      <div class="links">
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#funcionalidades">Funcionalidades</a>
+        <a href="#planos">Planos</a>
+        <a href="#contato" class="btn primary">Quero pilotar</a>
       </div>
     </div>
   </nav>
 
   <header class="container hero">
-    <div>
-      <span class="badge">Emprego • Capacitação • Bem-estar • Impacto social</span>
-      <h1>Contrate rápido, <br/>retenha por mais tempo.</h1>
-      <p class="lead">O <b>MatchWork</b> é uma plataforma para <b>PMEs, prefeituras e candidatos</b> que une contratação ágil, <b>trilhas de aprendizagem</b> e <b>apoio emocional (Bem+)</b>. O resultado: menos rotatividade, mais produtividade e relatórios de impacto reais.</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <a class="btn" href="#planos">Ver planos</a>
-        <a class="btn alt" href="#impacto">Ver impacto</a>
-      </div>
-      <div class="kpis">
-        <div class="kpi"><h3>Like/Dislike</h3><div class="small">Matching instantâneo</div></div>
-        <div class="kpi"><h3>Trilhas</h3><div class="small">Capacitação guiada</div></div>
-        <div class="kpi"><h3>Bem+</h3><div class="small">Apoio emocional</div></div>
-        <div class="kpi"><h3>Relatórios</h3><div class="small">Diversidade & inclusão</div></div>
-      </div>
-    </div>
-    <div class="card">
-      <h3>O que é o MatchWork?</h3>
-      <p>Enquanto plataformas tradicionais param na publicação de vagas, o MatchWork combina <b>recrutamento + capacitação + saúde emocional</b>, entregando resultados que sustentam a <b>retenção</b> nas empresas e <b>empregabilidade real</b> para os candidatos.</p>
-      <div class="highlight">
-        <b>Diferencial:</b> banco de talentos com like/dislike + trilhas de aprendizagem + Bem+ + relatórios sociais prontos para PMEs e prefeituras.
-      </div>
+    <h1>Conectando talentos<br/>e empresas de forma simples</h1>
+    <p class="lead">O <b>MatchWork</b> oferece um processo rápido e inteligente de recrutamento, unindo matching, capacitação e apoio emocional (Bem+). Tudo para gerar contratações ágeis e retenção de talentos.</p>
+    <div style="margin-top:20px">
+      <a class="btn primary" href="#planos">Ver planos</a>
+      <a class="btn ghost" href="#impacto">Ver impacto</a>
     </div>
   </header>
 
   <section id="como-funciona" class="section">
     <div class="container">
       <h2>Como funciona</h2>
-      <div class="steps" style="margin-top:12px">
-        <div class="step">
-          <h3>1) Cadastro</h3>
-          <p>Empresas publicam vagas em 2 minutos. Candidatos criam perfil e realizam testes vocacionais e comportamentais.</p>
-        </div>
-        <div class="step">
-          <h3>2) Matching</h3>
-          <p>Like/dislike de ambos os lados + indicações inteligentes por compatibilidade e trilha de competências.</p>
-        </div>
-        <div class="step">
-          <h3>3) Evolução</h3>
-          <p>Trilhas de aprendizagem orientadas por gap de perfil e acesso ao <b>Bem+</b> (apoio emocional). Relatórios de progresso e impacto.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="para-quem" class="section">
-    <div class="container">
-      <h2>Para quem servimos</h2>
-      <div class="grid-3" style="margin-top:12px">
-        <div class="card">
-          <h3>Candidatos</h3>
-          <ul class="list">
-            <li>Aplicação tipo <b>Tinder de vagas</b> (like/dislike)</li>
-            <li><b>Testes</b> vocacionais e comportamentais</li>
-            <li><b>Trilhas</b> de aprendizagem e cursos parceiros</li>
-            <li><b>Bem+</b>: apoio emocional e grupos</li>
-            <li>Premium: R$ 14,90/mês</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Empresas (PMEs)</h3>
-          <ul class="list">
-            <li>Plano <b>R$150/mês</b> ou <b>R$400 por vaga (one‑shot)</b></li>
-            <li>Banco de talentos regional + indicações</li>
-            <li>Dashboard e relatórios simplificados</li>
-            <li>Networking entre empresários</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Prefeituras & Grandes</h3>
-          <ul class="list">
-            <li><b>Relatórios sociais</b> (jovens, mulheres, PCDs, recorte racial)</li>
-            <li>Indicadores prontos para campanhas/ESG</li>
-            <li>Programas locais de empregabilidade</li>
-          </ul>
-        </div>
+      <div class="grid-3">
+        <div class="card"><h3>1. Cadastro</h3><p>Candidatos realizam testes vocacionais e empresas publicam suas vagas em minutos.</p></div>
+        <div class="card"><h3>2. Matching</h3><p>Like/dislike dos dois lados + indicações por compatibilidade de perfil e competências.</p></div>
+        <div class="card"><h3>3. Evolução</h3><p>Trilhas de capacitação e apoio Bem+ para reduzir abandono e aumentar performance.</p></div>
       </div>
     </div>
   </section>
 
   <section id="funcionalidades" class="section">
     <div class="container">
-      <h2>Funcionalidades principais</h2>
-      <div class="grid-3" style="margin-top:12px">
-        <div class="card">
-          <h3>Banco de Talentos</h3>
-          <p>Busca simplificada, like/dislike e compatibilidade por perfil e competências.</p>
+      <h2>Funcionalidades</h2>
+      <div class="grid-2">
+        <div class="card"><h3>Banco de Talentos</h3><p>Busca ágil, matching inteligente e candidatos qualificados.</p></div>
+        <div class="card"><h3>Capacitação</h3><p>Trilhas de aprendizagem e cursos parceiros para desenvolver competências.</p></div>
+        <div class="card"><h3>Bem+</h3><p>Apoio emocional, conteúdos e grupos para melhorar retenção e engajamento.</p></div>
+        <div class="card"><h3>Relatórios</h3><p>Métricas de inclusão e impacto social para empresas e parceiros.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="planos" class="section">
+    <div class="container">
+      <h2>Nossos Planos</h2>
+      <div class="pricing">
+        <div class="price-card">
+          <h3>PMEs — Assinatura</h3>
+          <div class="price"><span class="amount">R$150</span><span class="small">/mês</span></div>
+          <p>Publicações ilimitadas<br/>Banco de talentos<br/>Networking empresarial</p>
+          <a class="btn primary" href="#contato">Assinar</a>
         </div>
-        <div class="card">
-          <h3>Capacitação</h3>
-          <p>Trilhas por cargo com conteúdos e cursos parceiros; kit de progressão do candidato.</p>
+        <div class="price-card">
+          <h3>PMEs — One-Shot</h3>
+          <div class="price"><span class="amount">R$400</span><span class="small">/vaga</span></div>
+          <p>Publicação avulsa até preencher<br/>Indicação de perfis compatíveis</p>
+          <a class="btn primary" href="#contato">Publicar vaga</a>
         </div>
-        <div class="card">
-          <h3>Bem+ (Apoio Emocional)</h3>
-          <p>Conteúdos, grupos e encontros ao vivo para reduzir abandono e melhorar desempenho.</p>
-        </div>
-        <div class="card">
-          <h3>Relatórios Sociais</h3>
-          <p>Indicadores de diversidade, inclusão e empregabilidade para PMEs e prefeituras.</p>
-        </div>
-        <div class="card">
-          <h3>Networking PME</h3>
-          <p>Grupo regional de empresários para compartilhar boas práticas e reduzir rotatividade.</p>
-        </div>
-        <div class="card">
-          <h3>One‑Shot & Assinatura</h3>
-          <p>Flexibilidade: vaga avulsa para testar e plano mensal para contratar com frequência.</p>
+        <div class="price-card">
+          <h3>Candidatos — Premium</h3>
+          <div class="price"><span class="amount">R$14,90</span><span class="small">/mês</span></div>
+          <p>Destaque + relatório de carreira<br/>Acesso ao Bem+<br/>Trilhas e feedback contínuo</p>
+          <a class="btn primary" href="#contato">Ser Premium</a>
         </div>
       </div>
     </div>
@@ -132,114 +123,17 @@
 
   <section id="impacto" class="section">
     <div class="container">
-      <h2>Impacto e métricas</h2>
-      <div class="grid-2" style="margin-top:12px">
-        <div class="card">
-          <h3>Para empresas</h3>
-          <ul class="list">
-            <li>Redução de tempo de contratação</li>
-            <li>Queda de rotatividade através de trilhas + Bem+</li>
-            <li>Relatórios para auditorias internas e ESG</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Para governos</h3>
-          <ul class="list">
-            <li>Dashboards com recortes (jovens, mulheres, PCD, raça/cor)</li>
-            <li>PDF mensal pronto para comunicação pública</li>
-            <li>Base para parcerias com escolas técnicas</li>
-          </ul>
-        </div>
-      </div>
-      <div class="highlight" style="margin-top:14px">
-        <b>Compromisso:</b> perseguimos empregabilidade sustentável — contratar é o começo; reter é o diferencial.
-      </div>
-    </div>
-  </section>
-
-  <section id="planos" class="section">
-    <div class="container">
-      <h2>Planos e preços</h2>
-      <div class="pricing" style="margin-top:12px">
-        <div class="price-card">
-          <h3>PMEs — Assinatura</h3>
-          <div class="price"><span class="amount">R$150</span><span class="small">/mês</span></div>
-          <ul class="list">
-            <li>Publicações ilimitadas</li>
-            <li>Acesso ao banco de talentos</li>
-            <li>Networking de empresários</li>
-          </ul>
-          <a class="btn" href="#contato">Assinar agora</a>
-        </div>
-        <div class="price-card">
-          <h3>PMEs — One‑Shot</h3>
-          <div class="price"><span class="amount">R$400</span><span class="small">/vaga</span></div>
-          <ul class="list">
-            <li>Publicação avulsa até preencher</li>
-            <li>Indicação de perfis compatíveis</li>
-            <li>Sem vínculo mensal</li>
-          </ul>
-          <a class="btn" href="#contato">Publicar vaga</a>
-        </div>
-        <div class="price-card">
-          <h3>Candidatos — Premium</h3>
-          <div class="price"><span class="amount">R$14,90</span><span class="small">/mês</span></div>
-          <ul class="list">
-            <li>Destaque e relatório de carreira</li>
-            <li>Acesso ao Bem+ (apoio emocional)</li>
-            <li>Trilhas e feedback contínuo</li>
-          </ul>
-          <a class="btn" href="#contato">Ser Premium</a>
-        </div>
-      </div>
-      <p class="small" style="margin-top:8px">Valores de validação. Podem variar conforme escopo/região.</p>
-    </div>
-  </section>
-
-  <section id="faq" class="section">
-    <div class="container">
-      <h2>Dúvidas frequentes</h2>
-      <div class="faq" style="margin-top:12px">
-        <div class="q"><b>Como vocês reduzem a rotatividade?</b><br/>Combinamos trilhas de aprendizagem específicas por cargo com o Bem+ (apoio emocional) e acompanhamento simples de indicadores.</div>
-        <div class="q"><b>Preciso assinar para testar?</b><br/>Não. Você pode usar a opção One‑Shot (R$400 por vaga) e migrar para a assinatura quando fizer sentido.</div>
-        <div class="q"><b>As palestras e cursos são próprios?</b><br/>Trabalhamos com uma rede de parceiros selecionados; curadoria enxuta e prática, focada no que impacta desempenho.</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contato" class="section">
-    <div class="container grid-2">
-      <div class="card">
-        <h3>Solicite um piloto</h3>
-        <p class="small">Respondemos em até 1 dia útil.</p>
-        <ul class="list">
-          <li>E‑mail: <a href="mailto:contato@matchwork.app">contato@matchwork.app</a></li>
-          <li>WhatsApp: <a href="https://wa.me/5547999999999" target="_blank" rel="noopener">+55 47 9 9999‑9999</a></li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Formulário rápido</h3>
-        <form action="https://formspree.io/f/mayvlqkp" method="POST">
-          <div style="display:grid;gap:10px">
-            <input name="nome" placeholder="Seu nome" required/>
-            <input type="email" name="email" placeholder="E‑mail" required/>
-            <select name="perfil" required>
-              <option value="pme">Sou uma PME</option>
-              <option value="candidato">Sou candidato</option>
-              <option value="prefeitura">Sou prefeitura</option>
-              <option value="grande">Sou grande empresa</option>
-            </select>
-            <textarea rows="4" name="mensagem" placeholder="Como podemos ajudar?" required></textarea>
-            <button class="btn" type="submit">Enviar</button>
-          </div>
-        </form>
-        <p class="small">Ao enviar, você concorda com nossa Política de Privacidade.</p>
+      <h2>Impacto</h2>
+      <div class="grid-3">
+        <div class="card"><h3>Contratação ágil</h3><p>Processo simplificado reduz tempo médio de contratação.</p></div>
+        <div class="card"><h3>Maior retenção</h3><p>Capacitação contínua + apoio Bem+ reduzem a rotatividade.</p></div>
+        <div class="card"><h3>Inclusão</h3><p>Relatórios sobre diversidade e empregabilidade para reforçar práticas ESG.</p></div>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    <div class="container">© 2025 MatchWork — Todos os direitos reservados.</div>
+    <div class="container">© 2025 MatchWork — Transformando o mercado de trabalho.</div>
   </footer>
 </body>
 </html>
