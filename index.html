@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MatchWork — Conectando talentos e empresas</title>
-<meta name="description" content="MatchWork conecta candidatos e empresas com matching rápido, trilhas de capacitação, apoio emocional (Bem+) e soluções para reduzir rotatividade.">
+<meta name="description" content="MatchWork conecta candidatos e empresas com matching rápido, trilhas de capacitação, apoio emocional (Bem+) e gamificação com pontos para impulsionar retenção.">
 <link rel="icon" href="assets/logo-purple.png" type="image/png">
 <link rel="canonical" href="https://rodrigovolpatob-blip.github.io/MatchWork/">
 <meta property="og:title" content="MatchWork — Conectando talentos e empresas">
-<meta property="og:description" content="Matching rápido, trilhas de capacitação e Bem+ para reduzir rotatividade.">
+<meta property="og:description" content="Matching + Capacitação + Bem+ + Gamificação (Pontos Match).">
 <meta property="og:image" content="assets/logo-purple.png">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#6f3aff">
@@ -42,7 +42,7 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus{
 .nav-inner{
   display:flex; align-items:center; justify-content:space-between; padding:14px 0
 }
-.brand img{ height:64px; display:block }          /* ↑ aumentei a logo */
+.brand img{ height:64px; display:block } /* logo maior */
 .nav .links a{
   margin-left:18px; font-weight:600; color:var(--ink); opacity:.9; transition:.15s ease
 }
@@ -60,9 +60,9 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus{
 
 /* HERO */
 .hero{
-  padding:72px 0 48px;
+  padding:70px 0 42px;
   background:
-    radial-gradient(1200px 400px at 50% -200px, rgba(111,58,255,.12), transparent 60%),
+    radial-gradient(1200px 420px at 50% -240px, rgba(111,58,255,.12), transparent 60%),
     linear-gradient(#fff, #fff);
 }
 .hero-grid{
@@ -73,28 +73,12 @@ h1{ margin:0 0 12px; font-size:48px; line-height:1.1; letter-spacing:-.2px }
   color:var(--muted); font-size:20px; margin:0 0 20px; max-width:720px
 }
 
-/* MOCKUP */
-.mock{
+/* HERO ART (banner neutro, não é mockup de produto) */
+.hero-art{
   border:1px solid var(--line); border-radius:16px; background:var(--paper);
-  box-shadow:0 12px 40px rgba(0,0,0,.08); padding:18px
+  box-shadow:0 12px 40px rgba(0,0,0,.08); padding:0; overflow:hidden
 }
-.mock .bar{
-  height:10px; background:linear-gradient(90deg,#e5e1ff,#f2efff); border-radius:8px; margin-bottom:14px
-}
-.mock .screen{
-  background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px;
-}
-.mock .cards{
-  display:grid; grid-template-columns:1fr 1fr; gap:12px
-}
-.mock .card{
-  border:1px solid var(--line); border-radius:10px; padding:12px; background:#fff;
-  box-shadow:0 2px 8px rgba(0,0,0,.04)
-}
-.badge{
-  display:inline-block; padding:4px 8px; font-size:12px; border-radius:999px;
-  background:#f4f0ff; color:#4b27c9; border:1px solid #e5ddff; font-weight:700
-}
+.hero-art svg{ display:block; width:100%; height:auto }
 
 /* SEÇÕES */
 .section{ padding:72px 0; border-top:1px solid var(--line) }
@@ -121,6 +105,10 @@ h1{ margin:0 0 12px; font-size:48px; line-height:1.1; letter-spacing:-.2px }
 .amount{ font-size:40px; font-weight:900; color:var(--brand) }
 .small{ color:var(--muted); font-size:14px }
 
+/* LISTAS */
+.ul{ list-style: none; padding:0; margin:10px 0 0 }
+.ul li{ margin:6px 0; color:#333 }
+
 /* FORM */
 .form{ max-width:640px; margin:16px auto; display:grid; gap:12px }
 .input{
@@ -144,72 +132,73 @@ h1{ margin:0 0 12px; font-size:48px; line-height:1.1; letter-spacing:-.2px }
 </style>
 </head>
 <body>
-  <!-- Navegação -->
+  <!-- NAV -->
   <nav class="nav" role="navigation" aria-label="principal">
     <div class="container nav-inner">
       <a class="brand" href="#" aria-label="MatchWork">
-        <!-- Use a logo roxa aqui -->
         <img src="assets/logo-purple.png" alt="Logo MatchWork" loading="lazy" decoding="async">
       </a>
       <div class="links" aria-label="links principais">
         <a href="#como-funciona">Como funciona</a>
         <a href="#funcionalidades">Funcionalidades</a>
+        <a href="#gamificacao">Gamificação</a>
         <a href="#planos">Planos</a>
         <a href="#contato" class="btn primary">Fale com a gente</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero com mockup -->
+  <!-- HERO -->
   <header class="section hero">
     <div class="container hero-grid">
       <div>
-        <span class="badge">Empregos • Capacitação • Bem+ • Retenção</span>
+        <span class="badge" style="display:inline-block;padding:4px 8px;font-size:12px;border-radius:999px;background:#f4f0ff;color:#4b27c9;border:1px solid #e5ddff;font-weight:700">Empregos • Capacitação • Bem+ • Pontos</span>
         <h1>Conectando talentos e empresas<br>com foco em retenção</h1>
         <p class="lead">
-          O <b>MatchWork</b> une matching tipo like/dislike, trilhas de capacitação e apoio emocional (<b>Bem+</b>).
-          Para empresas, o resultado é <b>contratar mais rápido</b> e <b>reter por mais tempo</b>.
+          O <b>MatchWork</b> integra <b>matching</b> tipo like/dislike, <b>trilhas de capacitação</b> e <b>apoio emocional (Bem+)</b>.
+          Com <b>gamificação</b> (Pontos Match), incentivamos evolução e constância — melhorando <b>contratação</b> e <b>retenção</b>.
         </p>
         <div style="margin-top:18px">
           <a class="btn primary" href="#planos" aria-label="Ver planos">Ver planos</a>
-          <a class="btn ghost" href="#palestras" aria-label="Palestras e consultoria">Palestras & Consultoria</a>
+          <a class="btn ghost" href="#gamificacao" aria-label="Ver gamificação">Como funcionam os Pontos</a>
         </div>
       </div>
 
-      <!-- MOCKUP: “tela” do produto dentro de um device genérico -->
-      <div class="mock" aria-hidden="true">
-        <div class="bar"></div>
-        <div class="screen">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-            <div style="font-weight:800;color:#333">Painel MatchWork</div>
-            <div class="badge">Demo</div>
-          </div>
-          <div class="cards">
-            <div class="card">
-              <div style="height:8px;background:#6f3aff20;border-radius:999px;margin-bottom:8px"></div>
-              <div style="height:8px;background:#6f3aff30;border-radius:999px;width:70%;margin-bottom:10px"></div>
-              <div style="font-size:12px;color:#666">Candidatos compatíveis</div>
-            </div>
-            <div class="card">
-              <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
-                <div style="width:10px;height:10px;background:#6f3aff;border-radius:2px"></div>
-                <div style="width:10px;height:10px;background:#9b6dff;border-radius:2px"></div>
-                <div style="width:10px;height:10px;background:#d2c5ff;border-radius:2px"></div>
-              </div>
-              <div style="height:8px;background:#6f3aff30;border-radius:999px;width:60%;margin-bottom:10px"></div>
-              <div style="font-size:12px;color:#666">Trilhas & progresso</div>
-            </div>
-            <div class="card">
-              <div style="height:56px;background:linear-gradient(90deg,#f2efff,#ffffff);border:1px dashed #dfd7ff;border-radius:8px;margin-bottom:8px"></div>
-              <div style="font-size:12px;color:#666">Bem+ (apoio emocional)</div>
-            </div>
-            <div class="card">
-              <div style="height:8px;background:#6f3aff20;border-radius:999px;margin-bottom:8px"></div>
-              <div style="height:8px;background:#6f3aff30;border-radius:999px;width:50%;margin-bottom:10px"></div>
-              <div style="font-size:12px;color:#666">Relatórios & inclusão</div>
-            </div>
-          </div>
-        </div>
+      <!-- Banner neutro (não é mockup do produto) -->
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração decorativa">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+              <stop stop-color="#6f3aff" offset="0"/>
+              <stop stop-color="#9b6dff" offset="1"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="800" height="520" fill="#ffffff"/>
+          <g opacity="0.08">
+            <circle cx="180" cy="160" r="120" fill="url(#g1)"/>
+            <circle cx="640" cy="120" r="90" fill="url(#g1)"/>
+            <circle cx="520" cy="360" r="140" fill="url(#g1)"/>
+          </g>
+          <!-- cartões genéricos -->
+          <g>
+            <rect x="80" y="120" width="280" height="150" rx="14" fill="#ffffff" stroke="#e6e2ff"/>
+            <rect x="100" y="150" width="160" height="10" rx="6" fill="#6f3aff" opacity="0.28"/>
+            <rect x="100" y="170" width="120" height="10" rx="6" fill="#6f3aff" opacity="0.18"/>
+            <text x="100" y="205" fill="#666" font-family="Inter,Arial" font-size="12">Compatibilidade</text>
+          </g>
+          <g>
+            <rect x="440" y="160" width="280" height="150" rx="14" fill="#ffffff" stroke="#e6e2ff"/>
+            <rect x="460" y="190" width="140" height="10" rx="6" fill="#9b6dff" opacity="0.28"/>
+            <rect x="460" y="210" width="180" height="10" rx="6" fill="#9b6dff" opacity="0.18"/>
+            <text x="460" y="245" fill="#666" font-family="Inter,Arial" font-size="12">Trilhas & progresso</text>
+          </g>
+          <g>
+            <rect x="260" y="340" width="280" height="120" rx="14" fill="#ffffff" stroke="#e6e2ff"/>
+            <rect x="280" y="370" width="160" height="10" rx="6" fill="#6f3aff" opacity="0.28"/>
+            <rect x="280" y="390" width="120" height="10" rx="6" fill="#6f3aff" opacity="0.18"/>
+            <text x="280" y="420" fill="#666" font-family="Inter,Arial" font-size="12">Bem+ e Relatórios</text>
+          </g>
+        </svg>
       </div>
     </div>
   </header>
@@ -221,7 +210,7 @@ h1{ margin:0 0 12px; font-size:48px; line-height:1.1; letter-spacing:-.2px }
       <div class="grid-3">
         <div class="card" role="article">
           <h3>1. Cadastro</h3>
-          <p>Candidatos fazem testes vocacionais/comportamentais; empresas publicam vagas em minutos.</p>
+          <p>Candidatos realizam testes vocacionais/comportamentais; empresas publicam vagas em minutos.</p>
         </div>
         <div class="card" role="article">
           <h3>2. Matching</h3>
@@ -254,33 +243,43 @@ h1{ margin:0 0 12px; font-size:48px; line-height:1.1; letter-spacing:-.2px }
         </div>
         <div class="card" role="article">
           <h3>Relatórios</h3>
-          <p>Métricas de inclusão e empregabilidade (ESG) para decisões claras.</p>
+          <p>Indicadores de empregabilidade e inclusão (recortes por público) para decisões.</p>
         </div>
       </div>
+      <p style="text-align:center;color:#666;margin-top:14px">
+        <em>Parcerias sob demanda:</em> palestras, mentorias e consultoria para empresas (terceirizado).
+      </p>
     </div>
   </section>
 
-  <!-- NOVA: Palestras & Consultoria para empresas -->
-  <section id="palestras" class="section" aria-labelledby="palestras-title" style="background:#fff">
+  <!-- Gamificação & Recompensas -->
+  <section id="gamificacao" class="section" aria-labelledby="gamificacao-title">
     <div class="container">
-      <h2 id="palestras-title">Palestras & Consultoria para Empresas</h2>
-      <div class="grid-3">
+      <h2 id="gamificacao-title">Gamificação & Recompensas (Pontos Match)</h2>
+      <div class="grid-2">
         <div class="card" role="article">
-          <h3>Onboarding que retém</h3>
-          <p>Boas práticas para os 90 primeiros dias, com materiais prontos e treinamentos curtos.</p>
+          <h3>Como você ganha pontos</h3>
+          <ul class="ul">
+            <li>Completar perfil e testes iniciais</li>
+            <li>Aplicar e **comparecer** a entrevistas</li>
+            <li>Concluir módulos da trilha de capacitação</li>
+            <li>Manter streaks semanais de aprendizado</li>
+            <li>Feedbacks concluídos com empresas</li>
+          </ul>
         </div>
         <div class="card" role="article">
-          <h3>Liderança de primeira linha</h3>
-          <p>Workshops para líderes/encarregados: feedback, clima, prevenção de rotatividade.</p>
-        </div>
-        <div class="card" role="article">
-          <h3>Programas de inclusão</h3>
-          <p>Trilhas rápidas para empregar jovens, mulheres e PCDs, conectadas ao MatchWork.</p>
+          <h3>Como você resgata</h3>
+          <ul class="ul">
+            <li>Benefícios no app (prioridade/destaque)</li>
+            <li>Cursos parceiros e microcertificações</li>
+            <li>Vouchers/benefícios com parceiros <small>(parcerias em formação)</small></li>
+            <li>Conteúdos Bem+ e sessões em grupo</li>
+          </ul>
         </div>
       </div>
-      <div style="text-align:center;margin-top:18px">
-        <a class="btn primary" href="#contato">Quero uma proposta</a>
-      </div>
+      <p style="text-align:center;color:#666;margin-top:14px">
+        <em>Observação:</em> catálogo de resgates evolutivo; as primeiras opções focam em benefícios no próprio MatchWork e cursos parceiros.
+      </p>
     </div>
   </section>
 
@@ -322,11 +321,11 @@ h1{ margin:0 0 12px; font-size:48px; line-height:1.1; letter-spacing:-.2px }
         </div>
         <div class="card" role="article">
           <h3>Maior retenção</h3>
-          <p>Capacitação contínua + <b>Bem+</b> reduzem a rotatividade.</p>
+          <p>Capacitação contínua + <b>Bem+</b> + Pontos Match estimulam permanência.</p>
         </div>
         <div class="card" role="article">
           <h3>Inclusão</h3>
-          <p>Relatórios sobre diversidade e empregabilidade para reforçar práticas ESG.</p>
+          <p>Relatórios com recortes por público para decisões e comunicação (ESG).</p>
         </div>
       </div>
     </div>
