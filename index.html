@@ -7,12 +7,11 @@
 <meta name="description" content="MatchWork conecta candidatos e empresas com matching rápido, trilhas de capacitação, apoio emocional (Bem+) e gamificação (Pontos Match) para aumentar retenção.">
 <link rel="icon" href="assets/logo-purple.png" type="image/png">
 <meta name="theme-color" content="#6f3aff">
-
 <style>
 :root{
   --bg:#ffffff; --ink:#0f1222; --muted:#636985; --line:#e8e8ef;
   --brand:#6f3aff; --brand-2:#8c66ff; --paper:#f8f7ff;
-  --logoH: clamp(40px, 8vw, 72px); /* altura responsiva da logo */
+  --logoH: clamp(56px, 10vw, 88px); /* altura RESPONSIVA da logo */
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -26,17 +25,13 @@ a:focus,button:focus,input:focus,select:focus,textarea:focus{outline:2px solid v
 .topbar .inner{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
 .brand{display:flex;align-items:center;gap:12px}
 .brand img{
-  height:var(--logoH); width:auto; display:block;
-  image-rendering:auto; object-fit:contain;
+  height:var(--logoH); width:auto; display:block; object-fit:contain;
 }
 .navwrap{display:flex;align-items:center;gap:18px}
 .nav-links{display:flex;align-items:center;gap:18px}
 .nav-links a{font-weight:600;color:var(--ink);opacity:.9}
 .nav-links a:hover{color:var(--brand)}
-.menu-toggle{
-  display:none; border:1px solid var(--line); background:#fff; border-radius:10px;
-  padding:8px 10px; cursor:pointer
-}
+.menu-toggle{display:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px;cursor:pointer}
 .menu-toggle svg{display:block}
 
 /* BUTTONS */
@@ -54,10 +49,44 @@ h1{font-size:clamp(28px, 6vw, 56px);line-height:1.06;letter-spacing:-.4px;margin
 .lead{font-size:18px;color:var(--muted);max-width:720px;margin:0 0 20px}
 .badge{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;background:#efeaff;color:#3f21ba;border:1px solid #e1d8ff}
 
-/* HERO CARD (apenas estética) */
-.hero-card{border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 16px 48px rgba(24,27,51,.08);padding:16px}
-.hero-card .row{display:flex;gap:10px;margin-bottom:10px}
-.dot{width:10px;height:10px;border-radius:3px;background:var(--brand)}
+/* PHONE MOCKUP (somente like/dislike) */
+.phone{
+  width:100%; max-width:360px; margin:0 auto;
+  border:1px solid #ddd; border-radius:28px; background:#fff;
+  box-shadow:0 20px 60px rgba(24,27,51,.10);
+  padding:14px 12px 16px; position:relative;
+}
+.phone-notch{
+  position:absolute; top:8px; left:50%; transform:translateX(-50%);
+  width:120px; height:10px; border-radius:8px; background:#111;
+}
+.phone-screen{
+  border:1px solid var(--line); border-radius:20px; padding:16px; background:#fff;
+}
+.card-candidato{
+  border:1px solid var(--line); border-radius:16px; padding:14px; background:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,.03);
+}
+.card-avatar{
+  width:64px; height:64px; border-radius:12px; background:linear-gradient(135deg,#ede8ff,#f8f7ff);
+  border:1px solid #e6e2ff;
+}
+.card-lines div{height:10px;border-radius:999px;background:#6f3aff14;margin-bottom:8px}
+.card-lines div:nth-child(1){width:70%}
+.card-lines div:nth-child(2){width:50%}
+.card-lines div:nth-child(3){width:40%}
+.actions{
+  display:flex; justify-content:space-between; align-items:center; margin-top:14px;
+}
+.btn-like,.btn-dislike{
+  display:flex; align-items:center; justify-content:center;
+  width:64px; height:64px; border-radius:999px; border:2px solid #e9e6ff; background:#fff; cursor:pointer;
+  transition:.15s; box-shadow:0 4px 14px rgba(0,0,0,.05)
+}
+.btn-like:hover{border-color:#cfc4ff; transform:translateY(-1px)}
+.btn-dislike:hover{border-color:#f1e0ff; transform:translateY(-1px)}
+.btn-like svg{stroke:#34c759}
+.btn-dislike svg{stroke:#ff3b30}
 
 /* SECTIONS */
 .band{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -115,7 +144,7 @@ h1{font-size:clamp(28px, 6vw, 56px);line-height:1.06;letter-spacing:-.4px;margin
   <div class="topbar">
     <div class="container inner">
       <a class="brand" href="#" aria-label="MatchWork">
-        <!-- Certifique-se que o arquivo é a versão ROXA da logo -->
+        <!-- GARANTA que este arquivo é a versão ROXA da logo -->
         <img src="assets/logo-purple.png" alt="Logo MatchWork" loading="lazy" decoding="async">
       </a>
 
@@ -153,23 +182,36 @@ h1{font-size:clamp(28px, 6vw, 56px);line-height:1.06;letter-spacing:-.4px;margin
         </div>
       </div>
 
-      <!-- Cartão neutro para presença visual -->
-      <div class="hero-card" aria-hidden="true">
-        <div class="row">
-          <span class="dot"></span>
-          <div style="height:10px;background:#6f3aff1f;border-radius:999px;flex:1"></div>
+      <!-- PHONE MOCKUP (like/dislike) -->
+      <div class="phone" aria-label="Demonstração do fluxo de like/dislike">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="card-candidato" role="article" aria-label="Cartão de candidato">
+            <div style="display:flex;gap:12px;align-items:center;margin-bottom:10px">
+              <div class="card-avatar" aria-hidden="true"></div>
+              <div class="card-lines" style="flex:1">
+                <div></div><div></div><div></div>
+              </div>
+            </div>
+            <div class="actions">
+              <!-- Dislike -->
+              <button class="btn-dislike" aria-label="Dislike">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                  <path d="M10 15V5a3 3 0 0 1 3-3h1a2 2 0 0 1 2 2v1h3a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-3l-2 6a3 3 0 0 1-2.83 2H9.5a1.5 1.5 0 0 1-1.5-1.5V15h2z" />
+                </svg>
+              </button>
+              <!-- Like -->
+              <button class="btn-like" aria-label="Like">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                  <path d="M14 9V3a3 3 0 0 0-3-3h-1a2 2 0 0 0-2 2v1H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h3l2 6a3 3 0 0 0 2.83 2H14.5A1.5 1.5 0 0 0 16 15.5V9h-2z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div style="text-align:center;color:#888;font-size:12px;margin-top:10px">
+            Arraste para o lado ou toque em <b>like</b>/<b>dislike</b>
+          </div>
         </div>
-        <div class="row">
-          <span class="dot" style="background:#9b6dff"></span>
-          <div style="height:10px;background:#9b6dff26;border-radius:999px;flex:1"></div>
-          <div style="height:10px;background:#9b6dff18;border-radius:999px;width:30%"></div>
-        </div>
-        <div style="border:1px dashed #ddd;border-radius:12px;padding:14px;margin-top:6px;background:#fff">
-          <div style="height:8px;background:#6f3aff2a;border-radius:999px;margin-bottom:8px;width:70%"></div>
-          <div style="height:8px;background:#6f3aff18;border-radius:999px;margin-bottom:8px;width:50%"></div>
-          <div style="height:8px;background:#6f3aff12;border-radius:999px;width:40%"></div>
-        </div>
-        <div style="font-size:12px;color:#777;margin-top:8px">Ilustração conceitual (não representa a interface final)</div>
       </div>
     </div>
   </header>
@@ -312,7 +354,7 @@ h1{font-size:clamp(28px, 6vw, 56px);line-height:1.06;letter-spacing:-.4px;margin
           <option value="organizacao">Organização/Parceria</option>
         </select>
         <textarea class="input" name="mensagem" rows="4" placeholder="Como podemos ajudar?" required aria-label="Sua mensagem"></textarea>
-        <input type="text" name="empresa" style="display:none"> <!-- honeypot anti-spam -->
+        <input type="text" name="empresa" style="display:none">
         <button class="btn primary" type="submit" style="width:max-content">Enviar</button>
       </form>
     </div>
@@ -331,7 +373,6 @@ if(toggle && links){
     const open = links.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
-  // Fecha o menu ao clicar num link (UX melhor)
   links.querySelectorAll('a').forEach(a=>{
     a.addEventListener('click', ()=>{ links.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); });
   });
