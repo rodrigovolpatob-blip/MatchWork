@@ -3,25 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MatchWork — Conectando talentos e empresas</title>
-<meta name="description" content="MatchWork conecta candidatos e empresas com matching rápido, trilhas de capacitação, apoio emocional (Bem+) e gamificação (Pontos Match) para aumentar retenção.">
+<title data-i18n="title">MatchWork — Conectando talentos e empresas</title>
+<meta name="description" data-i18n="meta_desc" content="MatchWork conecta candidatos e empresas com matching rápido, trilhas de capacitação, apoio emocional (Bem+) e gamificação (Pontos Match) para aumentar retenção.">
 <link rel="icon" href="assets/logo-purple.png" type="image/png">
 <link rel="canonical" href="https://rodrigovolpatob-blip.github.io/MatchWork/">
-<meta property="og:title" content="MatchWork — Conectando talentos e empresas">
-<meta property="og:description" content="Matching + Capacitação + Bem+ + Gamificação (Pontos Match).">
+<meta property="og:title" data-i18n="og_title" content="MatchWork — Conectando talentos e empresas">
+<meta property="og:description" data-i18n="og_desc" content="Matching + Capacitação + Bem+ + Gamificação (Pontos Match).">
 <meta property="og:image" content="assets/logo-purple.png">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#6f3aff">
-
 <style>
 :root{
-  --bg:#ffffff;
-  --ink:#0f1222;
-  --muted:#636985;
-  --line:#e8e8ef;
-  --brand:#6f3aff;   /* roxo MatchWork */
-  --brand-2:#8c66ff; /* hover */
-  --paper:#f8f7ff;   /* bloco alternado */
+  --bg:#ffffff; --ink:#0f1222; --muted:#636985; --line:#e8e8ef;
+  --brand:#6f3aff; --brand-2:#8c66ff; --paper:#f8f7ff;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -32,9 +26,15 @@ a:focus,button:focus,input:focus,select:focus,textarea:focus{outline:2px solid v
 
 .topbar{background:#fff;border-bottom:1px solid var(--line)}
 .topbar .inner{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
-.brand img{height:64px;display:block} /* logo maior */
-.nav a{margin-left:20px;font-weight:600;color:var(--ink);opacity:.9}
+.brand img{height:64px;display:block}
+.nav{display:flex;align-items:center;gap:20px}
+.nav a{font-weight:600;color:var(--ink);opacity:.9}
 .nav a:hover{color:var(--brand)}
+
+.lang{display:flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:4px 8px}
+.lang button{border:0;background:transparent;cursor:pointer;font-weight:700;color:#444;padding:4px 8px;border-radius:8px;display:flex;align-items:center;gap:6px}
+.lang button.active{background:#efeaff;color:#3f21ba}
+.flag{width:16px;height:16px;display:inline-block}
 
 .btn{display:inline-block;padding:12px 18px;border-radius:12px;font-weight:700;border:2px solid var(--brand);transition:.18s}
 .btn.primary{background:var(--brand);color:#fff}
@@ -43,8 +43,7 @@ a:focus,button:focus,input:focus,select:focus,textarea:focus{outline:2px solid v
 .btn.ghost:hover{background:#f3efff}
 
 .hero{padding:80px 0 40px;background:
-  radial-gradient(900px 300px at 50% -120px, rgba(111,58,255,.12), transparent 60%),
-  #fff}
+  radial-gradient(900px 300px at 50% -120px, rgba(111,58,255,.12), transparent 60%),#fff}
 .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:32px;align-items:center}
 h1{font-size:58px;line-height:1.02;letter-spacing:-.6px;margin:0 0 12px}
 .lead{font-size:20px;color:var(--muted);max-width:720px;margin:0 0 24px}
@@ -69,9 +68,6 @@ h1{font-size:58px;line-height:1.02;letter-spacing:-.6px;margin:0 0 12px}
 .metric{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center}
 .metric b{display:block;font-size:28px;color:var(--brand);margin-bottom:4px}
 
-.logostrip{display:flex;gap:28px;flex-wrap:wrap;justify-content:center;align-items:center;opacity:.75;margin-top:18px}
-.logo-box{height:34px;width:120px;border:1px dashed #e0dcff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#7a78a6;background:#fff}
-
 .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
 .price-card{padding:26px;border-radius:16px;border:1px solid var(--line);background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.03);text-align:left}
 .price{display:flex;align-items:baseline;gap:6px;margin:8px 0 12px}
@@ -95,18 +91,33 @@ h1{font-size:58px;line-height:1.02;letter-spacing:-.6px;margin:0 0 12px}
 </style>
 </head>
 <body>
-
   <div class="topbar">
     <div class="container inner">
       <a class="brand" href="#" aria-label="MatchWork">
         <img src="assets/logo-purple.png" alt="Logo MatchWork" loading="lazy" decoding="async">
       </a>
       <nav class="nav" aria-label="principal">
-        <a href="#como-funciona">Como funciona</a>
-        <a href="#funcionalidades">Funcionalidades</a>
-        <a href="#gamificacao">Gamificação</a>
-        <a href="#planos">Planos</a>
-        <a href="#contato" class="btn primary">Fale com a gente</a>
+        <a href="#como-funciona" data-i18n="nav_how">Como funciona</a>
+        <a href="#funcionalidades" data-i18n="nav_features">Funcionalidades</a>
+        <a href="#gamificacao" data-i18n="nav_gamification">Gamificação</a>
+        <a href="#planos" data-i18n="nav_pricing">Planos</a>
+        <a href="#contato" class="btn primary" data-i18n="nav_contact">Fale com a gente</a>
+
+        <!-- Switch de idioma -->
+        <div class="lang" aria-label="seletor de idioma">
+          <button id="btn-pt" class="active" data-lang="pt" aria-label="Português (Brasil)">
+            <span class="flag">
+              <!-- BR flag (simplificada) -->
+              <svg viewBox="0 0 24 24" width="16" height="16"><rect width="24" height="24" fill="#009b3a"/><polygon points="12,3 22,12 12,21 2,12" fill="#ffdf00"/></svg>
+            </span> PT
+          </button>
+          <button id="btn-en" data-lang="en" aria-label="English (US)">
+            <span class="flag">
+              <!-- US flag (simplificada) -->
+              <svg viewBox="0 0 24 24" width="16" height="16"><rect width="24" height="24" fill="#b22234"/><g fill="#fff"><rect y="2" width="24" height="2"/><rect y="6" width="24" height="2"/><rect y="10" width="24" height="2"/><rect y="14" width="24" height="2"/><rect y="18" width="24" height="2"/></g><rect width="10" height="8" fill="#3c3b6e"/></svg>
+            </span> EN
+          </button>
+        </div>
       </nav>
     </div>
   </div>
@@ -114,19 +125,17 @@ h1{font-size:58px;line-height:1.02;letter-spacing:-.6px;margin:0 0 12px}
   <header class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="badge">Empregos • Capacitação • Bem+ • Pontos</span>
-        <h1>Contratar bem é o começo.<br>Reter bem é o diferencial.</h1>
-        <p class="lead">
+        <span class="badge" data-i18n="badge">Empregos • Capacitação • Bem+ • Pontos</span>
+        <h1 data-i18n="hero_title">Contratar bem é o começo.<br>Reter bem é o diferencial.</h1>
+        <p class="lead" data-i18n="hero_lead">
           O <b>MatchWork</b> integra <b>matching</b> tipo like/dislike, <b>trilhas de capacitação</b> e <b>apoio emocional (Bem+)</b>.
           Com <b>gamificação (Pontos Match)</b>, incentivamos evolução contínua — melhorando <b>contratação</b> e <b>retenção</b>.
         </p>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn primary" href="#planos">Ver planos</a>
-          <a class="btn ghost" href="#contato">Quero pilotar</a>
+          <a class="btn primary" href="#planos" data-i18n="cta_plans">Ver planos</a>
+          <a class="btn ghost" href="#contato" data-i18n="cta_pilot">Quero pilotar</a>
         </div>
       </div>
-
-      <!-- Cartão neutro apenas para estética -->
       <div class="hero-card" aria-hidden="true">
         <div class="row">
           <span class="dot"></span>
@@ -142,7 +151,7 @@ h1{font-size:58px;line-height:1.02;letter-spacing:-.6px;margin:0 0 12px}
           <div style="height:8px;background:#6f3aff18;border-radius:999px;margin-bottom:8px;width:50%"></div>
           <div style="height:8px;background:#6f3aff12;border-radius:999px;width:40%"></div>
         </div>
-        <div style="font-size:12px;color:#777;margin-top:10px">Ilustração conceitual (não representa a interface final)</div>
+        <div style="font-size:12px;color:#777;margin-top:10px" data-i18n="hero_note">Ilustração conceitual (não representa a interface final)</div>
       </div>
     </div>
   </header>
@@ -150,35 +159,29 @@ h1{font-size:58px;line-height:1.02;letter-spacing:-.6px;margin:0 0 12px}
   <section class="band section">
     <div class="container">
       <div class="metrics">
-        <div class="metric"><b>3 pilares</b><span>Matching • Capacitação • Bem+</span></div>
-        <div class="metric"><b>Pontos Match</b><span>Gamificação para engajar</span></div>
-        <div class="metric"><b>Relatórios</b><span>Indicadores de inclusão</span></div>
-      </div>
-      <div class="logostrip">
-        <div class="logo-box">Seu logo aqui</div>
-        <div class="logo-box">Parceiro</div>
-        <div class="logo-box">Indústria</div>
-        <div class="logo-box">Comércio</div>
+        <div class="metric"><b data-i18n="m1b">3 pilares</b><span data-i18n="m1s">Matching • Capacitação • Bem+</span></div>
+        <div class="metric"><b data-i18n="m2b">Pontos Match</b><span data-i18n="m2s">Gamificação para engajar</span></div>
+        <div class="metric"><b data-i18n="m3b">Relatórios</b><span data-i18n="m3s">Indicadores de inclusão</span></div>
       </div>
     </div>
   </section>
 
   <section id="como-funciona" class="section">
     <div class="container">
-      <h2>Como funciona</h2>
-      <p class="sub">Fluxo simples para candidatos e empresas, com foco em velocidade na contratação e base para retenção.</p>
+      <h2 data-i18n="how_title">Como funciona</h2>
+      <p class="sub" data-i18n="how_sub">Fluxo simples para candidatos e empresas, com foco em velocidade na contratação e base para retenção.</p>
       <div class="grid-3">
         <div class="card">
-          <h3>1. Cadastro</h3>
-          <p>Candidatos realizam testes vocacionais/comportamentais; empresas publicam vagas em minutos.</p>
+          <h3 data-i18n="how_1_t">1. Cadastro</h3>
+          <p data-i18n="how_1_d">Candidatos realizam testes vocacionais/comportamentais; empresas publicam vagas em minutos.</p>
         </div>
         <div class="card">
-          <h3>2. Matching</h3>
-          <p>Like/dislike dos dois lados + recomendações por compatibilidade e competências.</p>
+          <h3 data-i18n="how_2_t">2. Matching</h3>
+          <p data-i18n="how_2_d">Like/dislike dos dois lados + recomendações por compatibilidade e competências.</p>
         </div>
         <div class="card">
-          <h3>3. Evolução</h3>
-          <p>Trilhas de capacitação e <b>Bem+</b> para reduzir abandono e aumentar performance.</p>
+          <h3 data-i18n="how_3_t">3. Evolução</h3>
+          <p data-i18n="how_3_d">Trilhas de capacitação e <b>Bem+</b> para reduzir abandono e aumentar performance.</p>
         </div>
       </div>
     </div>
@@ -186,86 +189,86 @@ h1{font-size:58px;line-height:1.02;letter-spacing:-.6px;margin:0 0 12px}
 
   <section id="funcionalidades" class="band section">
     <div class="container">
-      <h2>Funcionalidades</h2>
-      <p class="sub">O essencial para contratar mais rápido, formar melhor e reter por mais tempo.</p>
+      <h2 data-i18n="feat_title">Funcionalidades</h2>
+      <p class="sub" data-i18n="feat_sub">O essencial para contratar mais rápido, formar melhor e reter por mais tempo.</p>
       <div class="grid-2">
         <div class="card">
-          <h3>Banco de Talentos</h3>
-          <p>Busca ágil, matching inteligente e candidatos qualificados.</p>
+          <h3 data-i18n="feat_1_t">Banco de Talentos</h3>
+          <p data-i18n="feat_1_d">Busca ágil, matching inteligente e candidatos qualificados.</p>
         </div>
         <div class="card">
-          <h3>Capacitação</h3>
-          <p>Trilhas de aprendizagem e cursos parceiros por cargo/competência.</p>
+          <h3 data-i18n="feat_2_t">Capacitação</h3>
+          <p data-i18n="feat_2_d">Trilhas de aprendizagem e cursos parceiros por cargo/competência.</p>
         </div>
         <div class="card">
-          <h3>Bem+</h3>
-          <p>Apoio emocional, conteúdos e grupos para melhorar retenção e engajamento.</p>
+          <h3 data-i18n="feat_3_t">Bem+</h3>
+          <p data-i18n="feat_3_d">Apoio emocional, conteúdos e grupos para melhorar retenção e engajamento.</p>
         </div>
         <div class="card">
-          <h3>Relatórios</h3>
-          <p>Indicadores de empregabilidade e inclusão (recortes por público) para decisões.</p>
+          <h3 data-i18n="feat_4_t">Relatórios</h3>
+          <p data-i18n="feat_4_d">Indicadores de empregabilidade e inclusão (recortes por público) para decisões.</p>
         </div>
       </div>
-      <p class="sub" style="margin-top:10px"><em>Parcerias sob demanda:</em> palestras, mentorias e consultoria para empresas (terceirizado).</p>
+      <p class="sub" style="margin-top:10px" data-i18n="feat_note"><em>Parcerias sob demanda:</em> palestras, mentorias e consultoria para empresas (terceirizado).</p>
     </div>
   </section>
 
   <section id="gamificacao" class="section">
     <div class="container">
-      <h2>Gamificação & Recompensas (Pontos Match)</h2>
-      <p class="sub">Sistema simples de pontos para incentivar progresso contínuo dos candidatos.</p>
+      <h2 data-i18n="gam_title">Gamificação & Recompensas (Pontos Match)</h2>
+      <p class="sub" data-i18n="gam_sub">Sistema simples de pontos para incentivar progresso contínuo dos candidatos.</p>
       <div class="grid-2">
         <div class="card">
-          <h3>Como ganhar</h3>
+          <h3 data-i18n="gam_gain_t">Como ganhar</h3>
           <ul style="margin:0;padding-left:18px">
-            <li>Completar perfil e testes iniciais</li>
-            <li>Aplicar e comparecer a entrevistas</li>
-            <li>Concluir módulos da trilha de capacitação</li>
-            <li>Manter streaks semanais de aprendizado</li>
-            <li>Dar/receber feedbacks com empresas</li>
+            <li data-i18n="gam_gain_1">Completar perfil e testes iniciais</li>
+            <li data-i18n="gam_gain_2">Aplicar e comparecer a entrevistas</li>
+            <li data-i18n="gam_gain_3">Concluir módulos da trilha de capacitação</li>
+            <li data-i18n="gam_gain_4">Manter streaks semanais de aprendizado</li>
+            <li data-i18n="gam_gain_5">Dar/receber feedbacks com empresas</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Como resgatar</h3>
+          <h3 data-i18n="gam_redeem_t">Como resgatar</h3>
           <ul style="margin:0;padding-left:18px">
-            <li>Benefícios no app (destaque/prioridade)</li>
-            <li>Cursos parceiros e microcertificações</li>
-            <li>Vouchers/benefícios com parceiros <small>(em evolução)</small></li>
-            <li>Conteúdos Bem+ e sessões em grupo</li>
+            <li data-i18n="gam_redeem_1">Benefícios no app (destaque/prioridade)</li>
+            <li data-i18n="gam_redeem_2">Cursos parceiros e microcertificações</li>
+            <li data-i18n="gam_redeem_3">Vouchers/benefícios com parceiros <small>(em evolução)</small></li>
+            <li data-i18n="gam_redeem_4">Conteúdos Bem+ e sessões em grupo</li>
           </ul>
         </div>
       </div>
-      <p class="sub" style="margin-top:10px"><em>Observação:</em> catálogo de resgates cresce com novas parcerias ao longo do tempo.</p>
+      <p class="sub" style="margin-top:10px" data-i18n="gam_note"><em>Observação:</em> catálogo de resgates cresce com novas parcerias ao longo do tempo.</p>
     </div>
   </section>
 
   <section id="planos" class="band section">
     <div class="container">
-      <h2>Nossos Planos</h2>
-      <p class="sub">Planos simples para começar rápido — sem complicação.</p>
+      <h2 data-i18n="pricing_title">Nossos Planos</h2>
+      <p class="sub" data-i18n="pricing_sub">Planos simples para começar rápido — sem complicação.</p>
       <div class="pricing">
         <div class="price-card">
-          <h3>PMEs — Assinatura</h3>
-          <div class="price"><span class="amount">R$150</span><span class="small">/mês</span></div>
-          <div class="li">Publicações ilimitadas</div>
-          <div class="li">Banco de talentos</div>
-          <div class="li">Networking empresarial</div>
-          <a class="btn primary" href="#contato" style="margin-top:10px">Assinar</a>
+          <h3 data-i18n="plan_1_t">PMEs — Assinatura</h3>
+          <div class="price"><span class="amount">R$150</span><span class="small" data-i18n="per_month">/mês</span></div>
+          <div class="li" data-i18n="plan_1_i1">Publicações ilimitadas</div>
+          <div class="li" data-i18n="plan_1_i2">Banco de talentos</div>
+          <div class="li" data-i18n="plan_1_i3">Networking empresarial</div>
+          <a class="btn primary" href="#contato" style="margin-top:10px" data-i18n="btn_subscribe">Assinar</a>
         </div>
         <div class="price-card">
-          <h3>PMEs — One-Shot</h3>
-          <div class="price"><span class="amount">R$400</span><span class="small">/vaga</span></div>
-          <div class="li">Publicação avulsa até preencher</div>
-          <div class="li">Indicação de perfis compatíveis</div>
-          <a class="btn primary" href="#contato" style="margin-top:10px">Publicar vaga</a>
+          <h3 data-i18n="plan_2_t">PMEs — One-Shot</h3>
+          <div class="price"><span class="amount">R$400</span><span class="small" data-i18n="per_job">/vaga</span></div>
+          <div class="li" data-i18n="plan_2_i1">Publicação avulsa até preencher</div>
+          <div class="li" data-i18n="plan_2_i2">Indicação de perfis compatíveis</div>
+          <a class="btn primary" href="#contato" style="margin-top:10px" data-i18n="btn_post_job">Publicar vaga</a>
         </div>
         <div class="price-card">
-          <h3>Candidatos — Premium</h3>
-          <div class="price"><span class="amount">R$14,90</span><span class="small">/mês</span></div>
-          <div class="li">Destaque + relatório de carreira</div>
-          <div class="li">Acesso ao Bem+</div>
-          <div class="li">Trilhas e feedback contínuo</div>
-          <a class="btn primary" href="#contato" style="margin-top:10px">Ser Premium</a>
+          <h3 data-i18n="plan_3_t">Candidatos — Premium</h3>
+          <div class="price"><span class="amount">R$14,90</span><span class="small" data-i18n="per_month">/mês</span></div>
+          <div class="li" data-i18n="plan_3_i1">Destaque + relatório de carreira</div>
+          <div class="li" data-i18n="plan_3_i2">Acesso ao Bem+</div>
+          <div class="li" data-i18n="plan_3_i3">Trilhas e feedback contínuo</div>
+          <a class="btn primary" href="#contato" style="margin-top:10px" data-i18n="btn_be_premium">Ser Premium</a>
         </div>
       </div>
     </div>
@@ -273,16 +276,210 @@ h1{font-size:58px;line-height:1.02;letter-spacing:-.6px;margin:0 0 12px}
 
   <section id="contato" class="section">
     <div class="container">
-      <h2 style="text-align:center">Fale com a gente</h2>
-      <p class="sub">Quer pilotar o MatchWork ou tirar uma dúvida? Envie sua mensagem.</p>
+      <h2 style="text-align:center" data-i18n="contact_title">Fale com a gente</h2>
+      <p class="sub" data-i18n="contact_sub">Quer pilotar o MatchWork ou tirar uma dúvida? Envie sua mensagem.</p>
       <form action="https://formspree.io/f/mayvlqkp" method="POST" class="form" aria-label="Formulário de contato">
-        <input class="input" name="nome" placeholder="Seu nome" required aria-label="Seu nome">
-        <input class="input" type="email" name="email" placeholder="E-mail" required aria-label="Seu e-mail">
+        <input class="input" name="nome" placeholder="Seu nome" required aria-label="Seu nome" data-i18n-placeholder="ph_name">
+        <input class="input" type="email" name="email" placeholder="E-mail" required aria-label="Seu e-mail" data-i18n-placeholder="ph_email">
         <select class="input" name="perfil" required aria-label="Seu perfil">
-          <option value="" disabled selected>Sou...</option>
-          <option value="pme">PME</option>
-          <option value="candidato">Candidato</option>
-          <option value="organizacao">Organização/Parceria</option>
+          <option value="" disabled selected data-i18n="ph_role">Sou...</option>
+          <option value="pme" data-i18n="role_pme">PME</option>
+          <option value="candidato" data-i18n="role_cand">Candidato</option>
+          <option value="organizacao" data-i18n="role_org">Organização/Parceria</option>
         </select>
-        <textarea class="input" name="mensagem" rows="4" placeholder="Como podemos ajudar?" required aria-label="Sua mensagem"></textarea>
-        <input type="
+        <textarea class="input" name="mensagem" rows="4" placeholder="Como podemos ajudar?" required aria-label="Sua mensagem" data-i18n-placeholder="ph_message"></textarea>
+        <input type="text" name="empresa" style="display:none">
+        <button class="btn primary" type="submit" style="width:max-content" data-i18n="btn_send">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container"><span data-i18n="footer">© 2025 MatchWork — Transformando o mercado de trabalho.</span></div>
+  </footer>
+
+<script>
+const translations = {
+  pt: {
+    title:"MatchWork — Conectando talentos e empresas",
+    meta_desc:"MatchWork conecta candidatos e empresas com matching rápido, trilhas de capacitação, apoio emocional (Bem+) e gamificação (Pontos Match) para aumentar retenção.",
+    og_title:"MatchWork — Conectando talentos e empresas",
+    og_desc:"Matching + Capacitação + Bem+ + Gamificação (Pontos Match).",
+
+    nav_how:"Como funciona",
+    nav_features:"Funcionalidades",
+    nav_gamification:"Gamificação",
+    nav_pricing:"Planos",
+    nav_contact:"Fale com a gente",
+
+    badge:"Empregos • Capacitação • Bem+ • Pontos",
+    hero_title:"Contratar bem é o começo.<br>Reter bem é o diferencial.",
+    hero_lead:"O <b>MatchWork</b> integra <b>matching</b> tipo like/dislike, <b>trilhas de capacitação</b> e <b>apoio emocional (Bem+)</b>. Com <b>gamificação (Pontos Match)</b>, incentivamos evolução contínua — melhorando <b>contratação</b> e <b>retenção</b>.",
+    hero_note:"Ilustração conceitual (não representa a interface final)",
+    cta_plans:"Ver planos",
+    cta_pilot:"Quero pilotar",
+
+    m1b:"3 pilares", m1s:"Matching • Capacitação • Bem+",
+    m2b:"Pontos Match", m2s:"Gamificação para engajar",
+    m3b:"Relatórios", m3s:"Indicadores de inclusão",
+
+    how_title:"Como funciona",
+    how_sub:"Fluxo simples para candidatos e empresas, com foco em velocidade na contratação e base para retenção.",
+    how_1_t:"1. Cadastro", how_1_d:"Candidatos realizam testes vocacionais/comportamentais; empresas publicam vagas em minutos.",
+    how_2_t:"2. Matching", how_2_d:"Like/dislike dos dois lados + recomendações por compatibilidade e competências.",
+    how_3_t:"3. Evolução", how_3_d:"Trilhas de capacitação e <b>Bem+</b> para reduzir abandono e aumentar performance.",
+
+    feat_title:"Funcionalidades",
+    feat_sub:"O essencial para contratar mais rápido, formar melhor e reter por mais tempo.",
+    feat_1_t:"Banco de Talentos", feat_1_d:"Busca ágil, matching inteligente e candidatos qualificados.",
+    feat_2_t:"Capacitação", feat_2_d:"Trilhas de aprendizagem e cursos parceiros por cargo/competência.",
+    feat_3_t:"Bem+", feat_3_d:"Apoio emocional, conteúdos e grupos para melhorar retenção e engajamento.",
+    feat_4_t:"Relatórios", feat_4_d:"Indicadores de empregabilidade e inclusão (recortes por público) para decisões.",
+    feat_note:"<em>Parcerias sob demanda:</em> palestras, mentorias e consultoria para empresas (terceirizado).",
+
+    gam_title:"Gamificação & Recompensas (Pontos Match)",
+    gam_sub:"Sistema simples de pontos para incentivar progresso contínuo dos candidatos.",
+    gam_gain_t:"Como ganhar",
+    gam_gain_1:"Completar perfil e testes iniciais",
+    gam_gain_2:"Aplicar e comparecer a entrevistas",
+    gam_gain_3:"Concluir módulos da trilha de capacitação",
+    gam_gain_4:"Manter streaks semanais de aprendizado",
+    gam_gain_5:"Dar/receber feedbacks com empresas",
+    gam_redeem_t:"Como resgatar",
+    gam_redeem_1:"Benefícios no app (destaque/prioridade)",
+    gam_redeem_2:"Cursos parceiros e microcertificações",
+    gam_redeem_3:"Vouchers/benefícios com parceiros <small>(em evolução)</small>",
+    gam_redeem_4:"Conteúdos Bem+ e sessões em grupo",
+    gam_note:"<em>Observação:</em> catálogo de resgates cresce com novas parcerias ao longo do tempo.",
+
+    pricing_title:"Nossos Planos",
+    pricing_sub:"Planos simples para começar rápido — sem complicação.",
+    plan_1_t:"PMEs — Assinatura", per_month:"/mês",
+    plan_1_i1:"Publicações ilimitadas", plan_1_i2:"Banco de talentos", plan_1_i3:"Networking empresarial",
+    plan_2_t:"PMEs — One-Shot", per_job:"/vaga",
+    plan_2_i1:"Publicação avulsa até preencher", plan_2_i2:"Indicação de perfis compatíveis",
+    plan_3_t:"Candidatos — Premium",
+    plan_3_i1:"Destaque + relatório de carreira", plan_3_i2:"Acesso ao Bem+", plan_3_i3:"Trilhas e feedback contínuo",
+    btn_subscribe:"Assinar", btn_post_job:"Publicar vaga", btn_be_premium:"Ser Premium",
+
+    contact_title:"Fale com a gente",
+    contact_sub:"Quer pilotar o MatchWork ou tirar uma dúvida? Envie sua mensagem.",
+    ph_name:"Seu nome", ph_email:"E-mail", ph_message:"Como podemos ajudar?", ph_role:"Sou...",
+    role_pme:"PME", role_cand:"Candidato", role_org:"Organização/Parceria",
+    btn_send:"Enviar",
+
+    footer:"© 2025 MatchWork — Transformando o mercado de trabalho."
+  },
+
+  en: {
+    title:"MatchWork — Connecting talent and companies",
+    meta_desc:"MatchWork connects candidates and companies with fast matching, training paths, emotional support (Bem+), and gamification (Match Points) to boost retention.",
+    og_title:"MatchWork — Connecting talent and companies",
+    og_desc:"Matching + Training + Bem+ + Gamification (Match Points).",
+
+    nav_how:"How it works",
+    nav_features:"Features",
+    nav_gamification:"Gamification",
+    nav_pricing:"Pricing",
+    nav_contact:"Contact us",
+
+    badge:"Jobs • Training • Bem+ • Points",
+    hero_title:"Hiring well is the start.<br>Retention is the edge.",
+    hero_lead:"<b>MatchWork</b> combines like/dislike <b>matching</b>, <b>training paths</b> and <b>emotional support (Bem+)</b>. With <b>gamification (Match Points)</b>, we encourage continuous progress — improving <b>hiring</b> and <b>retention</b>.",
+    hero_note:"Concept illustration (not the final interface)",
+    cta_plans:"See pricing",
+    cta_pilot:"Pilot with us",
+
+    m1b:"3 pillars", m1s:"Matching • Training • Bem+",
+    m2b:"Match Points", m2s:"Gamification to engage",
+    m3b:"Reports", m3s:"Inclusion indicators",
+
+    how_title:"How it works",
+    how_sub:"A simple flow for candidates and companies, focused on faster hiring and a base for retention.",
+    how_1_t:"1. Sign up", how_1_d:"Candidates complete vocational/behavioral tests; companies post jobs in minutes.",
+    how_2_t:"2. Matching", how_2_d:"Two-way like/dislike + recommendations by compatibility and skills.",
+    how_3_t:"3. Progress", how_3_d:"Training paths and <b>Bem+</b> reduce churn and increase performance.",
+
+    feat_title:"Features",
+    feat_sub:"Everything you need to hire faster, train better and retain longer.",
+    feat_1_t:"Talent Pool", feat_1_d:"Fast search, smart matching and qualified candidates.",
+    feat_2_t:"Training", feat_2_d:"Learning paths and partner courses by role/skill.",
+    feat_3_t:"Bem+", feat_3_d:"Emotional support, content and groups to improve retention and engagement.",
+    feat_4_t:"Reports", feat_4_d:"Employability and inclusion indicators (by audience) for better decisions.",
+    feat_note:"<em>On-demand partnerships:</em> talks, mentoring and consulting for companies (outsourced).",
+
+    gam_title:"Gamification & Rewards (Match Points)",
+    gam_sub:"A simple points system to encourage continuous candidate progress.",
+    gam_gain_t:"How to earn",
+    gam_gain_1:"Complete profile and initial tests",
+    gam_gain_2:"Apply and attend interviews",
+    gam_gain_3:"Finish training modules",
+    gam_gain_4:"Keep weekly learning streaks",
+    gam_gain_5:"Provide/receive feedback with companies",
+    gam_redeem_t:"How to redeem",
+    gam_redeem_1:"In-app benefits (boost/priority)",
+    gam_redeem_2:"Partner courses and micro-certifications",
+    gam_redeem_3:"Vouchers/perks with partners <small>(evolving)</small>",
+    gam_redeem_4:"Bem+ content and group sessions",
+    gam_note:"<em>Note:</em> the rewards catalog grows with new partnerships over time.",
+
+    pricing_title:"Pricing",
+    pricing_sub:"Simple plans to get started — no complexity.",
+    plan_1_t:"SMBs — Subscription", per_month:"/month",
+    plan_1_i1:"Unlimited postings", plan_1_i2:"Talent pool", plan_1_i3:"Business networking",
+    plan_2_t:"SMBs — One-Shot", per_job:"/job",
+    plan_2_i1:"Single posting until filled", plan_2_i2:"Compatible profile suggestions",
+    plan_3_t:"Candidates — Premium",
+    plan_3_i1:"Boost + career report", plan_3_i2:"Access to Bem+", plan_3_i3:"Paths and ongoing feedback",
+    btn_subscribe:"Subscribe", btn_post_job:"Post a job", btn_be_premium:"Go Premium",
+
+    contact_title:"Contact us",
+    contact_sub:"Want to pilot MatchWork or have questions? Send us a message.",
+    ph_name:"Your name", ph_email:"Email", ph_message:"How can we help?", ph_role:"I am...",
+    role_pme:"SMB", role_cand:"Candidate", role_org:"Organization/Partnership",
+    btn_send:"Send",
+
+    footer:"© 2025 MatchWork — Transforming the job market."
+  }
+};
+
+function applyI18n(lang){
+  // text nodes
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.getAttribute("data-i18n");
+    if(translations[lang] && translations[lang][key]){
+      el.innerHTML = translations[lang][key];
+    }
+  });
+  // placeholders
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{
+    const key = el.getAttribute("data-i18n-placeholder");
+    if(translations[lang] && translations[lang][key]){
+      el.setAttribute("placeholder", translations[lang][key]);
+    }
+  });
+  // html lang
+  document.documentElement.lang = (lang === "en" ? "en" : "pt-br");
+  // título/descrição meta atualizados (caso não tenha data-i18n em alguns navegadores)
+  if(translations[lang].title) document.title = translations[lang].title;
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if(metaDesc && translations[lang].meta_desc) metaDesc.setAttribute("content", translations[lang].meta_desc);
+  // botões ativos
+  document.getElementById("btn-pt").classList.toggle("active", lang==="pt");
+  document.getElementById("btn-en").classList.toggle("active", lang==="en");
+  // persistência
+  localStorage.setItem("mw_lang", lang);
+}
+
+// eventos dos botões
+document.addEventListener("DOMContentLoaded", ()=>{
+  const saved = localStorage.getItem("mw_lang");
+  let lang = saved || (navigator.language && navigator.language.toLowerCase().startsWith("en") ? "en" : "pt");
+  applyI18n(lang);
+
+  document.getElementById("btn-pt").addEventListener("click", ()=>applyI18n("pt"));
+  document.getElementById("btn-en").addEventListener("click", ()=>applyI18n("en"));
+});
+</script>
+</body>
+</html>
