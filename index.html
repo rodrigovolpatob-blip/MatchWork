@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MatchWork — Encontre gente certa, rápido.</title>
-<meta name="description" content="MatchWork para Empresas: publique a vaga, receba matches compatíveis em minutos e contrate sem complicação. Para candidatos: vagas alinhadas ao perfil, trilhas e Bem+Match.">
+<title>MatchWork — Conectando talentos, empresas e carreiras</title>
+<meta name="description" content="MatchWork conecta empresas a candidatos ativos e profissionais já empregados que buscam capacitação, apoio emocional (Bem+Match), networking e visão de mercado.">
 <link rel="icon" href="assets/logo-purple.PNG" type="image/png">
 <meta name="theme-color" content="#6f3aff">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="MatchWork — Encontre gente certa, rápido.">
-<meta property="og:description" content="Empresas publicam vagas e recebem matches compatíveis. Candidatos têm trilhas e Bem+Match. Planos simples e One-Shot.">
+<meta property="og:title" content="MatchWork — Conectando talentos, empresas e carreiras">
+<meta property="og:description" content="Empresas publicam vagas e recebem matches qualificados. Profissionais evoluem com trilhas, Bem+Match, networking e visão de mercado.">
 <meta property="og:image" content="assets/logo-purple.PNG">
 <meta property="og:url" content="https://rodrigovolpatob-blip.github.io/MatchWork/">
 
@@ -25,6 +25,7 @@
 html{scroll-behavior:smooth}
 body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
 a{text-decoration:none;color:var(--brand)}
+a:focus,button:focus,input:focus,select:focus,textarea:focus{outline:2px solid var(--brand-2);outline-offset:2px}
 .container{max-width:1180px;margin:0 auto;padding:0 20px}
 
 /* NAV */
@@ -51,7 +52,7 @@ a{text-decoration:none;color:var(--brand)}
 h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin:0 0 10px}
 .lead{font-size:18px;color:var(--muted);max-width:720px;margin:0 0 20px}
 
-/* MOCKUP (imagem final) */
+/* MOCKUP (imagem final) — responsivo e proporcional */
 .mockup{
   display:flex;justify-content:center;align-items:center;
   margin-top:12px;
@@ -110,7 +111,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
   display:none;z-index:999;font-size:15px;
 }
 
-/* MOBILE ajustes */
+/* MOBILE ajustes extras */
 @media (max-width:980px){
   .hero-grid{grid-template-columns:1fr}
   .mockup img{ width: min(86vw, 330px); }
@@ -149,22 +150,20 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
   </div>
 </div>
 
-<!-- HERO (texto focado em benefício p/ empresas) -->
+<!-- HERO (agora fala com empresas, candidatos ativos e profissionais empregados) -->
 <header class="hero">
   <div class="container hero-grid">
     <div>
-      <h1>Preencha vagas mais rápido, com menos esforço.</h1>
+      <h1>Contratar, evoluir e acompanhar o mercado em um só lugar.</h1>
       <p class="lead">
-        O <b>MatchWork</b> reduz o tempo de contratação porque entrega <b>candidatos já compatíveis</b> com a vaga.
-        Você publica e recebe <b>matches qualificados em minutos</b> — sem triagem infinita.
-        Candidatos evoluem com <b>trilhas</b> e <b>Bem+Match</b>, o que melhora a taxa de comparecimento e a qualidade da entrevista.
+        O <b>MatchWork</b> conecta <b>empresas</b>, <b>candidatos em busca ativa</b> e <b>profissionais já empregados</b>.
+        Empresas publicam vagas e recebem <b>matches qualificados</b> em minutos — sem triagem infinita.
+        Profissionais podem <b>buscar oportunidades</b>, <b>se capacitar</b>, contar com <b>Bem+Match</b>, fazer <b>networking</b>
+        e acompanhar tendências de <b>salários e cargos</b>.
       </p>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <a class="btn primary" href="#planos-empresas" aria-label="Ver planos para empresas">Sou empresa</a>
-        <a class="btn ghost" href="#planos-candidato" aria-label="Ver planos para candidatos">Sou candidato</a>
-      </div>
-      <div style="margin-top:12px;color:#646b86;font-size:14px">
-        <b>Benefícios para RH</b>: menos currículos irrelevantes • mais entrevistas produtivas • contratação mais rápida
+        <a class="btn ghost" href="#planos-candidato" aria-label="Ver planos para candidatos/profissionais">Sou candidato/profissional</a>
       </div>
     </div>
 
@@ -179,11 +178,20 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 <section id="o-que-faz" class="band section">
   <div class="container">
     <h2>O que o MatchWork faz</h2>
-    <p class="sub">Fechar vagas com objetividade, sem complicação.</p>
+    <p class="sub">Mais que vagas: um ecossistema de empregabilidade e evolução profissional.</p>
     <div class="grid-3">
-      <div class="card"><h3>Matching rápido</h3><p>Like/dislike dos dois lados e recomendações por compatibilidade e competências.</p></div>
-      <div class="card"><h3>Banco de Talentos</h3><p>Busca ágil com filtros e priorização de perfis prontos.</p></div>
-      <div class="card"><h3>Trilhas & Conteúdos</h3><p>Trilhas por cargo/competência e materiais práticos para evolução.</p></div>
+      <div class="card">
+        <h3>Matching rápido</h3>
+        <p>Like/dislike dos dois lados e recomendações automáticas por perfil e competências.</p>
+      </div>
+      <div class="card">
+        <h3>Banco de Talentos</h3>
+        <p>Perfis de quem busca vaga e de profissionais empregados abertos a evolução, networking e oportunidades.</p>
+      </div>
+      <div class="card">
+        <h3>Carreira em movimento</h3>
+        <p>Trilhas, conteúdos e insights para crescer, mesmo já empregado. Bem+Match para bem-estar e foco.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -192,11 +200,11 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 <section id="como-funciona" class="section">
   <div class="container">
     <h2>Como funciona</h2>
-    <p class="sub">Do anúncio ao match — passo a passo simples.</p>
+    <p class="sub">Um fluxo único que atende empresas, candidatos ativos e profissionais empregados.</p>
     <div class="grid-3">
-      <div class="card"><h3>1) Publique</h3><p>Crie a vaga em minutos com requisitos e competências desejadas.</p></div>
-      <div class="card"><h3>2) Receba matches</h3><p>Veja candidatos compatíveis, dê like/dislike e converse com quem faz sentido.</p></div>
-      <div class="card"><h3>3) Feche a vaga</h3><p>Agende entrevistas e conclua o processo dentro do fluxo do app.</p></div>
+      <div class="card"><h3>1) Cadastro</h3><p>Candidatos/profissionais completam perfil e testes; empresas publicam vagas em minutos.</p></div>
+      <div class="card"><h3>2) Matching & Evolução</h3><p>Like/dislike + recomendações automáticas + trilhas e Bem+Match para quem quer evoluir.</p></div>
+      <div class="card"><h3>3) Resultados</h3><p>Empresas contratam mais rápido. Profissionais crescem e acompanham o mercado.</p></div>
     </div>
   </div>
 </section>
@@ -205,28 +213,28 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 <section id="bemplus" class="band section">
   <div class="container">
     <h2>Bem+Match</h2>
-    <p class="sub">Apoio emocional e bem-estar integrado ao processo de empregabilidade.</p>
+    <p class="sub">Bem-estar e apoio emocional integrados à jornada profissional.</p>
     <div class="grid-2">
       <div class="card">
-        <h3>Para candidatos</h3>
-        <p>Conteúdos curtos, rotinas e grupos para foco, confiança e adaptação durante a jornada de emprego.</p>
+        <h3>Para profissionais</h3>
+        <p>Conteúdos, rotinas e grupos de apoio para equilíbrio emocional, seja buscando vaga ou já empregado.</p>
       </div>
       <div class="card">
         <h3>Para empresas</h3>
-        <p>Mais candidatos prontos e engajados, melhor experiência no processo e indicadores de participação no Bem+ (insights de clima e adaptação).</p>
+        <p>Mais candidatos prontos e engajados, melhor experiência no processo e menos entrevistas improdutivas.</p>
       </div>
     </div>
     <p class="sub" style="margin-top:8px">
-      O engajamento no Bem+Match sinaliza <b>prontidão e comprometimento</b> do candidato — menos entrevistas improdutivas e menor tempo de contratação.
+      Engajamento no Bem+Match sinaliza <b>prontidão e comprometimento</b> — reduz tempo de contratação e melhora adaptação.
     </p>
   </div>
 </section>
 
-<!-- PLANOS (texto focado em resolução do problema) -->
+<!-- PLANOS -->
 <section id="planos" class="section">
   <div class="container">
-    <h2>Planos focados em preencher vagas</h2>
-    <p class="sub">Escolha o formato ideal para sua operação. Sem burocracia, sem multa escondida.</p>
+    <h2>Planos focados em preencher vagas e evoluir carreiras</h2>
+    <p class="sub">Escolha o formato ideal. Sem burocracia, sem multa escondida.</p>
 
     <div class="pricing">
       <!-- Empresas -->
@@ -238,7 +246,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
         <div class="li"><b>Publicações ilimitadas</b> — abra e feche quantas vagas precisar</div>
         <div class="li"><b>Matches qualificados</b> — indicações automáticas por compatibilidade</div>
         <div class="li"><b>Banco de Talentos</b> — busque e convide perfis prontos</div>
-        <div class="li"><b>Relatórios básicos</b> — visão rápida do funil e performance</div>
+        <div class="li"><b>Relatórios básicos</b> — visão rápida do funil e participação</div>
         <div class="li">Suporte por e-mail/WhatsApp</div>
 
         <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
@@ -251,15 +259,15 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
         </div>
       </div>
 
-      <!-- Candidatos -->
+      <!-- Candidatos/Profissionais -->
       <div id="planos-candidato" class="price-card">
-        <div class="price-title"><h3 style="margin:0">Candidatos — Premium</h3></div>
+        <div class="price-title"><h3 style="margin:0">Candidatos & Profissionais — Premium</h3></div>
         <div class="price"><span class="amount">R$14,90</span><span class="small">/mês</span></div>
         <p class="subprice">ou <b>R$149/ano</b> (2 meses de bônus)</p>
 
         <div class="li"><b>Destaque nas buscas</b> — apareça antes para as empresas</div>
         <div class="li"><b>Relatório de carreira</b> — pontos fortes e recomendações</div>
-        <div class="li"><b>Trilhas & Bem+Match</b> — prepare-se melhor para entrevistas</div>
+        <div class="li"><b>Trilhas & Bem+Match</b> — evolução contínua e bem-estar</div>
 
         <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
           <a class="btn primary" href="#contato" aria-label="Assinar plano mensal candidato">Assinar mensal</a>
@@ -267,7 +275,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
         </div>
 
         <div style="margin-top:10px;color:#787ea3;font-size:13px">
-          <b>Ideal para:</b> quem quer acelerar convites e entrevistas.
+          <b>Ideal para:</b> acelerar convites, crescer na carreira e acompanhar o mercado.
         </div>
       </div>
 
@@ -305,25 +313,28 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 <section id="contato" class="section">
   <div class="container">
     <h2 style="text-align:center">Fale com a gente</h2>
-    <p class="sub">Quer pilotar o MatchWork ou tirar dúvidas? Envie sua mensagem.</p>
+    <p class="sub">Seja empresa, candidato ou profissional já empregado, envie sua mensagem.</p>
 
-    <!-- Envia para seu e-mail via FormSubmit -->
+    <!-- FormSubmit: envia direto para seu e-mail -->
     <form action="https://formsubmit.co/rodrigovolpatob@gmail.com" method="POST" class="form" aria-label="Formulário de contato">
       <input class="input" name="nome" placeholder="Seu nome" required aria-label="Seu nome">
       <input class="input" type="email" name="email" placeholder="E-mail" required aria-label="Seu e-mail">
       <select class="input" name="perfil" required aria-label="Seu perfil">
         <option value="" disabled selected>Sou...</option>
         <option value="empresa">Empresa</option>
-        <option value="candidato">Candidato</option>
+        <option value="candidato">Candidato ativo</option>
+        <option value="profissional">Profissional já empregado</option>
         <option value="organizacao">Organização/Parceria</option>
       </select>
-      <textarea class="input" name="mensagem" rows="4" placeholder="Como podemos ajudar?" required aria-label="Sua mensagem"></textarea>
-      <!-- FormSubmit options -->
+      <textarea class="input" name="mensagem" rows="4" placeholder="Sua mensagem" required aria-label="Sua mensagem"></textarea>
+
+      <!-- opções do FormSubmit -->
       <input type="hidden" name="_subject" value="Novo contato — Site MatchWork">
       <input type="hidden" name="_template" value="box">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://rodrigovolpatob-blip.github.io/MatchWork/#contato-ok">
       <input type="text" name="_honey" style="display:none">
+
       <button class="btn primary" type="submit" style="width:max-content" aria-label="Enviar formulário de contato">Enviar</button>
     </form>
     <p id="contato-ok" class="sub" style="margin-top:12px;display:none">Obrigado! Sua mensagem foi enviada.</p>
