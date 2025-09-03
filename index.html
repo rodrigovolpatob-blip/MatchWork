@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MatchWork — Conectando talentos e empresas</title>
-<meta name="description" content="MatchWork conecta candidatos e empresas com matching rápido, trilhas de capacitação, apoio emocional (Bem+) e gamificação (Pontos Match) para aumentar retenção.">
-<link rel="icon" href="assets/logo-purple.png" type="image/png">
+<meta name="description" content="MatchWork conecta candidatos e empresas com matching rápido (like/dislike), trilhas de capacitação, apoio emocional (Bem+) e gamificação (Pontos Match) para contratar melhor e reter por mais tempo.">
+<link rel="icon" href="assets/logo-purple.PNG" type="image/png">
 <meta name="theme-color" content="#6f3aff">
 <style>
 :root{
   --bg:#ffffff; --ink:#0f1222; --muted:#636985; --line:#e8e8ef;
   --brand:#6f3aff; --brand-2:#8c66ff; --paper:#f8f7ff;
-  --logoH: clamp(56px, 10vw, 88px); /* altura RESPONSIVA da logo */
+  --logoH: clamp(64px, 10vw, 96px);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -20,13 +20,11 @@ a{text-decoration:none;color:var(--brand)}
 a:focus,button:focus,input:focus,select:focus,textarea:focus{outline:2px solid var(--brand-2);outline-offset:2px}
 .container{max-width:1180px;margin:0 auto;padding:0 20px}
 
-/* TOPBAR / NAV */
+/* NAV */
 .topbar{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
 .topbar .inner{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
 .brand{display:flex;align-items:center;gap:12px}
-.brand img{
-  height:var(--logoH); width:auto; display:block; object-fit:contain;
-}
+.brand img{height:var(--logoH);width:auto;display:block;object-fit:contain}
 .navwrap{display:flex;align-items:center;gap:18px}
 .nav-links{display:flex;align-items:center;gap:18px}
 .nav-links a{font-weight:600;color:var(--ink);opacity:.9}
@@ -50,48 +48,26 @@ h1{font-size:clamp(28px, 6vw, 56px);line-height:1.06;letter-spacing:-.4px;margin
 .badge{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;background:#efeaff;color:#3f21ba;border:1px solid #e1d8ff}
 
 /* PHONE MOCKUP (somente like/dislike) */
-.phone{
-  width:100%; max-width:360px; margin:0 auto;
-  border:1px solid #ddd; border-radius:28px; background:#fff;
-  box-shadow:0 20px 60px rgba(24,27,51,.10);
-  padding:14px 12px 16px; position:relative;
-}
-.phone-notch{
-  position:absolute; top:8px; left:50%; transform:translateX(-50%);
-  width:120px; height:10px; border-radius:8px; background:#111;
-}
-.phone-screen{
-  border:1px solid var(--line); border-radius:20px; padding:16px; background:#fff;
-}
-.card-candidato{
-  border:1px solid var(--line); border-radius:16px; padding:14px; background:#fff;
-  box-shadow:0 2px 10px rgba(0,0,0,.03);
-}
-.card-avatar{
-  width:64px; height:64px; border-radius:12px; background:linear-gradient(135deg,#ede8ff,#f8f7ff);
-  border:1px solid #e6e2ff;
-}
+.phone{width:100%;max-width:360px;margin:0 auto;border:1px solid #ddd;border-radius:28px;background:#fff;box-shadow:0 20px 60px rgba(24,27,51,.10);padding:14px 12px 16px;position:relative}
+.phone-notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:120px;height:10px;border-radius:8px;background:#111}
+.phone-screen{border:1px solid var(--line);border-radius:20px;padding:16px;background:#fff}
+.card-candidato{border:1px solid var(--line);border-radius:16px;padding:14px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.03)}
+.card-avatar{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#ede8ff,#f8f7ff);border:1px solid #e6e2ff}
 .card-lines div{height:10px;border-radius:999px;background:#6f3aff14;margin-bottom:8px}
 .card-lines div:nth-child(1){width:70%}
 .card-lines div:nth-child(2){width:50%}
 .card-lines div:nth-child(3){width:40%}
-.actions{
-  display:flex; justify-content:space-between; align-items:center; margin-top:14px;
-}
-.btn-like,.btn-dislike{
-  display:flex; align-items:center; justify-content:center;
-  width:64px; height:64px; border-radius:999px; border:2px solid #e9e6ff; background:#fff; cursor:pointer;
-  transition:.15s; box-shadow:0 4px 14px rgba(0,0,0,.05)
-}
-.btn-like:hover{border-color:#cfc4ff; transform:translateY(-1px)}
-.btn-dislike:hover{border-color:#f1e0ff; transform:translateY(-1px)}
+.actions{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+.btn-like,.btn-dislike{display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:999px;border:2px solid #e9e6ff;background:#fff;cursor:pointer;transition:.15s;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.btn-like:hover{border-color:#cfc4ff;transform:translateY(-1px)}
+.btn-dislike:hover{border-color:#f1e0ff;transform:translateY(-1px)}
 .btn-like svg{stroke:#34c759}
 .btn-dislike svg{stroke:#ff3b30}
 
 /* SECTIONS */
 .band{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .section{padding:70px 0}
-.section h2{text-align:center;color:#1a1d33;font-size:clamp(22px, 3.5vw, 34px);letter-spacing:-.3px;margin:0 0 10px}
+.section h2{text-align:center;color:#1a1d33;font-size:clamp(22px,3.5vw,34px);letter-spacing:-.3px;margin:0 0 10px}
 .section p.sub{color:var(--muted);text-align:center;margin:0 auto 12px;max-width:760px}
 
 /* GRIDS & CARDS */
@@ -123,14 +99,14 @@ h1{font-size:clamp(28px, 6vw, 56px);line-height:1.06;letter-spacing:-.4px;margin
 .footer{padding:26px 0;color:#71779a;border-top:1px solid var(--line);text-align:center;margin-top:36px;font-size:14px}
 
 /* MOBILE */
-@media (max-width: 980px){
+@media (max-width:980px){
   .hero-grid{grid-template-columns:1fr}
   .grid-3,.grid-2,.metrics,.pricing{grid-template-columns:1fr}
   .navwrap{gap:10px}
   .menu-toggle{display:block}
   .nav-links{
-    display:none; position:absolute; left:0; right:0; top:calc(100% + 1px);
-    background:#fff; border-top:1px solid var(--line); padding:10px 20px;
+    display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);
+    background:#fff;border-top:1px solid var(--line);padding:10px 20px;
     box-shadow:0 10px 30px rgba(0,0,0,.06)
   }
   .nav-links.open{display:flex;flex-direction:column;gap:12px}
@@ -140,12 +116,12 @@ h1{font-size:clamp(28px, 6vw, 56px);line-height:1.06;letter-spacing:-.4px;margin
 </head>
 <body>
 
-  <!-- TOPBAR -->
+  <!-- NAV -->
   <div class="topbar">
     <div class="container inner">
       <a class="brand" href="#" aria-label="MatchWork">
-        <!-- GARANTA que este arquivo é a versão ROXA da logo -->
-        <img src="assets/logo-purple.png" alt="Logo MatchWork" loading="lazy" decoding="async">
+        <!-- Usa a versão ROXA. O nome precisa coincidir com o arquivo no repo (PNG maiúsculo). -->
+        <img src="assets/logo-purple.PNG" alt="Logo MatchWork" loading="lazy" decoding="async">
       </a>
 
       <div class="navwrap">
@@ -171,10 +147,10 @@ h1{font-size:clamp(28px, 6vw, 56px);line-height:1.06;letter-spacing:-.4px;margin
     <div class="container hero-grid">
       <div>
         <span class="badge">Empregos • Capacitação • Bem+ • Pontos</span>
-        <h1>Contratar bem é o começo.<br>Reter bem é o diferencial.</h1>
+        <h1>Encontre pessoas prontas para trabalhar.<br>Conquiste vagas que combinam com você.</h1>
         <p class="lead">
-          O <b>MatchWork</b> integra <b>matching</b> tipo like/dislike, <b>trilhas de capacitação</b> e <b>apoio emocional (Bem+)</b>.
-          Com <b>gamificação (Pontos Match)</b>, incentivamos evolução contínua — melhorando <b>contratação</b> e <b>retenção</b>.
+          O <b>MatchWork</b> une <b>matching</b> tipo like/dislike, <b>trilhas de capacitação</b> e <b>apoio emocional (Bem+)</b>.
+          Com <b>gamificação (Pontos Match)</b>, aumentamos a contratação e a retenção — sem complicação.
         </p>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
           <a class="btn primary" href="#planos">Ver planos</a>
@@ -182,7 +158,7 @@ h1{font-size:clamp(28px, 6vw, 56px);line-height:1.06;letter-spacing:-.4px;margin
         </div>
       </div>
 
-      <!-- PHONE MOCKUP (like/dislike) -->
+      <!-- MOCKUP (like/dislike) -->
       <div class="phone" aria-label="Demonstração do fluxo de like/dislike">
         <div class="phone-notch"></div>
         <div class="phone-screen">
@@ -194,16 +170,14 @@ h1{font-size:clamp(28px, 6vw, 56px);line-height:1.06;letter-spacing:-.4px;margin
               </div>
             </div>
             <div class="actions">
-              <!-- Dislike -->
               <button class="btn-dislike" aria-label="Dislike">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="2">
-                  <path d="M10 15V5a3 3 0 0 1 3-3h1a2 2 0 0 1 2 2v1h3a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-3l-2 6a3 3 0 0 1-2.83 2H9.5a1.5 1.5 0 0 1-1.5-1.5V15h2z" />
+                  <path d="M10 15V5a3 3 0 0 1 3-3h1a2 2 0 0 1 2 2v1h3a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-3l-2 6a3 3 0 0 1-2.83 2H9.5a1.5 1.5 0 0 1-1.5-1.5V15h2z"/>
                 </svg>
               </button>
-              <!-- Like -->
               <button class="btn-like" aria-label="Like">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="2">
-                  <path d="M14 9V3a3 3 0 0 0-3-3h-1a2 2 0 0 0-2 2v1H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h3l2 6a3 3 0 0 0 2.83 2H14.5A1.5 1.5 0 0 0 16 15.5V9h-2z" />
+                  <path d="M14 9V3a3 3 0 0 0-3-3h-1a2 2 0 0 0-2 2v1H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h3l2 6a3 3 0 0 0 2.83 2H14.5A1.5 1.5 0 0 0 16 15.5V9h-2z"/>
                 </svg>
               </button>
             </div>
@@ -233,18 +207,9 @@ h1{font-size:clamp(28px, 6vw, 56px);line-height:1.06;letter-spacing:-.4px;margin
       <h2>Como funciona</h2>
       <p class="sub">Fluxo simples para candidatos e empresas, com foco em velocidade na contratação e base para retenção.</p>
       <div class="grid-3">
-        <div class="card">
-          <h3>1. Cadastro</h3>
-          <p>Candidatos realizam testes vocacionais/comportamentais; empresas publicam vagas em minutos.</p>
-        </div>
-        <div class="card">
-          <h3>2. Matching</h3>
-          <p>Like/dislike dos dois lados + recomendações por compatibilidade e competências.</p>
-        </div>
-        <div class="card">
-          <h3>3. Evolução</h3>
-          <p>Trilhas de capacitação e <b>Bem+</b> para reduzir abandono e aumentar performance.</p>
-        </div>
+        <div class="card"><h3>1. Cadastro</h3><p>Candidatos fazem testes vocacionais/comportamentais; empresas publicam vagas em minutos.</p></div>
+        <div class="card"><h3>2. Matching</h3><p>Like/dislike dos dois lados + recomendações por compatibilidade e competências.</p></div>
+        <div class="card"><h3>3. Evolução</h3><p>Trilhas de capacitação e <b>Bem+</b> para reduzir abandono e aumentar performance.</p></div>
       </div>
     </div>
   </section>
@@ -255,22 +220,10 @@ h1{font-size:clamp(28px, 6vw, 56px);line-height:1.06;letter-spacing:-.4px;margin
       <h2>Funcionalidades</h2>
       <p class="sub">O essencial para contratar mais rápido, formar melhor e reter por mais tempo.</p>
       <div class="grid-2">
-        <div class="card">
-          <h3>Banco de Talentos</h3>
-          <p>Busca ágil, matching inteligente e candidatos qualificados.</p>
-        </div>
-        <div class="card">
-          <h3>Capacitação</h3>
-          <p>Trilhas de aprendizagem e cursos parceiros por cargo/competência.</p>
-        </div>
-        <div class="card">
-          <h3>Bem+</h3>
-          <p>Apoio emocional, conteúdos e grupos para melhorar retenção e engajamento.</p>
-        </div>
-        <div class="card">
-          <h3>Relatórios</h3>
-          <p>Indicadores de empregabilidade e inclusão (recortes por público) para decisões.</p>
-        </div>
+        <div class="card"><h3>Banco de Talentos</h3><p>Busca ágil, matching inteligente e candidatos qualificados.</p></div>
+        <div class="card"><h3>Capacitação</h3><p>Trilhas de aprendizagem e cursos parceiros por cargo/competência.</p></div>
+        <div class="card"><h3>Bem+</h3><p>Apoio emocional, conteúdos e grupos para melhorar retenção e engajamento.</p></div>
+        <div class="card"><h3>Relatórios</h3><p>Indicadores de empregabilidade e inclusão (recortes por público) para decisões.</p></div>
       </div>
       <p class="sub" style="margin-top:8px"><em>Parcerias sob demanda:</em> palestras, mentorias e consultoria para empresas (terceirizado).</p>
     </div>
@@ -310,31 +263,46 @@ h1{font-size:clamp(28px, 6vw, 56px);line-height:1.06;letter-spacing:-.4px;margin
   <section id="planos" class="band section">
     <div class="container">
       <h2>Nossos Planos</h2>
-      <p class="sub">Planos simples para começar rápido — sem complicação.</p>
+      <p class="sub">Escolha o formato ideal para começar rápido.</p>
       <div class="pricing">
+
         <div class="price-card">
-          <h3>PMEs — Assinatura</h3>
+          <h3>PMEs — Assinatura Mensal</h3>
           <div class="price"><span class="amount">R$150</span><span class="small">/mês</span></div>
           <div class="li">Publicações ilimitadas</div>
           <div class="li">Banco de talentos</div>
           <div class="li">Networking empresarial</div>
           <a class="btn primary" href="#contato" style="margin-top:8px">Assinar</a>
         </div>
+
+        <div class="price-card">
+          <h3>PMEs — Assinatura Anual</h3>
+          <div class="price"><span class="amount">R$1.500</span><span class="small">/ano</span></div>
+          <div class="li">12 meses com desconto</div>
+          <div class="li">Publicações ilimitadas</div>
+          <div class="li">Suporte prioritário</div>
+          <a class="btn primary" href="#contato" style="margin-top:8px">Assinar anual</a>
+        </div>
+
         <div class="price-card">
           <h3>PMEs — One-Shot</h3>
           <div class="price"><span class="amount">R$400</span><span class="small">/vaga</span></div>
-          <div class="li">Publicação avulsa até preencher</div>
+          <div class="li">Publicação avulsa</div>
+          <div class="li">Vaga ativa até preencher <b>(máx. 3 meses)</b></div>
           <div class="li">Indicação de perfis compatíveis</div>
           <a class="btn primary" href="#contato" style="margin-top:8px">Publicar vaga</a>
         </div>
+
         <div class="price-card">
           <h3>Candidatos — Premium</h3>
           <div class="price"><span class="amount">R$14,90</span><span class="small">/mês</span></div>
-          <div class="li">Destaque + relatório de carreira</div>
+          <div class="li">Destaque no banco</div>
+          <div class="li">Relatório de carreira</div>
           <div class="li">Acesso ao Bem+</div>
           <div class="li">Trilhas e feedback contínuo</div>
           <a class="btn primary" href="#contato" style="margin-top:8px">Ser Premium</a>
         </div>
+
       </div>
     </div>
   </section>
@@ -354,7 +322,7 @@ h1{font-size:clamp(28px, 6vw, 56px);line-height:1.06;letter-spacing:-.4px;margin
           <option value="organizacao">Organização/Parceria</option>
         </select>
         <textarea class="input" name="mensagem" rows="4" placeholder="Como podemos ajudar?" required aria-label="Sua mensagem"></textarea>
-        <input type="text" name="empresa" style="display:none">
+        <input type="text" name="empresa" style="display:none"><!-- honeypot -->
         <button class="btn primary" type="submit" style="width:max-content">Enviar</button>
       </form>
     </div>
@@ -365,7 +333,7 @@ h1{font-size:clamp(28px, 6vw, 56px);line-height:1.06;letter-spacing:-.4px;margin
   </footer>
 
 <script>
-/* Menu mobile simples */
+/* Menu mobile */
 const toggle = document.querySelector('.menu-toggle');
 const links = document.querySelector('.nav-links');
 if(toggle && links){
@@ -374,7 +342,10 @@ if(toggle && links){
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
   links.querySelectorAll('a').forEach(a=>{
-    a.addEventListener('click', ()=>{ links.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); });
+    a.addEventListener('click', ()=>{
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+    });
   });
 }
 </script>
