@@ -4,14 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MatchWork — Encontre gente certa, rápido.</title>
-<meta name="description" content="MatchWork para PMEs: publique a vaga, receba candidatos compatíveis via like/dislike e feche mais rápido. Para candidatos: vagas que combinam com seu perfil, trilhas e Bem+.">
+<meta name="description" content="MatchWork para PMEs: publique a vaga, receba matches compatíveis em minutos e feche mais rápido. Para candidatos: vagas que combinam com o perfil, trilhas e Bem+Match.">
 <link rel="icon" href="assets/logo-purple.PNG" type="image/png">
 <meta name="theme-color" content="#6f3aff">
 <style>
 :root{
   --bg:#fff; --ink:#121426; --muted:#646b86; --line:#e9e9f2;
   --brand:#6f3aff; --brand-2:#8a67ff; --paper:#f8f7ff;
-  --ok:#34c759; --no:#ff3b30;
   --logoH: clamp(64px, 10vw, 96px);
 }
 *{box-sizing:border-box}
@@ -43,26 +42,6 @@ a{text-decoration:none;color:var(--brand)}
 .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:36px;align-items:center}
 h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin:0 0 10px}
 .lead{font-size:18px;color:var(--muted);max-width:720px;margin:0 0 20px}
-.badge{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;background:#efeaff;color:#3f21ba;border:1px solid #e1d8ff}
-
-/* MOCKUP (like/dislike) */
-.phone{width:100%;max-width:360px;margin:0 auto;border:1px solid #ddd;border-radius:28px;background:#fff;box-shadow:0 20px 60px rgba(24,27,51,.10);padding:14px 12px 16px;position:relative}
-.phone-notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:120px;height:10px;border-radius:8px;background:#111}
-.phone-screen{border:1px solid var(--line);border-radius:20px;padding:16px;background:#fff}
-.card-candidato{border:1px solid var(--line);border-radius:16px;padding:14px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.03)}
-.card-head{display:flex;gap:12px;align-items:center;margin-bottom:10px}
-.avatar{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#ede8ff,#f8f7ff);border:1px solid #e6e2ff}
-.lines div{height:10px;border-radius:999px;background:#6f3aff14;margin-bottom:8px}
-.lines div:nth-child(1){width:70%}
-.lines div:nth-child(2){width:52%}
-.lines div:nth-child(3){width:40%}
-.actions{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
-.iconbtn{display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:999px;border:2px solid #e9e6ff;background:#fff;cursor:pointer;transition:.15s;box-shadow:0 4px 14px rgba(0,0,0,.05)}
-.iconbtn:hover{transform:translateY(-1px)}
-.icon-like svg{stroke:var(--ok)}
-.icon-dislike svg{stroke:var(--no)}
-.swipe-hint{display:flex;align-items:center;justify-content:center;gap:6px;color:#8589a3;font-size:12px;margin-top:10px}
-.swipe-hint svg{stroke:#8589a3}
 
 /* SECTIONS */
 .section{padding:68px 0}
@@ -124,7 +103,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
     <nav class="nav-links" aria-label="principal">
       <a href="#o-que-faz">O que faz</a>
       <a href="#como-funciona">Como funciona</a>
-      <a href="#gamificacao">MatchPoints</a>
+      <a href="#bemplus">Bem+Match</a>
       <a href="#planos">Planos</a>
       <a class="btn primary" href="#contato">Falar agora</a>
     </nav>
@@ -135,46 +114,14 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 <header class="hero">
   <div class="container hero-grid">
     <div>
-      <span class="badge">Empregos • Like/Dislike • Trilhas • Bem+</span>
       <h1>Encontre gente certa, rápido.</h1>
       <p class="lead">
-        Para <b>PMEs</b>: publique a vaga, receba <b>matches</b> compatíveis em minutos e conduza tudo num fluxo simples. <br>
-        Para <b>candidatos</b>: vagas que combinam com seu perfil, trilhas de aprendizado e apoio <b>Bem+</b>.
+        Para <b>PMEs</b>: publique a vaga, receba <b>matches</b> compatíveis em minutos e conduza tudo num fluxo simples.<br>
+        Para <b>candidatos</b>: vagas que combinam com seu perfil, trilhas de aprendizado e o apoio <b>Bem+Match</b>.
       </p>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <a class="btn primary" href="#planos">Ver planos</a>
         <a class="btn ghost" href="#contato">Agendar conversa</a>
-      </div>
-    </div>
-
-    <!-- MOCKUP coerente -->
-    <div class="phone" aria-label="Fluxo de like/dislike">
-      <div class="phone-notch"></div>
-      <div class="phone-screen">
-        <div class="card-candidato">
-          <div class="card-head">
-            <div class="avatar" aria-hidden="true"></div>
-            <div class="lines" style="flex:1">
-              <div></div><div></div><div></div>
-            </div>
-          </div>
-          <div class="actions">
-            <button class="iconbtn icon-dislike" title="Não combinar">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="2">
-                <path d="M6 12h8l-2 7a3 3 0 0 1-2.9 2H7a2 2 0 0 1-2-2v-7zM14 12V5a2 2 0 0 1 2-2h1a3 3 0 0 1 3 3v6h-6z"/>
-              </svg>
-            </button>
-            <button class="iconbtn icon-like" title="Combinar">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="2">
-                <path d="M18 12H10l2-7a3 3 0 0 1 2.9-2H17a2 2 0 0 1 2 2v7zM10 12v7a2 2 0 0 1-2 2H7a3 3 0 0 1-3-3v-6h6z"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="swipe-hint">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M8 12h8M14 8l4 4-4 4"/></svg>
-          Deslize para o lado ou toque em <b>like</b>/<b>dislike</b>
-        </div>
       </div>
     </div>
   </div>
@@ -184,11 +131,11 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 <section id="o-que-faz" class="band section">
   <div class="container">
     <h2>O que o MatchWork faz</h2>
-    <p class="sub">Tudo que você precisa para fechar a vaga com objetividade.</p>
+    <p class="sub">Fechar vagas com objetividade, sem complicação.</p>
     <div class="grid-3">
-      <div class="card"><h3>Matching rápido</h3><p>Like/dislike dos dois lados + recomendações por compatibilidade e competências.</p></div>
+      <div class="card"><h3>Matching rápido</h3><p>Like/dislike dos dois lados e recomendações por compatibilidade e competências.</p></div>
       <div class="card"><h3>Banco de Talentos</h3><p>Busca ágil com filtros e priorização de perfis prontos.</p></div>
-      <div class="card"><h3>Trilhas & Bem+</h3><p>Trilhas de aprendizagem e apoio emocional para candidatos.</p></div>
+      <div class="card"><h3>Trilhas & Conteúdos</h3><p>Trilhas por cargo/competência e materiais práticos para evolução.</p></div>
     </div>
   </div>
 </section>
@@ -197,24 +144,35 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 <section id="como-funciona" class="section">
   <div class="container">
     <h2>Como funciona</h2>
-    <p class="sub">Do anúncio ao match — sem complicação.</p>
+    <p class="sub">Do anúncio ao match — passo a passo simples.</p>
     <div class="grid-3">
       <div class="card"><h3>1) Publique</h3><p>Crie a vaga em minutos com requisitos e competências desejadas.</p></div>
       <div class="card"><h3>2) Receba matches</h3><p>Veja candidatos compatíveis, dê like/dislike e converse com quem faz sentido.</p></div>
-      <div class="card"><h3>3) Feche a vaga</h3><p>Agende entrevistas e finalize o processo dentro do fluxo do app.</p></div>
+      <div class="card"><h3>3) Feche a vaga</h3><p>Agende entrevistas e conclua o processo dentro do fluxo do app.</p></div>
     </div>
   </div>
 </section>
 
-<!-- GAMIFICAÇÃO -->
-<section id="gamificacao" class="band section">
+<!-- BEM+MATCH -->
+<section id="bemplus" class="band section">
   <div class="container">
-    <h2>Gamificação — <span style="color:var(--brand)">MatchPoints</span></h2>
-    <p class="sub">Pontos por ações úteis (perfil, entrevistas, trilhas). Use para destaque no app e benefícios de parceiros.</p>
+    <h2>Bem+Match</h2>
+    <p class="sub">Apoio emocional e bem-estar integrado ao processo de empregabilidade.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Para candidatos</h3>
+        <p>Conteúdos curtos, rotinas simples e grupos de apoio para lidar com ansiedade, foco e confiança durante a busca por trabalho.</p>
+      </div>
+      <div class="card">
+        <h3>Para empresas</h3>
+        <p>Mais candidatos prontos e engajados, melhor experiência no processo e indicadores de participação no Bem+ (insights de clima e adaptação).</p>
+      </div>
+    </div>
+    <p class="sub" style="margin-top:8px">O Bem+Match é um diferencial do MatchWork e evolui com parceiros (palestras, mentorias e conteúdos especializados).</p>
   </div>
 </section>
 
-<!-- PLANOS (mensal + anual juntos em cada caixa) -->
+<!-- PLANOS -->
 <section id="planos" class="section">
   <div class="container">
     <h2>Planos simples</h2>
@@ -242,7 +200,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
         <p class="subprice">ou <b>R$149/ano</b> (2 meses de bônus)</p>
         <div class="li">Destaque nas buscas</div>
         <div class="li">Relatório de carreira</div>
-        <div class="li">Acesso ao Bem+ e trilhas</div>
+        <div class="li">Acesso ao Bem+Match e trilhas</div>
         <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
           <a class="btn primary" href="#contato">Assinar mensal</a>
           <a class="btn ghost" href="#contato">Assinar anual</a>
