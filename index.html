@@ -51,6 +51,45 @@ a{text-decoration:none;color:var(--brand)}
 h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin:0 0 10px}
 .lead{font-size:18px;color:var(--muted);max-width:720px;margin:0 0 20px}
 
+/* PHONE MOCKUP (like/dislike) */
+.phone{
+  width:100%; max-width:360px; margin:0 auto;
+  border:1px solid #ddd; border-radius:28px; background:#fff;
+  box-shadow:0 20px 60px rgba(24,27,51,.10);
+  padding:14px 12px 16px; position:relative;
+}
+.phone-notch{
+  position:absolute; top:8px; left:50%; transform:translateX(-50%);
+  width:120px; height:10px; border-radius:8px; background:#111;
+}
+.phone-screen{
+  border:1px solid var(--line); border-radius:20px; padding:16px; background:#fff;
+}
+.card-candidato{
+  border:1px solid var(--line); border-radius:16px; padding:14px; background:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,.03);
+}
+.card-head{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+.card-avatar{
+  width:56px; height:56px; border-radius:12px; background:linear-gradient(135deg,#ede8ff,#f8f7ff);
+  border:1px solid #e6e2ff;
+}
+.card-lines div{height:10px;border-radius:999px;background:#6f3aff14;margin-bottom:8px}
+.card-lines div:nth-child(1){width:70%}
+.card-lines div:nth-child(2){width:50%}
+.card-lines div:nth-child(3){width:40%}
+.actions{display:flex; justify-content:space-between; align-items:center; margin-top:14px}
+.btn-like,.btn-dislike{
+  display:flex; align-items:center; justify-content:center;
+  width:64px; height:64px; border-radius:999px; border:2px solid #e9e6ff; background:#fff; cursor:pointer;
+  transition:.15s; box-shadow:0 4px 14px rgba(0,0,0,.05)
+}
+.btn-like:hover{border-color:#cfc4ff; transform:translateY(-1px)}
+.btn-dislike:hover{border-color:#f1e0ff; transform:translateY(-1px)}
+.btn-like svg{stroke:#34c759}
+.btn-dislike svg{stroke:#ff3b30}
+.swipe-hint{ text-align:center;color:#888;font-size:12px;margin-top:10px }
+
 /* SECTIONS */
 .section{padding:68px 0}
 .band{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -143,6 +182,36 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <a class="btn primary" href="#planos-empresas">Sou empresa</a>
         <a class="btn ghost" href="#planos-candidato">Sou candidato</a>
+      </div>
+    </div>
+
+    <!-- MOCKUP LIMPO -->
+    <div class="phone" aria-label="Demonstração do fluxo de like/dislike">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="card-candidato" role="article" aria-label="Cartão de candidato">
+          <div class="card-head">
+            <div class="card-avatar" aria-hidden="true"></div>
+            <div class="card-lines" style="flex:1">
+              <div></div><div></div><div></div>
+            </div>
+          </div>
+          <div class="actions">
+            <!-- Dislike -->
+            <button class="btn-dislike" aria-label="Dislike" title="Dislike">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M10 15V5a3 3 0 0 1 3-3h1a2 2 0 0 1 2 2v1h3a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-3l-2 6a3 3 0 0 1-2.83 2H9.5A1.5 1.5 0 0 1 8 17.5V15h2z"/>
+              </svg>
+            </button>
+            <!-- Like -->
+            <button class="btn-like" aria-label="Like" title="Like">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M14 9V3a3 3 0 0 0-3-3h-1a2 2 0 0 0-2 2v1H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h3l2 6a3 3 0 0 0 2.83 2H14.5A1.5 1.5 0 0 0 16 15.5V9h-2z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="swipe-hint">Toque em <b>like</b>/<b>dislike</b> ou arraste para o lado</div>
       </div>
     </div>
   </div>
