@@ -19,7 +19,7 @@
 :root{
   --bg:#fff; --ink:#121426; --muted:#646b86; --line:#e9e9f2;
   --brand:#6f3aff; --brand-2:#8a67ff; --paper:#f8f7ff;
-  --logoH: clamp(56px, 7.2vw, 80px); /* logo levemente maior em desktop largo */
+  --logoH: clamp(56px, 7.2vw, 80px);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -51,13 +51,13 @@ a{text-decoration:none;color:var(--brand)}
 h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin:0 0 10px}
 .lead{font-size:18px;color:var(--muted);max-width:720px;margin:0 0 20px}
 
-/* MOCKUP (imagem final) — responsivo e proporcional */
+/* MOCKUP (imagem final) */
 .mockup{
   display:flex;justify-content:center;align-items:center;
-  margin-top:12px; /* respiro extra */
+  margin-top:12px;
 }
 .mockup img{
-  width: min(34vw, 400px); /* menor em desktop médio/grande */
+  width: min(34vw, 400px);
   max-width: 100%;
   height: auto;
   display:block;
@@ -110,17 +110,17 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
   display:none;z-index:999;font-size:15px;
 }
 
-/* MOBILE ajustes extras (respiro e mockup) */
+/* MOBILE ajustes */
 @media (max-width:980px){
   .hero-grid{grid-template-columns:1fr}
-  .mockup img{ width: min(86vw, 330px); } /* mockup mais contido no mobile */
+  .mockup img{ width: min(86vw, 330px); }
   .grid-3,.grid-2,.pricing{grid-template-columns:1fr}
   .menu-toggle{display:block}
   .nav-links{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);background:#fff;border-top:1px solid var(--line);padding:10px 20px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
   .nav-links.open{display:flex;flex-direction:column;gap:12px}
   .nav-links .btn.primary{width:100%;text-align:center}
   .sticky-cta{display:flex}
-  .section{ padding:64px 0; } /* respiro extra mobile */
+  .section{ padding:64px 0; }
   .band.section{ padding:64px 0; }
   .lead{ margin-bottom:22px; }
 }
@@ -149,18 +149,22 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
   </div>
 </div>
 
-<!-- HERO -->
+<!-- HERO (texto focado em benefício p/ empresas) -->
 <header class="hero">
   <div class="container hero-grid">
     <div>
-      <h1>Encontre gente certa, rápido.</h1>
+      <h1>Preencha vagas mais rápido, com menos esforço.</h1>
       <p class="lead">
-        Para <b>Empresas</b>: publique a vaga, receba <b>matches compatíveis em minutos</b> e reduza o tempo de contratação.<br>
-        Para <b>candidatos</b>: vagas alinhadas ao perfil, trilhas de evolução e o apoio <b>Bem+Match</b>.
+        O <b>MatchWork</b> reduz o tempo de contratação porque entrega <b>candidatos já compatíveis</b> com a vaga.
+        Você publica e recebe <b>matches qualificados em minutos</b> — sem triagem infinita.
+        Candidatos evoluem com <b>trilhas</b> e <b>Bem+Match</b>, o que melhora a taxa de comparecimento e a qualidade da entrevista.
       </p>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <a class="btn primary" href="#planos-empresas" aria-label="Ver planos para empresas">Sou empresa</a>
         <a class="btn ghost" href="#planos-candidato" aria-label="Ver planos para candidatos">Sou candidato</a>
+      </div>
+      <div style="margin-top:12px;color:#646b86;font-size:14px">
+        <b>Benefícios para RH</b>: menos currículos irrelevantes • mais entrevistas produtivas • contratação mais rápida
       </div>
     </div>
 
@@ -218,50 +222,64 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
   </div>
 </section>
 
-<!-- PLANOS -->
+<!-- PLANOS (texto focado em resolução do problema) -->
 <section id="planos" class="section">
   <div class="container">
-    <h2>Planos simples</h2>
-    <p class="sub">Escolha o formato ideal para começar agora.</p>
+    <h2>Planos focados em preencher vagas</h2>
+    <p class="sub">Escolha o formato ideal para sua operação. Sem burocracia, sem multa escondida.</p>
 
     <div class="pricing">
       <!-- Empresas -->
       <div id="planos-empresas" class="price-card">
-        <div class="price-title"><h3 style="margin:0">Empresas</h3></div>
+        <div class="price-title"><h3 style="margin:0">Empresas — Assinatura</h3></div>
         <div class="price"><span class="amount">R$150</span><span class="small">/mês</span></div>
         <p class="subprice">ou <b>R$1.500/ano</b> (ganhe 2 meses)</p>
-        <div class="li">Publicações ilimitadas</div>
-        <div class="li">Acesso ao Banco de Talentos</div>
-        <div class="li">Indicações automáticas de compatíveis</div>
+
+        <div class="li"><b>Publicações ilimitadas</b> — abra e feche quantas vagas precisar</div>
+        <div class="li"><b>Matches qualificados</b> — indicações automáticas por compatibilidade</div>
+        <div class="li"><b>Banco de Talentos</b> — busque e convide perfis prontos</div>
+        <div class="li"><b>Relatórios básicos</b> — visão rápida do funil e performance</div>
         <div class="li">Suporte por e-mail/WhatsApp</div>
+
         <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
           <a class="btn primary" href="#contato" aria-label="Assinar plano mensal para empresas">Assinar mensal</a>
           <a class="btn ghost" href="#contato" aria-label="Assinar plano anual para empresas">Assinar anual</a>
+        </div>
+
+        <div style="margin-top:10px;color:#787ea3;font-size:13px">
+          <b>Ideal para:</b> fluxo contínuo de vagas e banco de talentos sempre ativo.
         </div>
       </div>
 
       <!-- Candidatos -->
       <div id="planos-candidato" class="price-card">
-        <div class="price-title"><h3 style="margin:0">Candidatos Premium</h3></div>
+        <div class="price-title"><h3 style="margin:0">Candidatos — Premium</h3></div>
         <div class="price"><span class="amount">R$14,90</span><span class="small">/mês</span></div>
         <p class="subprice">ou <b>R$149/ano</b> (2 meses de bônus)</p>
-        <div class="li">Destaque nas buscas</div>
-        <div class="li">Relatório de carreira</div>
-        <div class="li">Acesso ao Bem+Match e trilhas</div>
+
+        <div class="li"><b>Destaque nas buscas</b> — apareça antes para as empresas</div>
+        <div class="li"><b>Relatório de carreira</b> — pontos fortes e recomendações</div>
+        <div class="li"><b>Trilhas & Bem+Match</b> — prepare-se melhor para entrevistas</div>
+
         <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
           <a class="btn primary" href="#contato" aria-label="Assinar plano mensal candidato">Assinar mensal</a>
           <a class="btn ghost" href="#contato" aria-label="Assinar plano anual candidato">Assinar anual</a>
+        </div>
+
+        <div style="margin-top:10px;color:#787ea3;font-size:13px">
+          <b>Ideal para:</b> quem quer acelerar convites e entrevistas.
         </div>
       </div>
 
       <!-- One-Shot -->
       <div class="price-card" style="grid-column:1/-1">
-        <div class="price-title"><h3 style="margin:0">Empresas — One-Shot</h3></div>
+        <div class="price-title"><h3 style="margin:0">Empresas — One-Shot (vaga única)</h3></div>
         <div class="price"><span class="amount">R$400</span><span class="small">/vaga</span></div>
         <p class="subprice">
-          Vaga ativa até preencher (<b>máx. 3 meses</b>), indicações automáticas de compatíveis e <b>sem multa de cancelamento</b>.
+          Vaga ativa <b>até preencher</b> (máx. 3 meses) • indicações automáticas de compatíveis • <b>sem multa de cancelamento</b>
         </p>
-        <a class="btn primary" href="#contato" aria-label="Publicar vaga única One-Shot">Publicar vaga única</a>
+        <div class="li"><b>Use quando:</b> precisa testar o fluxo ou preencher uma única posição com agilidade</div>
+        <a class="btn primary" href="#contato" aria-label="Publicar vaga única One-Shot" style="margin-top:10px">Publicar vaga única</a>
       </div>
     </div>
   </div>
@@ -272,8 +290,8 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
   <div class="container">
     <h2>Em validação</h2>
     <p class="sub">
-      O MatchWork está em fase de testes com empresas e organizações da região
-      <b>(5+ conversas ativas / 3 pilotos em andamento)</b>.
+      O MatchWork está em testes com empresas e organizações da região
+      <b>(vagas abertas em pilotos e conversas comerciais ativas)</b>.
     </p>
     <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:18px">
       <div class="card" style="min-width:220px;text-align:center">1º match: <b>&lt; 24h</b> (pilotos)</div>
