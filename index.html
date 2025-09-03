@@ -185,6 +185,13 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
       </div>
     </div>
 
+    <!-- MOCKUP (imagem final) -->
+    <div class="mockup">
+      <img src="assets/mockup.PNG" alt="App MatchWork mostrando like/dislike">
+    </div>
+  </div>
+</header>
+
     <!-- MOCKUP LIMPO -->
     <div class="phone" aria-label="Demonstração do fluxo de like/dislike">
       <div class="phone-notch"></div>
@@ -324,13 +331,11 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
   </div>
 </section>
 
-<!-- CONTATO -->
 <section id="contato" class="section">
   <div class="container">
     <h2 style="text-align:center">Fale com a gente</h2>
     <p class="sub">Quer pilotar o MatchWork ou tirar dúvidas? Envie sua mensagem.</p>
 
-    <!-- Envia para seu e-mail via FormSubmit -->
     <form action="https://formsubmit.co/rodrigovolpatob@gmail.com" method="POST" class="form" aria-label="Formulário de contato">
       <input class="input" name="nome" placeholder="Seu nome" required aria-label="Seu nome">
       <input class="input" type="email" name="email" placeholder="E-mail" required aria-label="Seu e-mail">
@@ -341,16 +346,8 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
         <option value="organizacao">Organização/Parceria</option>
       </select>
       <textarea class="input" name="mensagem" rows="4" placeholder="Como podemos ajudar?" required aria-label="Sua mensagem"></textarea>
-      <!-- FormSubmit options -->
-      <input type="hidden" name="_subject" value="Novo contato — Site MatchWork">
-      <input type="hidden" name="_template" value="box">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://rodrigovolpatob-blip.github.io/MatchWork/#contato-ok">
-      <input type="text" name="_honey" style="display:none">
-      <button class="btn primary" type="submit" style="width:max-content">Enviar</button>
+      <button class="btn primary" type="submit">Enviar</button>
     </form>
-    <p id="contato-ok" class="sub" style="margin-top:12px;display:none">Obrigado! Sua mensagem foi enviada.</p>
-    <p class="sub" style="text-align:center;margin-top:8px">Ou fale no WhatsApp: <a href="https://wa.me/5547999639417" target="_blank">+55 47 99963-9417</a></p>
   </div>
 </section>
 
