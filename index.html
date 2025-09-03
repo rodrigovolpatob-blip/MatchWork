@@ -3,24 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MatchWork — Preencha vagas mais rápido e retenha melhor</title>
-<meta name="description" content="MatchWork para PMEs: publique vagas, receba candidatos compatíveis (like/dislike), capacite com trilhas e retenha com apoio emocional Bem+. Gamificação MatchPoints. Planos simples.">
+<title>MatchWork — Encontre gente certa, rápido.</title>
+<meta name="description" content="MatchWork para PMEs: publique a vaga, receba candidatos compatíveis via like/dislike e feche mais rápido. Para candidatos: vagas que combinam com seu perfil, trilhas e Bem+.">
 <link rel="icon" href="assets/logo-purple.PNG" type="image/png">
 <meta name="theme-color" content="#6f3aff">
-
-<!-- ====== ESTILOS ====== -->
 <style>
 :root{
-  --bg:#ffffff; --ink:#121426; --muted:#646b86; --line:#e9e9f2;
+  --bg:#fff; --ink:#121426; --muted:#646b86; --line:#e9e9f2;
   --brand:#6f3aff; --brand-2:#8a67ff; --paper:#f8f7ff;
-  --success:#34c759; --danger:#ff3b30;
+  --ok:#34c759; --no:#ff3b30;
   --logoH: clamp(64px, 10vw, 96px);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
 a{text-decoration:none;color:var(--brand)}
-a:focus,button:focus,input:focus,select:focus,textarea:focus{outline:2px solid var(--brand-2);outline-offset:2px}
 .container{max-width:1180px;margin:0 auto;padding:0 20px}
 
 /* NAV */
@@ -28,10 +25,8 @@ a:focus,button:focus,input:focus,select:focus,textarea:focus{outline:2px solid v
 .topbar .inner{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
 .brand{display:flex;align-items:center;gap:12px}
 .brand img{height:var(--logoH);width:auto;display:block;object-fit:contain}
-.navwrap{display:flex;align-items:center;gap:18px}
 .nav-links{display:flex;align-items:center;gap:18px}
-.nav-links a{font-weight:600;color:var(--ink);opacity:.95}
-.nav-links a:hover{color:var(--brand)}
+.nav-links a{font-weight:600;color:#1b1f3a}
 .menu-toggle{display:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px;cursor:pointer}
 .menu-toggle svg{display:block}
 
@@ -43,55 +38,53 @@ a:focus,button:focus,input:focus,select:focus,textarea:focus{outline:2px solid v
 .btn.ghost:hover{background:#f3efff}
 
 /* HERO */
-.hero{padding:86px 0 48px;background:
+.hero{padding:90px 0 50px;background:
   radial-gradient(900px 300px at 50% -120px, rgba(111,58,255,.12), transparent 60%),#fff}
 .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:36px;align-items:center}
-h1{font-size:clamp(28px, 6vw, 54px);line-height:1.06;letter-spacing:-.4px;margin:0 0 12px}
-.lead{font-size:18px;color:var(--muted);max-width:720px;margin:0 0 22px}
+h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin:0 0 10px}
+.lead{font-size:18px;color:var(--muted);max-width:720px;margin:0 0 20px}
 .badge{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;background:#efeaff;color:#3f21ba;border:1px solid #e1d8ff}
 
-/* PHONE MOCKUP (like/dislike + deslize) */
+/* MOCKUP (like/dislike) */
 .phone{width:100%;max-width:360px;margin:0 auto;border:1px solid #ddd;border-radius:28px;background:#fff;box-shadow:0 20px 60px rgba(24,27,51,.10);padding:14px 12px 16px;position:relative}
 .phone-notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:120px;height:10px;border-radius:8px;background:#111}
 .phone-screen{border:1px solid var(--line);border-radius:20px;padding:16px;background:#fff}
 .card-candidato{border:1px solid var(--line);border-radius:16px;padding:14px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.03)}
-.card-avatar{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#ede8ff,#f8f7ff);border:1px solid #e6e2ff}
-.card-lines div{height:10px;border-radius:999px;background:#6f3aff14;margin-bottom:8px}
-.card-lines div:nth-child(1){width:70%}
-.card-lines div:nth-child(2){width:52%}
-.card-lines div:nth-child(3){width:40%}
-.actions{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+.card-head{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+.avatar{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#ede8ff,#f8f7ff);border:1px solid #e6e2ff}
+.lines div{height:10px;border-radius:999px;background:#6f3aff14;margin-bottom:8px}
+.lines div:nth-child(1){width:70%}
+.lines div:nth-child(2){width:52%}
+.lines div:nth-child(3){width:40%}
+.actions{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
 .iconbtn{display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:999px;border:2px solid #e9e6ff;background:#fff;cursor:pointer;transition:.15s;box-shadow:0 4px 14px rgba(0,0,0,.05)}
 .iconbtn:hover{transform:translateY(-1px)}
-.icon-like svg{stroke:var(--success)}
-.icon-dislike svg{stroke:var(--danger)}
+.icon-like svg{stroke:var(--ok)}
+.icon-dislike svg{stroke:var(--no)}
 .swipe-hint{display:flex;align-items:center;justify-content:center;gap:6px;color:#8589a3;font-size:12px;margin-top:10px}
 .swipe-hint svg{stroke:#8589a3}
 
 /* SECTIONS */
+.section{padding:68px 0}
 .band{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.section{padding:70px 0}
 .section h2{text-align:center;color:#1a1d33;font-size:clamp(22px,3.5vw,34px);letter-spacing:-.3px;margin:0 0 10px}
 .section p.sub{color:var(--muted);text-align:center;margin:0 auto 12px;max-width:760px}
 
 /* GRIDS & CARDS */
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:16px}
-.card{padding:18px;border-radius:14px;border:1px solid var(--line);background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.03);text-align:left}
+.card{padding:18px;border-radius:14px;border:1px solid var(--line);background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.03)}
 .card h3{margin:0 0 6px;font-size:18px}
 .card p{margin:0;color:#464b63;font-size:15px}
 
-/* METRICS */
-.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
-.metric{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center}
-.metric b{display:block;font-size:22px;color:var(--brand);margin-bottom:4px}
-
 /* PRICING */
-.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.pricing{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}
 .price-card{padding:22px;border-radius:16px;border:1px solid var(--line);background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.03)}
-.price{display:flex;align-items:baseline;gap:6px;margin:6px 0 10px}
+.price-title{display:flex;align-items:center;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:6px;margin:8px 0 6px}
 .amount{font-size:36px;font-weight:900;color:var(--brand)}
 .small{color:var(--muted);font-size:14px}
+.subprice{color:#787ea3;font-size:13px;margin:0 0 8px}
 .li{margin:6px 0;color:#3a3950;font-size:15px}
 
 /* FORM */
@@ -103,20 +96,12 @@ h1{font-size:clamp(28px, 6vw, 54px);line-height:1.06;letter-spacing:-.4px;margin
 .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;border-top:1px solid var(--line);padding:10px 16px;display:none;gap:10px}
 .sticky-cta a{flex:1;text-align:center}
 
-/* FOOTER */
-.footer{padding:26px 0;color:#71779a;border-top:1px solid var(--line);text-align:center;margin-top:36px;font-size:14px}
-
 /* MOBILE */
 @media (max-width:980px){
   .hero-grid{grid-template-columns:1fr}
-  .grid-3,.grid-2,.metrics,.pricing{grid-template-columns:1fr}
-  .navwrap{gap:10px}
+  .grid-3,.grid-2,.pricing{grid-template-columns:1fr}
   .menu-toggle{display:block}
-  .nav-links{
-    display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);
-    background:#fff;border-top:1px solid var(--line);padding:10px 20px;
-    box-shadow:0 10px 30px rgba(0,0,0,.06)
-  }
+  .nav-links{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);background:#fff;border-top:1px solid var(--line);padding:10px 20px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
   .nav-links.open{display:flex;flex-direction:column;gap:12px}
   .nav-links .btn.primary{width:100%;text-align:center}
   .sticky-cta{display:flex}
@@ -125,65 +110,61 @@ h1{font-size:clamp(28px, 6vw, 54px);line-height:1.06;letter-spacing:-.4px;margin
 </head>
 <body>
 
-<!-- ====== NAV ====== -->
+<!-- NAV -->
 <div class="topbar">
   <div class="container inner">
-    <a class="brand" href="#" aria-label="MatchWork">
-      <img src="assets/logo-purple.PNG" alt="Logo MatchWork" loading="lazy" decoding="async">
+    <a class="brand" href="#">
+      <img src="assets/logo-purple.PNG" alt="MatchWork logo" loading="lazy" decoding="async">
     </a>
-
-    <div class="navwrap">
-      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-          <path d="M3 6h18M3 12h18M3 18h18" stroke="#3b3b3b" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-      <nav class="nav-links" aria-label="principal">
-        <a href="#o-que-faz">O que o MatchWork faz</a>
-        <a href="#como-funciona">Como funciona</a>
-        <a href="#gamificacao">Gamificação</a>
-        <a href="#planos">Planos</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contato" class="btn primary">Fale com a gente</a>
-      </nav>
-    </div>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M3 6h18M3 12h18M3 18h18" stroke="#3b3b3b" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <nav class="nav-links" aria-label="principal">
+      <a href="#o-que-faz">O que faz</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#gamificacao">MatchPoints</a>
+      <a href="#planos">Planos</a>
+      <a class="btn primary" href="#contato">Falar agora</a>
+    </nav>
   </div>
 </div>
 
-<!-- ====== HERO ====== -->
+<!-- HERO -->
 <header class="hero">
   <div class="container hero-grid">
     <div>
-      <span class="badge">Empregos • Capacitação • Bem+ • MatchPoints</span>
-      <h1>Preencha vagas mais rápido. Reter melhor.</h1>
+      <span class="badge">Empregos • Like/Dislike • Trilhas • Bem+</span>
+      <h1>Encontre gente certa, rápido.</h1>
       <p class="lead">
-        Para <b>empresas</b>: publique a vaga, receba <b>matches</b> compatíveis e acompanhe indicadores.<br>
+        Para <b>PMEs</b>: publique a vaga, receba <b>matches</b> compatíveis em minutos e conduza tudo num fluxo simples. <br>
         Para <b>candidatos</b>: vagas que combinam com seu perfil, trilhas de aprendizado e apoio <b>Bem+</b>.
       </p>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <a class="btn primary" href="#planos">Ver planos</a>
-        <a class="btn ghost" href="#contato">Agendar uma conversa</a>
+        <a class="btn ghost" href="#contato">Agendar conversa</a>
       </div>
     </div>
 
-    <!-- MOCKUP (like/dislike + deslize) -->
-    <div class="phone" aria-label="Demonstração do fluxo de like/dislike">
+    <!-- MOCKUP coerente -->
+    <div class="phone" aria-label="Fluxo de like/dislike">
       <div class="phone-notch"></div>
       <div class="phone-screen">
-        <div class="card-candidato" role="article" aria-label="Cartão de candidato">
-          <div style="display:flex;gap:12px;align-items:center;margin-bottom:10px">
-            <div class="card-avatar" aria-hidden="true"></div>
-            <div class="card-lines" style="flex:1">
+        <div class="card-candidato">
+          <div class="card-head">
+            <div class="avatar" aria-hidden="true"></div>
+            <div class="lines" style="flex:1">
               <div></div><div></div><div></div>
             </div>
           </div>
           <div class="actions">
-            <button class="iconbtn icon-dislike" aria-label="Não combinar (dislike)" title="Não combinar">
+            <button class="iconbtn icon-dislike" title="Não combinar">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="2">
                 <path d="M6 12h8l-2 7a3 3 0 0 1-2.9 2H7a2 2 0 0 1-2-2v-7zM14 12V5a2 2 0 0 1 2-2h1a3 3 0 0 1 3 3v6h-6z"/>
               </svg>
             </button>
-            <button class="iconbtn icon-like" aria-label="Combinar (like)" title="Combinar">
+            <button class="iconbtn icon-like" title="Combinar">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="2">
                 <path d="M18 12H10l2-7a3 3 0 0 1 2.9-2H17a2 2 0 0 1 2 2v7zM10 12v7a2 2 0 0 1-2 2H7a3 3 0 0 1-3-3v-6h6z"/>
               </svg>
@@ -199,133 +180,93 @@ h1{font-size:clamp(28px, 6vw, 54px);line-height:1.06;letter-spacing:-.4px;margin
   </div>
 </header>
 
-<!-- ====== O QUE FAZ ====== -->
+<!-- O QUE FAZ -->
 <section id="o-que-faz" class="band section">
   <div class="container">
     <h2>O que o MatchWork faz</h2>
-    <p class="sub">Um fluxo simples para <b>contratar</b> e uma base contínua para <b>reter</b>.</p>
+    <p class="sub">Tudo que você precisa para fechar a vaga com objetividade.</p>
     <div class="grid-3">
-      <div class="card">
-        <h3>Matching rápido</h3>
-        <p>Like/dislike dos dois lados + recomendações por compatibilidade e competências. Você fala com quem realmente faz sentido.</p>
-      </div>
-      <div class="card">
-        <h3>Capacitação por trilhas</h3>
-        <p>Trilhas curtas por cargo/nível para acelerar a curva de aprendizado e reduzir erros no início.</p>
-      </div>
-      <div class="card">
-        <h3>Bem+ (apoio emocional)</h3>
-        <p>Conteúdos e encontros em grupo para fortalecer hábitos e diminuir abandono nos primeiros meses.</p>
-      </div>
+      <div class="card"><h3>Matching rápido</h3><p>Like/dislike dos dois lados + recomendações por compatibilidade e competências.</p></div>
+      <div class="card"><h3>Banco de Talentos</h3><p>Busca ágil com filtros e priorização de perfis prontos.</p></div>
+      <div class="card"><h3>Trilhas & Bem+</h3><p>Trilhas de aprendizagem e apoio emocional para candidatos.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ====== COMO FUNCIONA ====== -->
+<!-- COMO FUNCIONA -->
 <section id="como-funciona" class="section">
   <div class="container">
     <h2>Como funciona</h2>
-    <p class="sub">Do cadastro à contratação — em 3 passos.</p>
+    <p class="sub">Do anúncio ao match — sem complicação.</p>
     <div class="grid-3">
-      <div class="card"><h3>1) Publique</h3><p>Crie a vaga em minutos. Defina requisitos, faixa e soft skills desejadas.</p></div>
-      <div class="card"><h3>2) Receba matches</h3><p>Veja candidatos compatíveis e dê like/dislike. O candidato também pode dar like em você.</p></div>
-      <div class="card"><h3>3) Contrate & acompanhe</h3><p>Agende entrevistas, acompanhe trilhas e indicadores básicos (tempo de preenchimento e retenção inicial).</p></div>
+      <div class="card"><h3>1) Publique</h3><p>Crie a vaga em minutos com requisitos e competências desejadas.</p></div>
+      <div class="card"><h3>2) Receba matches</h3><p>Veja candidatos compatíveis, dê like/dislike e converse com quem faz sentido.</p></div>
+      <div class="card"><h3>3) Feche a vaga</h3><p>Agende entrevistas e finalize o processo dentro do fluxo do app.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ====== GAMIFICAÇÃO ====== -->
+<!-- GAMIFICAÇÃO -->
 <section id="gamificacao" class="band section">
   <div class="container">
     <h2>Gamificação — <span style="color:var(--brand)">MatchPoints</span></h2>
-    <p class="sub">Pontos por ações úteis (perfil completo, entrevistas, trilhas concluídas). Troque por destaque no app, conteúdos Bem+ e benefícios de parceiros.</p>
-    <div class="metrics">
-      <div class="metric"><b>+engajamento</b><span>mais candidatos prontos</span></div>
-      <div class="metric"><b>+retenção</b><span>melhor adaptação</span></div>
-      <div class="metric"><b>+visibilidade</b><span>destaque por mérito</span></div>
-    </div>
+    <p class="sub">Pontos por ações úteis (perfil, entrevistas, trilhas). Use para destaque no app e benefícios de parceiros.</p>
   </div>
 </section>
 
-<!-- ====== PLANOS ====== -->
+<!-- PLANOS (mensal + anual juntos em cada caixa) -->
 <section id="planos" class="section">
   <div class="container">
     <h2>Planos simples</h2>
-    <p class="sub">Comece leve. Sem fidelidade.</p>
-    <div class="pricing">
+    <p class="sub">Escolha o formato ideal para começar agora.</p>
 
+    <div class="pricing">
+      <!-- PMEs -->
       <div class="price-card">
-        <h3>PMEs — Mensal</h3>
+        <div class="price-title"><h3 style="margin:0">PMEs</h3></div>
         <div class="price"><span class="amount">R$150</span><span class="small">/mês</span></div>
+        <p class="subprice">ou <b>R$1.500/ano</b> (ganhe 2 meses)</p>
         <div class="li">Publicações ilimitadas</div>
         <div class="li">Acesso ao banco de talentos</div>
-        <div class="li">Relatórios básicos</div>
-        <a class="btn primary" href="#contato" style="margin-top:8px">Assinar mensal</a>
-      </div>
-
-      <div class="price-card">
-        <h3>PMEs — Anual</h3>
-        <div class="price"><span class="amount">R$1.500</span><span class="small">/ano</span></div>
-        <div class="li">Economia de 2 meses</div>
-        <div class="li">Publicações ilimitadas</div>
-        <div class="li">Suporte prioritário</div>
-        <a class="btn primary" href="#contato" style="margin-top:8px">Assinar anual</a>
-      </div>
-
-      <div class="price-card">
-        <h3>PMEs — One-Shot</h3>
-        <div class="price"><span class="amount">R$400</span><span class="small">/vaga</span></div>
-        <div class="li">Publicação avulsa</div>
-        <div class="li">Vaga ativa até preencher <b>(máx. 3 meses)</b></div>
         <div class="li">Indicações de perfis compatíveis</div>
-        <a class="btn primary" href="#contato" style="margin-top:8px">Publicar vaga</a>
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+          <a class="btn primary" href="#contato">Assinar mensal</a>
+          <a class="btn ghost" href="#contato">Assinar anual</a>
+        </div>
       </div>
 
+      <!-- Candidatos -->
       <div class="price-card">
-        <h3>Candidatos — Premium</h3>
+        <div class="price-title"><h3 style="margin:0">Candidatos Premium</h3></div>
         <div class="price"><span class="amount">R$14,90</span><span class="small">/mês</span></div>
+        <p class="subprice">ou <b>R$149/ano</b> (2 meses de bônus)</p>
         <div class="li">Destaque nas buscas</div>
         <div class="li">Relatório de carreira</div>
         <div class="li">Acesso ao Bem+ e trilhas</div>
-        <a class="btn primary" href="#contato" style="margin-top:8px">Ser Premium</a>
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+          <a class="btn primary" href="#contato">Assinar mensal</a>
+          <a class="btn ghost" href="#contato">Assinar anual</a>
+        </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ====== FAQ ====== -->
-<section id="faq" class="band section">
-  <div class="container">
-    <h2>Perguntas frequentes</h2>
-    <div class="grid-2">
-      <div class="card">
-        <h3>Quais vagas funcionam melhor?</h3>
-        <p>Operacionais, administrativas e comerciais de PME. Também atendemos posições técnicas de entrada e estágio.</p>
-      </div>
-      <div class="card">
-        <h3>Como vocês selecionam candidatos?</h3>
-        <p>Compatibilidade por requisitos + testes iniciais (vocacional/comportamental) e sinais de engajamento nas trilhas.</p>
-      </div>
-      <div class="card">
-        <h3>O que acontece no One-Shot?</h3>
-        <p>Você paga por uma vaga. Mantemos ativa até preencher (por até 3 meses) e indicamos candidatos compatíveis.</p>
-      </div>
-      <div class="card">
-        <h3>E os dados (LGPD)?</h3>
-        <p>Usamos somente o necessário para matching e contato. Você pode solicitar remoção/portabilidade a qualquer momento.</p>
+      <!-- One-Shot -->
+      <div class="price-card" style="grid-column:1/-1">
+        <div class="price-title"><h3 style="margin:0">PMEs — One-Shot</h3></div>
+        <div class="price"><span class="amount">R$400</span><span class="small">/vaga</span></div>
+        <p class="subprice">Vaga ativa até preencher (<b>máx. 3 meses</b>) + indicações de compatíveis.</p>
+        <a class="btn primary" href="#contato">Publicar vaga única</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ====== CONTATO ====== -->
+<!-- CONTATO -->
 <section id="contato" class="section">
   <div class="container">
     <h2 style="text-align:center">Fale com a gente</h2>
-    <p class="sub">Quer pilotar o MatchWork ou tirar uma dúvida? Envie sua mensagem.</p>
+    <p class="sub">Quer pilotar o MatchWork ou tirar dúvidas? Envie sua mensagem.</p>
 
-    <!-- Envia DIRETO para seu e-mail via FormSubmit -->
+    <!-- Envia para seu e-mail via FormSubmit -->
     <form action="https://formsubmit.co/rodrigovolpatob@gmail.com" method="POST" class="form" aria-label="Formulário de contato">
       <input class="input" name="nome" placeholder="Seu nome" required aria-label="Seu nome">
       <input class="input" type="email" name="email" placeholder="E-mail" required aria-label="Seu e-mail">
@@ -336,35 +277,30 @@ h1{font-size:clamp(28px, 6vw, 54px);line-height:1.06;letter-spacing:-.4px;margin
         <option value="organizacao">Organização/Parceria</option>
       </select>
       <textarea class="input" name="mensagem" rows="4" placeholder="Como podemos ajudar?" required aria-label="Sua mensagem"></textarea>
-
-      <!-- opções do FormSubmit -->
+      <!-- FormSubmit options -->
       <input type="hidden" name="_subject" value="Novo contato — Site MatchWork">
       <input type="hidden" name="_template" value="box">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://rodrigovolpatob-blip.github.io/MatchWork/#contato-ok">
-      <!-- honeypot antispam -->
       <input type="text" name="_honey" style="display:none">
-
       <button class="btn primary" type="submit" style="width:max-content">Enviar</button>
     </form>
-
     <p id="contato-ok" class="sub" style="margin-top:12px;display:none">Obrigado! Sua mensagem foi enviada.</p>
   </div>
 </section>
 
-<footer class="footer">
-  <div class="container">© 2025 MatchWork — Transformando o mercado de trabalho.</div>
+<footer class="section" style="padding:26px 0;border-top:1px solid var(--line);color:#71779a;text-align:center">
+  <div class="container">© 2025 MatchWork</div>
 </footer>
 
-<!-- ====== STICKY CTA (MOBILE) ====== -->
+<!-- STICKY CTA (mobile) -->
 <div class="sticky-cta">
   <a class="btn ghost" href="#planos">Ver planos</a>
   <a class="btn primary" href="#contato">Falar agora</a>
 </div>
 
-<!-- ====== SCRIPTS ====== -->
 <script>
-/* Menu mobile */
+/* menu mobile */
 const toggle = document.querySelector('.menu-toggle');
 const links = document.querySelector('.nav-links');
 if(toggle && links){
@@ -379,10 +315,6 @@ if(toggle && links){
     });
   });
 }
-
-/* opcional: GA/Meta Pixels (adicione seu ID)
-  // gtag('config','G-XXXXXXX');
-*/
 </script>
 </body>
 </html>
