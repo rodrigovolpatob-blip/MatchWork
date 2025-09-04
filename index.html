@@ -154,7 +154,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
       <a href="#como-funciona">Como funciona</a>
       <a href="#bemplus">Bem+Match</a>
       <a href="#planos">Planos</a>
-      <a class="btn primary" href="#contato" aria-label="Fale com a equipe MatchWork">Falar agora</a>
+      <a class="btn primary" href="#contato" aria-label="Fale com a equipe MatchWork" onclick="gtag('event','cta_top_contato')">Falar agora</a>
     </nav>
   </div>
 </div>
@@ -171,10 +171,12 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
         e acompanhar tendências de <b>salários e cargos</b>.
       </p>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <a class="btn primary" href="#planos-empresas" aria-label="Ver planos para empresas">Sou empresa</a>
-        <a class="btn ghost" href="#planos-candidato" aria-label="Ver planos para candidatos/profissionais">Sou candidato/profissional</a>
+        <a class="btn primary" href="#planos-empresas" aria-label="Ver planos para empresas" onclick="gtag('event','cta_empresa')">Sou empresa</a>
+        <a class="btn ghost" href="#planos-candidato" aria-label="Ver planos para candidatos/profissionais" onclick="gtag('event','cta_candidato')">Sou candidato/profissional</a>
       </div>
     </div>
+
+    <!-- MOCKUP -->
     <div class="mockup">
       <img src="assets/mockup.PNG" alt="App MatchWork mostrando like/dislike">
     </div>
@@ -248,7 +250,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
       <div id="planos-empresas" class="price-card">
         <div class="price-title"><h3 style="margin:0">Empresas — Assinatura</h3></div>
         <div class="price"><span class="amount">R$150</span><span class="small">/mês</span></div>
-        <p class="subprice">ou <b>R$1.500/ano</b> (ganhe 2 meses grátis)</p>
+        <p class="subprice">ou <b>R$1.500/ano</b> (ganhe 2 meses)</p>
 
         <div class="li"><b>Publicações ilimitadas</b> — abra e feche quantas vagas precisar</div>
         <div class="li"><b>Matches qualificados</b> — indicações automáticas por compatibilidade</div>
@@ -257,12 +259,12 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
         <div class="li">Suporte por e-mail/WhatsApp</div>
 
         <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
-          <a class="btn primary" href="#contato" aria-label="Assinar plano mensal para empresas">Assinar mensal</a>
-          <a class="btn ghost" href="#contato" aria-label="Assinar plano anual para empresas">Assinar anual</a>
+          <a class="btn primary" href="#contato" aria-label="Assinar plano mensal para empresas" onclick="gtag('event','plan_empresa_mensal')">Assinar mensal</a>
+          <a class="btn ghost" href="#contato" aria-label="Assinar plano anual para empresas" onclick="gtag('event','plan_empresa_anual')">Assinar anual</a>
         </div>
 
         <div style="margin-top:10px;color:#787ea3;font-size:13px">
-          <b>Ideal para:</b> empresas que abrem vagas com frequência e querem acesso contínuo ao banco de talentos.
+          <b>Ideal para:</b> fluxo contínuo de vagas e banco de talentos sempre ativo.
         </div>
       </div>
 
@@ -270,15 +272,15 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
       <div id="planos-candidato" class="price-card">
         <div class="price-title"><h3 style="margin:0">Candidatos & Profissionais — Premium</h3></div>
         <div class="price"><span class="amount">R$14,90</span><span class="small">/mês</span></div>
-        <p class="subprice">ou <b>R$149/ano</b> (2 meses grátis)</p>
+        <p class="subprice">ou <b>R$149/ano</b> (2 meses de bônus)</p>
 
         <div class="li"><b>Destaque nas buscas</b> — apareça antes para as empresas</div>
         <div class="li"><b>Relatório de carreira</b> — pontos fortes e recomendações</div>
         <div class="li"><b>Trilhas & Bem+Match</b> — evolução contínua e bem-estar</div>
 
         <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
-          <a class="btn primary" href="#contato" aria-label="Assinar plano mensal candidato">Assinar mensal</a>
-          <a class="btn ghost" href="#contato" aria-label="Assinar plano anual candidato">Assinar anual</a>
+          <a class="btn primary" href="#contato" aria-label="Assinar plano mensal candidato" onclick="gtag('event','plan_candidato_mensal')">Assinar mensal</a>
+          <a class="btn ghost" href="#contato" aria-label="Assinar plano anual candidato" onclick="gtag('event','plan_candidato_anual')">Assinar anual</a>
         </div>
 
         <div style="margin-top:10px;color:#787ea3;font-size:13px">
@@ -294,19 +296,39 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
           Vaga ativa <b>até preencher</b> (máx. 3 meses) • indicações automáticas de compatíveis • <b>sem multa de cancelamento</b>
         </p>
         <div class="li"><b>Use quando:</b> precisa testar o fluxo ou preencher uma única posição com agilidade</div>
-        <a class="btn primary" href="#contato" aria-label="Publicar vaga única One-Shot" style="margin-top:10px">Publicar vaga única</a>
+        <a class="btn primary" href="#contato" aria-label="Publicar vaga única One-Shot" style="margin-top:10px" onclick="gtag('event','plan_empresa_one')">Publicar vaga única</a>
       </div>
     </div>
+
+    <!-- FAQ ENXUTO -->
+    <div style="margin-top:40px">
+      <h3 style="text-align:center">Dúvidas frequentes</h3>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Quanto tempo para primeiros candidatos?</h3>
+          <p>Em média, <b>&lt; 24h</b> para primeiros matches em pilotos.</p>
+        </div>
+        <div class="card">
+          <h3>Posso cancelar quando quiser?</h3>
+          <p>Sim, planos são <b>sem fidelidade</b> e sem multas ocultas.</p>
+        </div>
+        <div class="card">
+          <h3>Qual a diferença do One-Shot?</h3>
+          <p>É uma <b>vaga avulsa</b> (até 3 meses ativa) sem assinatura mensal.</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- PROVA SOCIAL -->
 <section class="band section">
   <div class="container">
-    <h2>Validação em andamento</h2>
+    <h2>Em validação</h2>
     <p class="sub">
-      Empresas e organizações já estão testando o MatchWork com resultados iniciais promissores.
-      <br><small style="color:#7c82a6">Métrica destaque: <b>primeiro match &lt; 24h</b> em pilotos selecionados.</small>
+      O MatchWork está em testes com empresas e organizações da região
+      <b>(vagas abertas em pilotos e conversas comerciais ativas)</b>.
     </p>
     <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:18px">
       <div class="card" style="min-width:220px;text-align:center">1º match: <b>&lt; 24h</b> (pilotos)</div>
@@ -323,7 +345,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
     <p class="sub">Seja empresa, candidato ou profissional já empregado, envie sua mensagem.</p>
 
     <!-- FormSubmit: envia direto para seu e-mail -->
-    <form action="https://formsubmit.co/contato@appmatchwork.com.br" method="POST" class="form" aria-label="Formulário de contato">
+    <form action="https://formsubmit.co/contato@appmatchwork.com.br" method="POST" class="form" aria-label="Formulário de contato" onsubmit="gtag('event','form_submit')">
       <input class="input" name="nome" placeholder="Seu nome" required aria-label="Seu nome">
       <input class="input" type="email" name="email" placeholder="E-mail" required aria-label="Seu e-mail">
       <select class="input" name="perfil" required aria-label="Seu perfil">
@@ -354,12 +376,12 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 
 <!-- STICKY FOOTER CTA (mobile) -->
 <div class="sticky-cta">
-  <a class="btn ghost" href="#planos" aria-label="Ver planos">Ver planos</a>
-  <a class="btn primary" href="#contato" aria-label="Falar agora com a equipe MatchWork">Falar agora</a>
+  <a class="btn ghost" href="#planos" aria-label="Ver planos" onclick="gtag('event','cta_mobile_planos')">Ver planos</a>
+  <a class="btn primary" href="#contato" aria-label="Falar agora com a equipe MatchWork" onclick="gtag('event','cta_mobile_contato')">Falar agora</a>
 </div>
 
 <!-- WhatsApp Float -->
-<a class="whats" href="https://wa.me/5547999639417?text=Quero%20conhecer%20o%20MatchWork" aria-label="Falar no WhatsApp">
+<a class="whats" href="https://wa.me/5547999639417?text=Quero%20conhecer%20o%20MatchWork" aria-label="Falar no WhatsApp" onclick="gtag('event','whatsapp_click')">
   WhatsApp
 </a>
 
@@ -379,6 +401,7 @@ if(toggle && links){
     a.addEventListener('click', ()=>{
       links.classList.remove('open');
       toggle.setAttribute('aria-expanded','false');
+      gtag('event','nav_click', {label: a.getAttribute('href')});
     });
   });
 }
@@ -396,6 +419,17 @@ if(toggle && links){
     });
   }
 })();
+
+/* Eventos de visualização de seção (básico) */
+const onView = (id)=>{ try{ gtag('event','view_section',{section:id}); }catch(e){} };
+['o-que-faz','como-funciona','bemplus','planos','contato'].forEach(id=>{
+  const el = document.getElementById(id);
+  if(!el) return;
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ onView(id); io.disconnect(); } });
+  }, {threshold:0.5});
+  io.observe(el);
+});
 </script>
 </body>
 </html>
