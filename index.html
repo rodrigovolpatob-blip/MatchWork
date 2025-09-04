@@ -61,12 +61,6 @@ a:focus,button:focus,input:focus,select:focus,textarea:focus{outline:2px solid v
 h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin:0 0 10px}
 .lead{font-size:18px;color:var(--muted);max-width:720px;margin:0 0 20px}
 
-/* HERO NOTE */
-.hero-note{
-  margin-top:10px;font-size:13px;color:#61678b;background:#f4f2ff;
-  border:1px dashed #dcd6ff;padding:10px 12px;border-radius:10px;max-width:720px
-}
-
 /* MOCKUP (imagem final) — responsivo e proporcional */
 .mockup{
   display:flex;justify-content:center;align-items:center;
@@ -94,20 +88,13 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 .card h3{margin:0 0 6px;font-size:18px}
 .card p{margin:0;color:#464b63;font-size:15px}
 
-/* INFO BOX */
-.infobox{
-  margin-top:16px;background:#fff;border:1px solid #e6e2ff;border-left:4px solid var(--brand);
-  border-radius:12px;padding:14px;color:#3a3950
-}
-.infobox small{color:#787ea3}
-
 /* PRICING */
 .pricing{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}
 .price-card{padding:22px;border-radius:16px;border:1px solid var(--line);background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.03)}
 .price-title{display:flex;align-items:center;justify-content:space-between}
 .price{display:flex;align-items:baseline;gap:6px;margin:8px 0 6px}
 .amount{font-size:36px;font-weight:900;color:var(--brand)}
-.small{color:#787ea3;font-size:14px}
+.small{color:var(--muted);font-size:14px}
 .subprice{color:#787ea3;font-size:13px;margin:0 0 8px}
 .li{margin:6px 0;color:#3a3950;font-size:15px}
 
@@ -187,21 +174,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
         <a class="btn primary" href="#planos-empresas" aria-label="Ver planos para empresas">Sou empresa</a>
         <a class="btn ghost" href="#planos-candidato" aria-label="Ver planos para candidatos/profissionais">Sou candidato/profissional</a>
       </div>
-
-      <!-- Nota: teste gratuito limitado -->
-      <div class="hero-note">
-        <b>Teste gratuito para empresas (limitado):</b> publique 1 vaga com visibilidade básica por <b>3 dias</b> e visualize até <b>3 candidatos</b>.
-        Para <u>matching automático, destaque</u> e vaga ativa até preencher, utilize <b>One-Shot</b> ou <b>Assinatura</b>.
-        <a href="#planos-empresas" aria-label="Ver detalhes dos planos">Ver detalhes</a>.
-      </div>
-
-      <!-- Reforço WhatsApp -->
-      <div class="hero-note" style="margin-top:10px">
-        Preferir falar direto? <a href="https://wa.me/5547999639417?text=Quero%20publicar%20uma%20vaga%20no%20MatchWork" aria-label="Publicar vaga via WhatsApp"><b>Publique sua vaga agora pelo WhatsApp</b></a>.
-      </div>
     </div>
-
-    <!-- MOCKUP (imagem final) -->
     <div class="mockup">
       <img src="assets/mockup.PNG" alt="App MatchWork mostrando like/dislike">
     </div>
@@ -240,13 +213,6 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
       <div class="card"><h3>2) Matching & Evolução</h3><p>Like/dislike + recomendações automáticas + trilhas e Bem+Match para quem quer evoluir.</p></div>
       <div class="card"><h3>3) Resultados</h3><p>Empresas contratam mais rápido. Profissionais crescem e acompanham o mercado.</p></div>
     </div>
-
-    <!-- Bloco curto: Relatórios e MatchPoints -->
-    <div class="infobox" role="note" aria-label="Relatórios sociais e MatchPoints">
-      <b>Relatórios sociais & MatchPoints:</b> o MatchWork gera indicadores de inclusão (mulheres, jovens, PCDs, recortes por região) para empresas e governos.
-      Para candidatos, os <b>MatchPoints</b> recompensam ações (completar perfil, aplicar, concluir trilhas) e desbloqueiam benefícios no app.
-      <br><small>Relatórios e pontos são automáticos e simples — sem fricção para você.</small>
-    </div>
   </div>
 </section>
 
@@ -282,7 +248,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
       <div id="planos-empresas" class="price-card">
         <div class="price-title"><h3 style="margin:0">Empresas — Assinatura</h3></div>
         <div class="price"><span class="amount">R$150</span><span class="small">/mês</span></div>
-        <p class="subprice">ou <b>R$1.500/ano</b> (ganhe 2 meses)</p>
+        <p class="subprice">ou <b>R$1.500/ano</b> (ganhe 2 meses grátis)</p>
 
         <div class="li"><b>Publicações ilimitadas</b> — abra e feche quantas vagas precisar</div>
         <div class="li"><b>Matches qualificados</b> — indicações automáticas por compatibilidade</div>
@@ -296,7 +262,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
         </div>
 
         <div style="margin-top:10px;color:#787ea3;font-size:13px">
-          <b>Ideal para:</b> fluxo contínuo de vagas e banco de talentos sempre ativo.
+          <b>Ideal para:</b> empresas que abrem vagas com frequência e querem acesso contínuo ao banco de talentos.
         </div>
       </div>
 
@@ -304,7 +270,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
       <div id="planos-candidato" class="price-card">
         <div class="price-title"><h3 style="margin:0">Candidatos & Profissionais — Premium</h3></div>
         <div class="price"><span class="amount">R$14,90</span><span class="small">/mês</span></div>
-        <p class="subprice">ou <b>R$149/ano</b> (2 meses de bônus)</p>
+        <p class="subprice">ou <b>R$149/ano</b> (2 meses grátis)</p>
 
         <div class="li"><b>Destaque nas buscas</b> — apareça antes para as empresas</div>
         <div class="li"><b>Relatório de carreira</b> — pontos fortes e recomendações</div>
@@ -322,7 +288,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 
       <!-- One-Shot -->
       <div class="price-card" style="grid-column:1/-1">
-        <div class="price-title"><h3 style="margin:0)">Empresas — One-Shot (vaga única)</h3></div>
+        <div class="price-title"><h3 style="margin:0">Empresas — One-Shot (vaga única)</h3></div>
         <div class="price"><span class="amount">R$400</span><span class="small">/vaga</span></div>
         <p class="subprice">
           Vaga ativa <b>até preencher</b> (máx. 3 meses) • indicações automáticas de compatíveis • <b>sem multa de cancelamento</b>
@@ -337,10 +303,10 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 <!-- PROVA SOCIAL -->
 <section class="band section">
   <div class="container">
-    <h2>Em validação</h2>
+    <h2>Validação em andamento</h2>
     <p class="sub">
-      O MatchWork está em testes com empresas e organizações da região
-      <b>(vagas abertas em pilotos e conversas comerciais ativas)</b>.
+      Empresas e organizações já estão testando o MatchWork com resultados iniciais promissores.
+      <br><small style="color:#7c82a6">Métrica destaque: <b>primeiro match &lt; 24h</b> em pilotos selecionados.</small>
     </p>
     <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:18px">
       <div class="card" style="min-width:220px;text-align:center">1º match: <b>&lt; 24h</b> (pilotos)</div>
