@@ -61,7 +61,7 @@ a:focus,button:focus,input:focus,select:focus,textarea:focus{outline:2px solid v
 h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin:0 0 10px}
 .lead{font-size:18px;color:var(--muted);max-width:720px;margin:0 0 20px}
 
-/* MOCKUP (imagem final) — responsivo e proporcional */
+/* MOCKUP */
 .mockup{display:flex;justify-content:center;align-items:center;margin-top:12px}
 .mockup img{
   width: min(34vw, 400px);
@@ -86,7 +86,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 .card p{margin:0;color:#464b63;font-size:15px}
 
 /* PRICING */
-.pricing{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
 .price-card{padding:22px;border-radius:16px;border:1px solid var(--line);background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.03)}
 .price-title{display:flex;align-items:center;justify-content:space-between}
 .price{display:flex;align-items:baseline;gap:6px;margin:8px 0 6px}
@@ -94,6 +94,9 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 .small{color:var(--muted);font-size:14px}
 .subprice{color:#787ea3;font-size:13px;margin:0 0 8px}
 .li{margin:6px 0;color:#3a3950;font-size:15px}
+
+/* PLAN NOTE */
+.plan-note{background:#f5f3ff;border:1px dashed #cabfff;color:#2c2466;padding:12px 14px;border-radius:12px;text-align:center;margin-top:10px;font-size:14px}
 
 /* FORM */
 .form{max-width:640px;margin:16px auto 0;display:grid;gap:10px}
@@ -166,14 +169,14 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
         e acompanhar tendências de <b>salários e cargos</b>.
       </p>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <a class="btn primary" href="#planos-empresas" aria-label="Ver planos para empresas">Sou empresa</a>
-        <a class="btn ghost" href="#planos-candidato" aria-label="Ver planos para candidatos/profissionais">Sou candidato/profissional</a>
+        <a class="btn primary" href="#planos-empresas" aria-label="Ver planos para empresas" onclick="gtag('event','cta_click',{label:'empresas_hero'});">Sou empresa</a>
+        <a class="btn ghost" href="#planos-candidato" aria-label="Ver planos para candidatos/profissionais" onclick="gtag('event','cta_click',{label:'candidatos_hero'});">Sou candidato/profissional</a>
       </div>
     </div>
 
     <!-- MOCKUP -->
     <div class="mockup">
-      <img src="assets/mockup.PNG" alt="App MatchWork mostrando like/dislike" width="400" height="820">
+      <img src="assets/mockup.PNG" alt="App MatchWork mostrando like/dislike">
     </div>
   </div>
 </header>
@@ -229,7 +232,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
       </div>
     </div>
     <p class="sub" style="margin-top:8px">
-      Engajamento no Bem+Match sinaliza <b>prontidão e compromisso</b> — reduz no-show e acelera ramp-up.
+      Engajamento no Bem+Match sinaliza <b>prontidão e comprometimento</b> — reduz tempo de contratação e melhora adaptação.
     </p>
   </div>
 </section>
@@ -238,7 +241,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 <section id="gamificacao" class="section">
   <div class="container">
     <h2>Gamificação (MatchPoints)</h2>
-    <p class="sub">Pontos simples para incentivar evolução contínua e sinalizar engajamento para as empresas.</p>
+    <p class="sub">Pontos simples para incentivar evolução contínua dos candidatos e sinalizar engajamento para as empresas.</p>
     <div class="grid-2">
       <div class="card">
         <h3>Como ganhar</h3>
@@ -268,59 +271,44 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
     <h2>Planos focados em preencher vagas e evoluir carreiras</h2>
     <p class="sub">Escolha o formato ideal. Sem burocracia, sem multa escondida.</p>
 
-    <!-- COMPARATIVO — GRATUITO x ONE-SHOT x ASSINATURA -->
-    <div class="card" style="margin-top:16px;padding:0;overflow:auto">
-      <table style="width:100%;border-collapse:collapse;font-size:14px">
-        <thead>
-          <tr style="background:#f6f4ff">
-            <th style="text-align:left;padding:12px 14px"> </th>
-            <th style="text-align:left;padding:12px 14px;color:#6f3aff">Gratuito (Degustação)</th>
-            <th style="text-align:left;padding:12px 14px;color:#6f3aff">One-Shot (vaga única)</th>
-            <th style="text-align:left;padding:12px 14px;color:#6f3aff">Assinatura (empresas)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding:10px 14px">Duração</td>
-            <td style="padding:10px 14px">1 vaga por <b>7 dias</b></td>
-            <td style="padding:10px 14px">Até preencher (máx. 3 meses)</td>
-            <td style="padding:10px 14px">Contínuo</td>
-          </tr>
-          <tr>
-            <td style="padding:10px 14px">Acesso a candidatos</td>
-            <td style="padding:10px 14px">Ver até <b>5</b> compatíveis (contato parcial)</td>
-            <td style="padding:10px 14px">Indicações ilimitadas (contato completo)</td>
-            <td style="padding:10px 14px">Banco + matches contínuos</td>
-          </tr>
-          <tr>
-            <td style="padding:10px 14px">Relatórios</td>
-            <td style="padding:10px 14px">—</td>
-            <td style="padding:10px 14px">Resumo da vaga</td>
-            <td style="padding:10px 14px">Funil simples</td>
-          </tr>
-          <tr>
-            <td style="padding:10px 14px">Para quem é</td>
-            <td style="padding:10px 14px"><b>Testar</b> sem risco</td>
-            <td style="padding:10px 14px">Preencher <b>1 vaga</b> rápido</td>
-            <td style="padding:10px 14px">Vagas <b>recorrentes</b></td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Nota para deixar CLARO que o gratuito não invalida One-Shot -->
+    <div class="plan-note">
+      <b>Plano Gratuito para Empresas (degustação):</b> 1 vaga por 7 dias, até 5 perfis com contato parcial e sem banco de talentos.
+      <br>Indicado para conhecer o fluxo. Para <b>preencher</b> uma vaga com contato completo e indicações sem limite, use o <b>One-Shot</b>.
     </div>
-    <p class="sub" style="margin-top:10px">
-      Gratuito valida o fluxo. Para fechar uma vaga completa, use <b>One-Shot</b>. Para várias vagas ao longo do tempo, <b>Assinatura</b>.
-    </p>
 
-    <div class="pricing">
+    <div class="pricing" id="planos-empresas">
+      <!-- Empresas — Gratuito -->
+      <div class="price-card" style="border-style:dashed">
+        <div class="price-title"><h3 style="margin:0">Empresas — Gratuito (7 dias)</h3></div>
+        <div class="price"><span class="amount">R$0</span><span class="small">/teste</span></div>
+        <p class="subprice">1 vaga ativa por 7 dias • até 5 perfis sugeridos • contato parcial</p>
+        <div class="li">Publicação rápida (1 vaga)</div>
+        <div class="li">Matching básico</div>
+        <div class="li">Sem banco de talentos • Sem relatórios</div>
+        <a class="btn ghost" href="#contato" aria-label="Ativar plano gratuito">Ativar gratuito</a>
+      </div>
+
+      <!-- Empresas — One-Shot -->
+      <div class="price-card">
+        <div class="price-title"><h3 style="margin:0">Empresas — One-Shot (vaga única)</h3></div>
+        <div class="price"><span class="amount">R$400</span><span class="small">/vaga</span></div>
+        <p class="subprice">Vaga ativa <b>até preencher</b> (máx. 3 meses) • contato completo • indicações sem limite</p>
+        <div class="li"><b>Indicado para fechar</b> uma posição específica</div>
+        <div class="li">Recomendações por compatibilidade</div>
+        <div class="li">Sem multa de cancelamento</div>
+        <a class="btn primary" href="#contato" aria-label="Publicar vaga única One-Shot" style="margin-top:10px">Publicar vaga única</a>
+      </div>
+
       <!-- Empresas — Assinatura -->
-      <div id="planos-empresas" class="price-card">
+      <div class="price-card">
         <div class="price-title"><h3 style="margin:0">Empresas — Assinatura</h3></div>
         <div class="price"><span class="amount">R$150</span><span class="small">/mês</span></div>
         <p class="subprice">ou <b>R$1.500/ano</b> (ganhe 2 meses)</p>
-        <div class="li"><b>Publicações ilimitadas</b> — abra e feche quantas vagas precisar</div>
-        <div class="li"><b>Matches qualificados</b> — indicações automáticas por compatibilidade</div>
-        <div class="li"><b>Banco de Talentos</b> — busque e convide perfis prontos</div>
-        <div class="li"><b>Relatórios</b> — funil simples (visualizações, candidatos, entrevistas)</div>
+        <div class="li"><b>Publicações ilimitadas</b></div>
+        <div class="li"><b>Banco de Talentos</b> + convites</div>
+        <div class="li"><b>Matches qualificados</b> automáticos</div>
+        <div class="li">Relatórios básicos do funil</div>
         <div class="li">Suporte por e-mail/WhatsApp</div>
         <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
           <a class="btn primary" href="#contato" aria-label="Assinar plano mensal para empresas">Assinar mensal</a>
@@ -330,9 +318,11 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
           <b>Ideal para:</b> fluxo contínuo de vagas e banco de talentos sempre ativo.
         </div>
       </div>
+    </div>
 
-      <!-- Candidatos/Profissionais -->
-      <div id="planos-candidato" class="price-card">
+    <!-- Candidatos/Profissionais -->
+    <div class="pricing" id="planos-candidato" style="margin-top:18px">
+      <div class="price-card" style="grid-column:1/-1">
         <div class="price-title"><h3 style="margin:0">Candidatos & Profissionais — Premium</h3></div>
         <div class="price"><span class="amount">R$14,90</span><span class="small">/mês</span></div>
         <p class="subprice">ou <b>R$149/ano</b> (2 meses de bônus)</p>
@@ -343,22 +333,10 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
           <a class="btn primary" href="#contato" aria-label="Assinar plano mensal candidato">Assinar mensal</a>
           <a class="btn ghost" href="#contato" aria-label="Assinar plano anual candidato">Assinar anual</a>
         </div>
-        <!-- Clareza do gratuito x Premium (não conflita com One-Shot) -->
-        <div style="margin-top:12px;color:#787ea3;font-size:13px">
-          <b>Conta gratuita:</b> cadastro, testes vocacionais, acesso a vagas e Bem+Match básico.<br>
-          <b>Premium:</b> destaque, relatório de carreira e trilhas completas.
+        <div style="margin-top:10px;color:#787ea3;font-size:13px">
+          <b>Conta gratuita inclui:</b> cadastro, testes vocacionais, acesso a vagas e Bem+Match básico.<br>
+          <b>Conta Premium:</b> destaque, relatórios e trilhas completas.
         </div>
-      </div>
-
-      <!-- One-Shot -->
-      <div class="price-card" style="grid-column:1/-1">
-        <div class="price-title"><h3 style="margin:0">Empresas — One-Shot (vaga única)</h3></div>
-        <div class="price"><span class="amount">R$400</span><span class="small">/vaga</span></div>
-        <p class="subprice">
-          Vaga ativa <b>até preencher</b> (máx. 3 meses) • indicações automáticas de compatíveis • <b>sem multa de cancelamento</b>
-        </p>
-        <div class="li"><b>Use quando:</b> precisa testar o fluxo ou preencher uma única posição com agilidade</div>
-        <a class="btn primary" href="#contato" aria-label="Publicar vaga única One-Shot" style="margin-top:10px">Publicar vaga única</a>
       </div>
     </div>
   </div>
