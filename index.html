@@ -61,7 +61,7 @@ a:focus,button:focus,input:focus,select:focus,textarea:focus{outline:2px solid v
 h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin:0 0 10px}
 .lead{font-size:18px;color:var(--muted);max-width:720px;margin:0 0 20px}
 
-/* MOCKUP */
+/* MOCKUP (imagem final) — responsivo e proporcional */
 .mockup{display:flex;justify-content:center;align-items:center;margin-top:12px}
 .mockup img{
   width: min(34vw, 400px);
@@ -98,20 +98,18 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 /* PLAN NOTE */
 .plan-note{background:#f5f3ff;border:1px dashed #cabfff;color:#2c2466;padding:12px 14px;border-radius:12px;text-align:center;margin-top:10px;font-size:14px}
 
-/* COMPARISON TABLE */
-.compare-wrap{margin-top:18px}
-.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;background:#fff}
-.compare{width:100%;border-collapse:collapse;min-width:760px}
-.compare th,.compare td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;font-size:14px}
-.compare thead th{background:#f6f4ff;color:#271c66;font-weight:800;position:sticky;top:0}
-.compare tbody tr:hover td{background:#faf9ff}
-.compare .col-plan{font-weight:800;color:#1a1842}
-.badge-pop{display:inline-block;background:#efe9ff;border:1px solid #d9ccff;color:#2b1e6b;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:800;margin-left:6px}
-
 /* FORM */
 .form{max-width:640px;margin:16px auto 0;display:grid;gap:10px}
 .input{padding:12px;border:1px solid var(--line);border-radius:10px;font-size:16px;background:#fff}
 .input::placeholder{color:#8a8a8a}
+
+/* TABLE (comparativos) — CSS mínimo */
+.table-scroll{overflow:auto;-webkit-overflow-scrolling:touch}
+.compare{width:100%;border-collapse:collapse;min-width:720px}
+.compare th,.compare td{border:1px solid var(--line);padding:12px;font-size:14px;vertical-align:top}
+.compare thead th{background:#f5f3ff;color:#2c2466;text-align:left}
+.compare tbody tr:nth-child(even){background:#fafaff}
+.col-plan{font-weight:600;color:#1a1d33}
 
 /* STICKY CTA (mobile) */
 .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;border-top:1px solid var(--line);padding:10px 16px;display:none;gap:10px}
@@ -281,7 +279,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
     <h2>Planos focados em preencher vagas e evoluir carreiras</h2>
     <p class="sub">Escolha o formato ideal. Sem burocracia, sem multa escondida.</p>
 
-    <!-- Nota: gratuito não invalida One-Shot -->
+    <!-- Nota para deixar CLARO que o gratuito não invalida One-Shot -->
     <div class="plan-note">
       <b>Plano Gratuito para Empresas (degustação):</b> 1 vaga por 7 dias, até 5 perfis com contato parcial e sem banco de talentos.
       <br>Indicado para conhecer o fluxo. Para <b>preencher</b> uma vaga com contato completo e indicações sem limite, use o <b>One-Shot</b>.
@@ -333,7 +331,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
     <!-- Candidatos/Profissionais -->
     <div class="pricing" id="planos-candidato" style="margin-top:18px">
       <div class="price-card" style="grid-column:1/-1">
-        <div class="price-title"><h3 style="margin:0">Candidatos & Profissionais — Premium <span class="badge-pop">Mais escolhido</span></h3></div>
+        <div class="price-title"><h3 style="margin:0">Candidatos & Profissionais — Premium</h3></div>
         <div class="price"><span class="amount">R$14,90</span><span class="small">/mês</span></div>
         <p class="subprice">ou <b>R$149/ano</b> (2 meses de bônus)</p>
         <div class="li"><b>Destaque nas buscas</b> — apareça antes para as empresas</div>
@@ -350,80 +348,72 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
       </div>
     </div>
 
-    <!-- TABELA COMPARATIVA (NOVA) -->
-    <div class="compare-wrap" id="comparar">
-      <h3 style="text-align:center;margin:18px 0 10px;color:#1a1d33">Compare planos para empresas</h3>
-      <p class="sub" style="margin-top:0">Veja rapidamente o que cada plano libera. No mobile, arraste para o lado ⇢</p>
-      <div class="table-scroll" role="region" aria-label="Tabela comparativa de planos">
+    <!-- TABELA COMPARATIVA — CANDIDATOS / PROFISSIONAIS -->
+    <div class="compare-wrap" id="comparar-candidatos" style="margin-top:18px">
+      <h3 style="text-align:center;margin:18px 0 10px;color:#1a1d33">
+        Compare planos para candidatos & profissionais
+      </h3>
+      <p class="sub" style="margin-top:0">No mobile, arraste para o lado ⇢</p>
+      <div class="table-scroll" role="region" aria-label="Tabela comparativa de planos para candidatos">
         <table class="compare">
           <thead>
             <tr>
               <th>Recursos</th>
-              <th>Gratuito (7 dias)</th>
-              <th>One-Shot (vaga única)</th>
-              <th>Assinatura</th>
+              <th>Gratuito</th>
+              <th>Premium</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="col-plan">Duração</td>
-              <td>7 dias</td>
-              <td>Até preencher (máx. 3 meses)</td>
-              <td>Mensal / Anual</td>
-            </tr>
-            <tr>
-              <td class="col-plan">Vagas incluídas</td>
-              <td>1 vaga</td>
-              <td>1 vaga</td>
-              <td>Ilimitadas</td>
-            </tr>
-            <tr>
-              <td class="col-plan">Matching e indicações</td>
-              <td>Básico (até 5 perfis)</td>
-              <td>Completo e sem limite</td>
-              <td>Completo e automático</td>
-            </tr>
-            <tr>
-              <td class="col-plan">Contato dos candidatos</td>
-              <td>Parcial</td>
-              <td>Completo</td>
-              <td>Completo</td>
-            </tr>
-            <tr>
-              <td class="col-plan">Banco de Talentos</td>
-              <td>—</td>
-              <td>—</td>
+              <td class="col-plan">Acesso a vagas</td>
               <td>Incluso</td>
+              <td>Incluso + prioridade</td>
             </tr>
             <tr>
-              <td class="col-plan">Relatórios</td>
+              <td class="col-plan">Destaque nas buscas</td>
               <td>—</td>
-              <td>Básico da vaga</td>
-              <td>Básico do funil</td>
+              <td>Sim (topo da lista)</td>
             </tr>
             <tr>
-              <td class="col-plan">Indicado para</td>
-              <td>Testar o fluxo</td>
-              <td>Fechar 1 posição</td>
-              <td>Recrutar continuamente</td>
+              <td class="col-plan">Relatório de carreira</td>
+              <td>—</td>
+              <td>Completo (pontos fortes & recomendações)</td>
+            </tr>
+            <tr>
+              <td class="col-plan">Trilhas de capacitação</td>
+              <td>Básicas</td>
+              <td>Completas + microcertificações</td>
+            </tr>
+            <tr>
+              <td class="col-plan">Bem+Match (bem-estar)</td>
+              <td>Básico</td>
+              <td>Expandido (mais conteúdos & grupos)</td>
+            </tr>
+            <tr>
+              <td class="col-plan">MatchPoints (gamificação)</td>
+              <td>Acúmulo limitado</td>
+              <td>Acúmulo + resgates ampliados</td>
+            </tr>
+            <tr>
+              <td class="col-plan">Suporte</td>
+              <td>Base de ajuda</td>
+              <td>Prioritário</td>
             </tr>
             <tr>
               <td class="col-plan">Preço</td>
               <td>R$ 0</td>
-              <td>R$ 400 / vaga</td>
-              <td>R$ 150 / mês <small>ou</small> R$ 1.500 / ano</td>
+              <td>R$ 14,90/mês <small>ou</small> R$ 149/ano</td>
             </tr>
             <tr>
               <td></td>
-              <td><a class="btn ghost" href="#contato">Ativar gratuito</a></td>
-              <td><a class="btn primary" href="#contato">Publicar One-Shot</a></td>
-              <td><a class="btn primary" href="#contato">Assinar</a></td>
+              <td><a class="btn ghost" href="#contato">Criar conta</a></td>
+              <td><a class="btn primary" href="#contato">Ser Premium</a></td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <!-- /TABELA -->
+
   </div>
 </section>
 
