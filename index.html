@@ -28,6 +28,7 @@
 :root{
   --bg:#fff; --ink:#121426; --muted:#646b86; --line:#e9e9f2;
   --brand:#6f3aff; --brand-2:#8a67ff; --paper:#f8f7ff;
+  --accent:#efe9ff; --accent-strong:#e8e0ff;
   --logoH: clamp(56px, 7.2vw, 80px);
 }
 *{box-sizing:border-box}
@@ -78,38 +79,50 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 .section h2{text-align:center;color:#1a1d33;font-size:clamp(22px,3.5vw,34px);letter-spacing:-.3px;margin:0 0 10px}
 .section p.sub{color:var(--muted);text-align:center;margin:0 auto 12px;max-width:760px}
 
-/* GRIDS & CARDS */
+/* SIMPLE CARDS (features) */
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:16px}
 .card{padding:18px;border-radius:14px;border:1px solid var(--line);background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.03)}
 .card h3{margin:0 0 6px;font-size:18px}
 .card p{margin:0;color:#464b63;font-size:15px}
 
-/* PRICING (cards) */
-.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
-.price-card{padding:22px;border-radius:16px;border:1px solid var(--line);background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.03)}
-.price-title{display:flex;align-items:center;justify-content:space-between}
-.price{display:flex;align-items:baseline;gap:6px;margin:8px 0 6px}
-.amount{font-size:36px;font-weight:900;color:var(--brand)}
-.small{color:var(--muted);font-size:14px}
-.subprice{color:#787ea3;font-size:13px;margin:0 0 8px}
-.li{margin:6px 0;color:#3a3950;font-size:15px}
-
 /* PLAN NOTE */
 .plan-note{background:#f5f3ff;border:1px dashed #cabfff;color:#2c2466;padding:12px 14px;border-radius:12px;text-align:center;margin-top:10px;font-size:14px}
 
-/* FORM */
-.form{max-width:640px;margin:16px auto 0;display:grid;gap:10px}
-.input{padding:12px;border:1px solid var(--line);border-radius:10px;font-size:16px;background:#fff}
-.input::placeholder{color:#8a8a8a}
-
 /* TABLE (comparativos) */
+.table-box{
+  background:var(--accent);
+  border:1px solid var(--accent-strong);
+  border-radius:16px;
+  padding:14px;
+  margin-top:16px;
+  box-shadow:0 6px 20px rgba(31,35,62,.06) inset;
+}
+.table-box h3{margin:4px 0 12px;text-align:center;color:#221b62}
 .table-scroll{overflow:auto;-webkit-overflow-scrolling:touch}
-.compare{width:100%;border-collapse:collapse;min-width:720px}
-.compare th,.compare td{border:1px solid var(--line);padding:12px;font-size:14px;vertical-align:top}
-.compare thead th{background:#f5f3ff;color:#2c2466;text-align:left}
+.compare{width:100%;border-collapse:separate;border-spacing:0;min-width:760px;background:#fff;border-radius:12px;overflow:hidden}
+.compare th,.compare td{border-bottom:1px solid var(--line);padding:12px 14px;font-size:14px;vertical-align:top}
+.compare thead th{
+  background:#f1ecff;color:#2c2466;text-align:left;border-bottom:1px solid var(--accent-strong);
+  position:sticky;top:0;z-index:1;
+}
 .compare tbody tr:nth-child(even){background:#fafaff}
-.col-plan{font-weight:600;color:#1a1d33}
+.col-plan{font-weight:700;color:#1a1d33}
+.head-plan{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:#efe7ff;border:1px solid #d9ccff;font-weight:800;font-size:11px;color:#3b2db3}
+.price-big{display:block;font-weight:900;font-size:20px;color:var(--brand);margin-top:4px}
+.small{color:#7278a3;font-size:12px}
+
+/* Destaque na coluna 3 (One-Shot) */
+.compare.highlight-col-3 thead th:nth-child(3),
+.compare.highlight-col-3 tbody td:nth-child(3){
+  background:#fffdfb;
+}
+.compare.highlight-col-3 tbody tr:nth-child(even) td:nth-child(3){
+  background:#fff7ef;
+}
+.price-row td{background:#f8f5ff !important;border-top:1px solid var(--accent-strong);border-bottom:1px solid var(--accent-strong)}
+.cta-row td{background:#fbfbff}
 
 /* STICKY CTA (mobile) */
 .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;border-top:1px solid var(--line);padding:10px 16px;display:none;gap:10px}
@@ -130,7 +143,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 @media (max-width:980px){
   .hero-grid{grid-template-columns:1fr}
   .mockup img{ width: min(86vw, 330px); }
-  .grid-3,.grid-2,.pricing{grid-template-columns:1fr}
+  .grid-3,.grid-2{grid-template-columns:1fr}
   .menu-toggle{display:block}
   .nav-links{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);background:#fff;border-top:1px solid var(--line);padding:10px 20px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
   .nav-links.open{display:flex;flex-direction:column;gap:12px}
@@ -285,107 +298,39 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
       <br>Indicado para conhecer o fluxo. Para <b>preencher</b> com contato completo e indicações sem limite, use o <b>One-Shot</b>.
     </div>
 
-    <!-- CARDS EMPRESAS -->
-    <div class="pricing" id="planos-empresas">
-      <div class="price-card" style="border-style:dashed">
-        <div class="price-title"><h3 style="margin:0">Empresas — Gratuito (7 dias)</h3></div>
-        <div class="price"><span class="amount">R$0</span><span class="small">/teste</span></div>
-        <p class="subprice">1 vaga ativa por 7 dias • até 5 perfis sugeridos • contato parcial</p>
-        <div class="li">Publicação rápida (1 vaga)</div>
-        <div class="li">Matching básico</div>
-        <div class="li">Sem banco de talentos • Sem relatórios</div>
-        <a class="btn ghost" href="#contato" aria-label="Ativar plano gratuito">Ativar gratuito</a>
-      </div>
-
-      <div class="price-card">
-        <div class="price-title"><h3 style="margin:0">Empresas — One-Shot (vaga única)</h3></div>
-        <div class="price"><span class="amount">R$400</span><span class="small">/vaga</span></div>
-        <p class="subprice">Vaga ativa <b>até preencher</b> (máx. 3 meses) • contato completo • indicações sem limite</p>
-        <div class="li"><b>Indicado para fechar</b> uma posição específica</div>
-        <div class="li">Recomendações por compatibilidade</div>
-        <div class="li">Sem multa de cancelamento</div>
-        <a class="btn primary" href="#contato" aria-label="Publicar vaga única One-Shot" style="margin-top:10px">Publicar vaga única</a>
-      </div>
-
-      <div class="price-card">
-        <div class="price-title"><h3 style="margin:0">Empresas — Assinatura</h3></div>
-        <div class="price"><span class="amount">R$150</span><span class="small">/mês</span></div>
-        <p class="subprice">ou <b>R$1.500/ano</b> (ganhe 2 meses)</p>
-        <div class="li"><b>Publicações ilimitadas</b></div>
-        <div class="li"><b>Banco de Talentos</b> + convites</div>
-        <div class="li"><b>Matches qualificados</b> automáticos</div>
-        <div class="li">Relatórios básicos do funil</div>
-        <div class="li">Suporte por e-mail/WhatsApp</div>
-        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
-          <a class="btn primary" href="#contato" aria-label="Assinar plano mensal para empresas">Assinar mensal</a>
-          <a class="btn ghost" href="#contato" aria-label="Assinar plano anual para empresas">Assinar anual</a>
-        </div>
-        <div style="margin-top:10px;color:#787ea3;font-size:13px">
-          <b>Ideal para:</b> fluxo contínuo de vagas e banco de talentos sempre ativo.
-        </div>
-      </div>
-    </div>
-
-    <!-- TABELA COMPARATIVA — EMPRESAS -->
-    <div class="compare-wrap" id="comparar-empresas" style="margin-top:18px">
-      <h3 style="text-align:center;margin:18px 0 10px;color:#1a1d33">
-        Compare planos para empresas
-      </h3>
+    <!-- TABELA EMPRESAS -->
+    <div id="planos-empresas" class="table-box">
+      <h3>Compare planos para empresas</h3>
       <p class="sub" style="margin-top:0">No mobile, arraste para o lado ⇢</p>
       <div class="table-scroll" role="region" aria-label="Tabela comparativa de planos para empresas">
-        <table class="compare">
+        <table class="compare highlight-col-3">
           <thead>
             <tr>
               <th>Recursos</th>
-              <th>Gratuito (7 dias)</th>
-              <th>One-Shot</th>
-              <th>Assinatura</th>
+              <th>
+                <div class="head-plan">Gratuito (7 dias)</div>
+                <span class="price-big">R$ 0</span>
+              </th>
+              <th>
+                <div class="head-plan">One-Shot <span class="pill">Recomendado</span></div>
+                <span class="price-big">R$ 400 <span class="small">/vaga</span></span>
+              </th>
+              <th>
+                <div class="head-plan">Assinatura</div>
+                <span class="price-big">R$ 150 <span class="small">/mês</span></span>
+                <span class="small">ou R$ 1.500/ano</span>
+              </th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="col-plan">Vagas ativas</td>
-              <td>1 vaga</td>
-              <td>1 vaga</td>
-              <td>Ilimitadas</td>
-            </tr>
-            <tr>
-              <td class="col-plan">Duração</td>
-              <td>7 dias</td>
-              <td>Até preencher (máx. 3 meses)</td>
-              <td>Recorrente</td>
-            </tr>
-            <tr>
-              <td class="col-plan">Perfis & contato</td>
-              <td>Até 5 sugeridos • contato parcial</td>
-              <td>Ilimitados • contato completo</td>
-              <td>Ilimitados • contato completo</td>
-            </tr>
-            <tr>
-              <td class="col-plan">Indicações automáticas</td>
-              <td>Básicas</td>
-              <td>Sem limite</td>
-              <td>Sem limite</td>
-            </tr>
-            <tr>
-              <td class="col-plan">Banco de Talentos</td>
-              <td>—</td>
-              <td>—</td>
-              <td>Incluso (busca + convites)</td>
-            </tr>
-            <tr>
-              <td class="col-plan">Relatórios</td>
-              <td>—</td>
-              <td>—</td>
-              <td>Básicos do funil</td>
-            </tr>
-            <tr>
-              <td class="col-plan">Preço</td>
-              <td>R$ 0</td>
-              <td>R$ 400 / vaga</td>
-              <td>R$ 150 / mês <small>ou</small> R$ 1.500 / ano</td>
-            </tr>
-            <tr>
+            <tr><td class="col-plan">Vagas ativas</td><td>1 vaga</td><td>1 vaga</td><td>Ilimitadas</td></tr>
+            <tr><td class="col-plan">Duração</td><td>7 dias</td><td>Até preencher (máx. 3 meses)</td><td>Recorrente</td></tr>
+            <tr><td class="col-plan">Perfis & contato</td><td>Até 5 sugeridos • contato parcial</td><td>Ilimitados • contato completo</td><td>Ilimitados • contato completo</td></tr>
+            <tr><td class="col-plan">Indicações automáticas</td><td>Básicas</td><td>Sem limite</td><td>Sem limite</td></tr>
+            <tr><td class="col-plan">Banco de Talentos</td><td>—</td><td>—</td><td>Incluso (busca + convites)</td></tr>
+            <tr><td class="col-plan">Relatórios</td><td>—</td><td>—</td><td>Básicos do funil</td></tr>
+            <tr class="price-row"><td class="col-plan">Preço</td><td><b>R$ 0</b></td><td><b>R$ 400 / vaga</b></td><td><b>R$ 150 / mês</b> <span class="small">ou R$ 1.500/ano</span></td></tr>
+            <tr class="cta-row">
               <td></td>
               <td><a class="btn ghost" href="#contato">Ativar gratuito</a></td>
               <td><a class="btn primary" href="#contato">Publicar One-Shot</a></td>
@@ -396,83 +341,36 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
       </div>
     </div>
 
-    <!-- CARDS CANDIDATOS -->
-    <div class="pricing" id="planos-candidato" style="margin-top:18px">
-      <div class="price-card" style="grid-column:1/-1">
-        <div class="price-title"><h3 style="margin:0">Candidatos & Profissionais — Premium</h3></div>
-        <div class="price"><span class="amount">R$14,90</span><span class="small">/mês</span></div>
-        <p class="subprice">ou <b>R$149/ano</b> (2 meses de bônus)</p>
-        <div class="li"><b>Destaque nas buscas</b> — apareça antes para as empresas</div>
-        <div class="li"><b>Relatório de carreira</b> — pontos fortes e recomendações</div>
-        <div class="li"><b>Trilhas & Bem+Match</b> — evolução contínua e bem-estar</div>
-        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
-          <a class="btn primary" href="#contato" aria-label="Assinar plano mensal candidato">Assinar mensal</a>
-          <a class="btn ghost" href="#contato" aria-label="Assinar plano anual candidato">Assinar anual</a>
-        </div>
-        <div style="margin-top:10px;color:#787ea3;font-size:13px">
-          <b>Conta gratuita inclui:</b> cadastro, testes vocacionais, acesso a vagas e Bem+Match básico.<br>
-          <b>Conta Premium:</b> destaque, relatórios e trilhas completas.
-        </div>
-      </div>
-    </div>
-
-    <!-- TABELA COMPARATIVA — CANDIDATOS -->
-    <div class="compare-wrap" id="comparar-candidatos" style="margin-top:18px">
-      <h3 style="text-align:center;margin:18px 0 10px;color:#1a1d33">
-        Compare planos para candidatos & profissionais
-      </h3>
+    <!-- TABELA CANDIDATOS -->
+    <div id="planos-candidato" class="table-box">
+      <h3>Compare planos para candidatos & profissionais</h3>
       <p class="sub" style="margin-top:0">No mobile, arraste para o lado ⇢</p>
       <div class="table-scroll" role="region" aria-label="Tabela comparativa de planos para candidatos">
         <table class="compare">
           <thead>
             <tr>
               <th>Recursos</th>
-              <th>Gratuito</th>
-              <th>Premium</th>
+              <th>
+                <div class="head-plan">Gratuito</div>
+                <span class="price-big">R$ 0</span>
+              </th>
+              <th>
+                <div class="head-plan">Premium</div>
+                <span class="price-big">R$ 14,90 <span class="small">/mês</span></span>
+                <span class="small">ou R$ 149/ano</span>
+              </th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="col-plan">Acesso a vagas</td>
-              <td>Incluso</td>
-              <td>Incluso + prioridade</td>
-            </tr>
-            <tr>
-              <td class="col-plan">Destaque nas buscas</td>
-              <td>—</td>
-              <td>Sim (topo da lista)</td>
-            </tr>
-            <tr>
-              <td class="col-plan">Relatório de carreira</td>
-              <td>—</td>
-              <td>Completo (pontos fortes & recomendações)</td>
-            </tr>
-            <tr>
-              <td class="col-plan">Trilhas de capacitação</td>
-              <td>Básicas</td>
-              <td>Completas + microcertificações</td>
-            </tr>
-            <tr>
-              <td class="col-plan">Bem+Match (bem-estar)</td>
-              <td>Básico</td>
-              <td>Expandido (mais conteúdos & grupos)</td>
-            </tr>
-            <tr>
-              <td class="col-plan">MatchPoints (gamificação)</td>
-              <td>Acúmulo limitado</td>
-              <td>Acúmulo + resgates ampliados</td>
-            </tr>
-            <tr>
-              <td class="col-plan">Suporte</td>
-              <td>Base de ajuda</td>
-              <td>Prioritário</td>
-            </tr>
-            <tr>
-              <td class="col-plan">Preço</td>
-              <td>R$ 0</td>
-              <td>R$ 14,90/mês <small>ou</small> R$ 149/ano</td>
-            </tr>
-            <tr>
+            <tr><td class="col-plan">Acesso a vagas</td><td>Incluso</td><td>Incluso + prioridade</td></tr>
+            <tr><td class="col-plan">Destaque nas buscas</td><td>—</td><td>Sim (topo da lista)</td></tr>
+            <tr><td class="col-plan">Relatório de carreira</td><td>—</td><td>Completo (pontos fortes & recomendações)</td></tr>
+            <tr><td class="col-plan">Trilhas de capacitação</td><td>Básicas</td><td>Completas + microcertificações</td></tr>
+            <tr><td class="col-plan">Bem+Match (bem-estar)</td><td>Básico</td><td>Expandido (mais conteúdos & grupos)</td></tr>
+            <tr><td class="col-plan">MatchPoints (gamificação)</td><td>Acúmulo limitado</td><td>Acúmulo + resgates ampliados</td></tr>
+            <tr><td class="col-plan">Suporte</td><td>Base de ajuda</td><td>Prioritário</td></tr>
+            <tr class="price-row"><td class="col-plan">Preço</td><td><b>R$ 0</b></td><td><b>R$ 14,90 / mês</b> <span class="small">ou R$ 149/ano</span></td></tr>
+            <tr class="cta-row">
               <td></td>
               <td><a class="btn ghost" href="#contato">Criar conta</a></td>
               <td><a class="btn primary" href="#contato">Ser Premium</a></td>
