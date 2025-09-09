@@ -61,7 +61,7 @@ a:focus,button:focus,input:focus,select:focus,textarea:focus{outline:2px solid v
 h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin:0 0 10px}
 .lead{font-size:18px;color:var(--muted);max-width:720px;margin:0 0 20px}
 
-/* MOCKUP (imagem final) — responsivo e proporcional */
+/* MOCKUP */
 .mockup{display:flex;justify-content:center;align-items:center;margin-top:12px}
 .mockup img{
   width: min(34vw, 400px);
@@ -85,7 +85,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 .card h3{margin:0 0 6px;font-size:18px}
 .card p{margin:0;color:#464b63;font-size:15px}
 
-/* PRICING */
+/* PRICING (cards) */
 .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
 .price-card{padding:22px;border-radius:16px;border:1px solid var(--line);background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.03)}
 .price-title{display:flex;align-items:center;justify-content:space-between}
@@ -103,7 +103,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 .input{padding:12px;border:1px solid var(--line);border-radius:10px;font-size:16px;background:#fff}
 .input::placeholder{color:#8a8a8a}
 
-/* TABLE (comparativos) — CSS mínimo */
+/* TABLE (comparativos) */
 .table-scroll{overflow:auto;-webkit-overflow-scrolling:touch}
 .compare{width:100%;border-collapse:collapse;min-width:720px}
 .compare th,.compare td{border:1px solid var(--line);padding:12px;font-size:14px;vertical-align:top}
@@ -279,14 +279,14 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
     <h2>Planos focados em preencher vagas e evoluir carreiras</h2>
     <p class="sub">Escolha o formato ideal. Sem burocracia, sem multa escondida.</p>
 
-    <!-- Nota para deixar CLARO que o gratuito não invalida One-Shot -->
+    <!-- Nota: gratuito ≠ One-Shot -->
     <div class="plan-note">
       <b>Plano Gratuito para Empresas (degustação):</b> 1 vaga por 7 dias, até 5 perfis com contato parcial e sem banco de talentos.
-      <br>Indicado para conhecer o fluxo. Para <b>preencher</b> uma vaga com contato completo e indicações sem limite, use o <b>One-Shot</b>.
+      <br>Indicado para conhecer o fluxo. Para <b>preencher</b> com contato completo e indicações sem limite, use o <b>One-Shot</b>.
     </div>
 
+    <!-- CARDS EMPRESAS -->
     <div class="pricing" id="planos-empresas">
-      <!-- Empresas — Gratuito -->
       <div class="price-card" style="border-style:dashed">
         <div class="price-title"><h3 style="margin:0">Empresas — Gratuito (7 dias)</h3></div>
         <div class="price"><span class="amount">R$0</span><span class="small">/teste</span></div>
@@ -297,7 +297,6 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
         <a class="btn ghost" href="#contato" aria-label="Ativar plano gratuito">Ativar gratuito</a>
       </div>
 
-      <!-- Empresas — One-Shot -->
       <div class="price-card">
         <div class="price-title"><h3 style="margin:0">Empresas — One-Shot (vaga única)</h3></div>
         <div class="price"><span class="amount">R$400</span><span class="small">/vaga</span></div>
@@ -308,7 +307,6 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
         <a class="btn primary" href="#contato" aria-label="Publicar vaga única One-Shot" style="margin-top:10px">Publicar vaga única</a>
       </div>
 
-      <!-- Empresas — Assinatura -->
       <div class="price-card">
         <div class="price-title"><h3 style="margin:0">Empresas — Assinatura</h3></div>
         <div class="price"><span class="amount">R$150</span><span class="small">/mês</span></div>
@@ -328,7 +326,77 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
       </div>
     </div>
 
-    <!-- Candidatos/Profissionais -->
+    <!-- TABELA COMPARATIVA — EMPRESAS -->
+    <div class="compare-wrap" id="comparar-empresas" style="margin-top:18px">
+      <h3 style="text-align:center;margin:18px 0 10px;color:#1a1d33">
+        Compare planos para empresas
+      </h3>
+      <p class="sub" style="margin-top:0">No mobile, arraste para o lado ⇢</p>
+      <div class="table-scroll" role="region" aria-label="Tabela comparativa de planos para empresas">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th>Recursos</th>
+              <th>Gratuito (7 dias)</th>
+              <th>One-Shot</th>
+              <th>Assinatura</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-plan">Vagas ativas</td>
+              <td>1 vaga</td>
+              <td>1 vaga</td>
+              <td>Ilimitadas</td>
+            </tr>
+            <tr>
+              <td class="col-plan">Duração</td>
+              <td>7 dias</td>
+              <td>Até preencher (máx. 3 meses)</td>
+              <td>Recorrente</td>
+            </tr>
+            <tr>
+              <td class="col-plan">Perfis & contato</td>
+              <td>Até 5 sugeridos • contato parcial</td>
+              <td>Ilimitados • contato completo</td>
+              <td>Ilimitados • contato completo</td>
+            </tr>
+            <tr>
+              <td class="col-plan">Indicações automáticas</td>
+              <td>Básicas</td>
+              <td>Sem limite</td>
+              <td>Sem limite</td>
+            </tr>
+            <tr>
+              <td class="col-plan">Banco de Talentos</td>
+              <td>—</td>
+              <td>—</td>
+              <td>Incluso (busca + convites)</td>
+            </tr>
+            <tr>
+              <td class="col-plan">Relatórios</td>
+              <td>—</td>
+              <td>—</td>
+              <td>Básicos do funil</td>
+            </tr>
+            <tr>
+              <td class="col-plan">Preço</td>
+              <td>R$ 0</td>
+              <td>R$ 400 / vaga</td>
+              <td>R$ 150 / mês <small>ou</small> R$ 1.500 / ano</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><a class="btn ghost" href="#contato">Ativar gratuito</a></td>
+              <td><a class="btn primary" href="#contato">Publicar One-Shot</a></td>
+              <td><a class="btn primary" href="#contato">Assinar</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- CARDS CANDIDATOS -->
     <div class="pricing" id="planos-candidato" style="margin-top:18px">
       <div class="price-card" style="grid-column:1/-1">
         <div class="price-title"><h3 style="margin:0">Candidatos & Profissionais — Premium</h3></div>
@@ -348,7 +416,7 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
       </div>
     </div>
 
-    <!-- TABELA COMPARATIVA — CANDIDATOS / PROFISSIONAIS -->
+    <!-- TABELA COMPARATIVA — CANDIDATOS -->
     <div class="compare-wrap" id="comparar-candidatos" style="margin-top:18px">
       <h3 style="text-align:center;margin:18px 0 10px;color:#1a1d33">
         Compare planos para candidatos & profissionais
