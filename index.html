@@ -50,10 +50,10 @@ a:focus,button:focus,input:focus,select:focus,textarea:focus{outline:2px solid v
 
 /* BUTTONS */
 .btn{display:inline-block;padding:12px 18px;border-radius:12px;font-weight:700;border:2px solid var(--brand);transition:.18s;white-space:nowrap}
-.btn.primary{background:var(--brand);color:#fff}
-.btn.primary:hover{background:var(--brand-2);border-color:var(--brand-2)}
-.btn.ghost{background:#fff;color:var(--brand)}
-.btn.ghost:hover{background:#f3efff}
+.btn.primary{background:var(--brand);color:#fff;transition:all .2s ease}
+.btn.primary:hover{background:var(--brand-2);border-color:var(--brand-2);transform:translateY(-2px)}
+.btn.ghost{background:#fff;color:var(--brand);transition:all .2s ease}
+.btn.ghost:hover{background:#f3efff;transform:translateY(-2px)}
 
 /* HERO */
 .hero{padding:90px 0 50px;background:
@@ -79,45 +79,80 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 .section h2{text-align:center;color:#1a1d33;font-size:clamp(22px,3.5vw,34px);letter-spacing:-.3px;margin:0 0 10px}
 .section p.sub{color:var(--muted);text-align:center;margin:0 auto 12px;max-width:760px}
 
-/* SIMPLE CARDS */
+/* SIMPLE CARDS (features) */
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:16px}
-.card{padding:18px;border-radius:14px;border:1px solid var(--line);background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.03)}
+.card{padding:18px;border-radius:14px;border:1px solid var(--line);background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.03);transition:transform .2s}
+.card:hover{transform:translateY(-3px)}
 .card h3{margin:0 0 6px;font-size:18px}
 .card p{margin:0;color:#464b63;font-size:15px}
 
 /* PLAN NOTE */
 .plan-note{background:#f5f3ff;border:1px dashed #cabfff;color:#2c2466;padding:12px 14px;border-radius:12px;text-align:center;margin-top:10px;font-size:14px}
 
-/* TABLE */
-.table-box{background:var(--accent);border:1px solid var(--accent-strong);border-radius:16px;padding:14px;margin-top:16px;box-shadow:0 6px 20px rgba(31,35,62,.06) inset}
+/* TABLE (comparativos) */
+.table-box{
+  background:var(--accent);
+  border:1px solid var(--accent-strong);
+  border-radius:16px;
+  padding:14px;
+  margin-top:16px;
+  box-shadow:0 6px 20px rgba(31,35,62,.06) inset;
+}
 .table-box h3{margin:4px 0 12px;text-align:center;color:#221b62}
 .table-scroll{overflow:auto;-webkit-overflow-scrolling:touch}
 .compare{width:100%;border-collapse:separate;border-spacing:0;min-width:760px;background:#fff;border-radius:12px;overflow:hidden}
 .compare th,.compare td{border-bottom:1px solid var(--line);padding:12px 14px;font-size:14px;vertical-align:top}
-.compare thead th{background:#f1ecff;color:#2c2466;text-align:left;border-bottom:1px solid var(--accent-strong);position:sticky;top:0;z-index:1;}
+.compare thead th{
+  background:#f1ecff;color:#2c2466;text-align:left;border-bottom:1px solid var(--accent-strong);
+  position:sticky;top:0;z-index:1;
+}
 .compare tbody tr:nth-child(even){background:#fafaff}
 .col-plan{font-weight:700;color:#1a1d33}
+.head-plan{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:#efe7ff;border:1px solid #d9ccff;font-weight:800;font-size:11px;color:#3b2db3}
 .price-big{display:block;font-weight:900;font-size:20px;color:var(--brand);margin-top:4px}
 .small{color:#7278a3;font-size:12px}
-.pill{padding:4px 8px;border-radius:999px;background:#efe7ff;border:1px solid #d9ccff;font-weight:800;font-size:11px;color:#3b2db3}
 
-/* CTA Sticky */
+/* Destaque na coluna 3 (One-Shot) */
+.compare.highlight-col-3 thead th:nth-child(3),
+.compare.highlight-col-3 tbody td:nth-child(3){
+  background:#fffdfb;
+}
+.compare.highlight-col-3 tbody tr:nth-child(even) td:nth-child(3){
+  background:#fff7ef;
+}
+.price-row td{background:#f8f5ff !important;border-top:1px solid var(--accent-strong);border-bottom:1px solid var(--accent-strong)}
+.cta-row td{background:#fbfbff}
+
+/* STICKY CTA (mobile) */
 .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;border-top:1px solid var(--line);padding:10px 16px;display:none;gap:10px}
 .sticky-cta a{flex:1;text-align:center}
 
 /* WhatsApp Float */
 .whats{position:fixed;right:14px;bottom:96px;z-index:60;background:#25D366;color:#fff;border-radius:999px;padding:12px 16px;font-weight:800;box-shadow:0 8px 24px rgba(0,0,0,.2)}
 
+/* Toast */
+#toast{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  background:#34c759;color:#fff;padding:14px 22px;border-radius:8px;
+  font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.2);
+  display:none;z-index:999;font-size:15px;
+}
+
 /* MOBILE */
 @media (max-width:980px){
   .hero-grid{grid-template-columns:1fr}
-  .mockup img{width: min(86vw, 330px);}
+  .mockup img{ width: min(86vw, 330px); }
   .grid-3,.grid-2{grid-template-columns:1fr}
   .menu-toggle{display:block}
   .nav-links{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);background:#fff;border-top:1px solid var(--line);padding:10px 20px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
   .nav-links.open{display:flex;flex-direction:column;gap:12px}
+  .nav-links .btn.primary{width:100%;text-align:center}
   .sticky-cta{display:flex}
+  .section{ padding:64px 0; }
+  .band.section{ padding:64px 0; }
+  .lead{ margin-bottom:22px; }
 }
 </style>
 </head>
@@ -127,19 +162,19 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 <div class="topbar">
   <div class="container inner">
     <a class="brand" href="#">
-      <img src="assets/logo-purple.PNG" alt="Logo MatchWork" loading="lazy" decoding="async">
+      <img src="assets/logo-purple.PNG" alt="Logo do MatchWork" loading="lazy" decoding="async">
     </a>
     <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
         <path d="M3 6h18M3 12h18M3 18h18" stroke="#3b3b3b" stroke-width="2" stroke-linecap="round"/>
       </svg>
     </button>
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="principal">
       <a href="#o-que-faz">O que faz</a>
       <a href="#como-funciona">Como funciona</a>
       <a href="#bemplus">Bem+Match</a>
       <a href="#planos">Planos</a>
-      <a class="btn primary" href="#contato">Quero começar grátis</a>
+      <a class="btn primary" href="#contato" aria-label="Fale com a equipe MatchWork">Falar agora</a>
     </nav>
   </div>
 </div>
@@ -151,14 +186,18 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
       <h1>Contratar, evoluir e acompanhar o mercado em um só lugar.</h1>
       <p class="lead">
         O <b>MatchWork</b> conecta <b>empresas</b>, <b>candidatos em busca ativa</b> e <b>profissionais já empregados</b>.
+        Empresas publicam vagas e recebem <b>matches qualificados</b> em minutos — sem triagem infinita.
+        Profissionais podem <b>buscar oportunidades</b>, <b>se capacitar</b>, contar com <b>Bem+Match</b>, fazer <b>networking</b>
+        e acompanhar tendências de <b>salários e cargos</b>.
       </p>
+      <p class="sub" style="margin-top:-8px">✔ Sem burocracia • ✔ Cancele quando quiser • ✔ Sem multa escondida</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <a class="btn primary" href="#planos-empresas">🔎 Encontrar talentos agora</a>
-        <a class="btn ghost" href="#planos-candidato">🚀 Buscar minha vaga agora</a>
+        <a class="btn primary" href="#planos-empresas" aria-label="Ver planos para empresas">Sou empresa</a>
+        <a class="btn ghost" href="#planos-candidato" aria-label="Ver planos para candidatos/profissionais">Sou candidato/profissional</a>
       </div>
     </div>
     <div class="mockup">
-      <img src="assets/mockup.PNG" alt="App MatchWork" loading="lazy">
+      <img src="assets/mockup.PNG" alt="Mockup do app MatchWork mostrando interface de like/dislike" loading="lazy">
     </div>
   </div>
 </header>
@@ -169,9 +208,18 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
     <h2>O que o MatchWork faz</h2>
     <p class="sub">Mais que vagas: um ecossistema de empregabilidade e evolução profissional.</p>
     <div class="grid-3">
-      <div class="card"><h3>Matching rápido</h3><p>Like/dislike dos dois lados e recomendações automáticas.</p></div>
-      <div class="card"><h3>Banco de Talentos</h3><p>Perfis de candidatos e profissionais já empregados.</p></div>
-      <div class="card"><h3>Carreira em movimento</h3><p>Trilhas, conteúdos e insights + Bem+Match para bem-estar.</p></div>
+      <div class="card">
+        <h3>Matching rápido</h3>
+        <p>Like/dislike dos dois lados e recomendações automáticas por perfil e competências.</p>
+      </div>
+      <div class="card">
+        <h3>Banco de Talentos</h3>
+        <p>Perfis de quem busca vaga e de profissionais empregados abertos a evolução, networking e oportunidades.</p>
+      </div>
+      <div class="card">
+        <h3>Carreira em movimento</h3>
+        <p>Trilhas, conteúdos e insights para crescer, mesmo já empregado. Bem+Match para bem-estar e foco.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -180,11 +228,11 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 <section id="como-funciona" class="section">
   <div class="container">
     <h2>Como funciona</h2>
-    <p class="sub">Um fluxo único para empresas, candidatos e profissionais.</p>
+    <p class="sub">Um fluxo único que atende empresas, candidatos ativos e profissionais empregados.</p>
     <div class="grid-3">
-      <div class="card"><h3>1) Cadastro</h3><p>Perfis completos e vagas publicadas em minutos.</p></div>
-      <div class="card"><h3>2) Matching & Evolução</h3><p>Like/dislike + recomendações + trilhas e Bem+Match.</p></div>
-      <div class="card"><h3>3) Resultados</h3><p>Contratações mais rápidas e profissionais em evolução.</p></div>
+      <div class="card"><h3>1) Cadastro</h3><p>Candidatos/profissionais completam perfil e testes; empresas publicam vagas em minutos.</p></div>
+      <div class="card"><h3>2) Matching & Evolução</h3><p>Like/dislike + recomendações automáticas + trilhas e Bem+Match para quem quer evoluir.</p></div>
+      <div class="card"><h3>3) Resultados</h3><p>Empresas contratam mais rápido. Profissionais crescem e acompanham o mercado.</p></div>
     </div>
   </div>
 </section>
@@ -195,9 +243,18 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
     <h2>Bem+Match</h2>
     <p class="sub">Bem-estar e apoio emocional integrados à jornada profissional.</p>
     <div class="grid-2">
-      <div class="card"><h3>Para profissionais</h3><p>Conteúdos e grupos de apoio para equilíbrio emocional.</p></div>
-      <div class="card"><h3>Para empresas</h3><p>Mais engajamento e menos entrevistas improdutivas.</p></div>
+      <div class="card">
+        <h3>Para profissionais</h3>
+        <p>Conteúdos, rotinas e grupos de apoio para equilíbrio emocional, seja buscando vaga ou já empregado.</p>
+      </div>
+      <div class="card">
+        <h3>Para empresas</h3>
+        <p>Mais candidatos prontos e engajados, melhor experiência no processo e menos entrevistas improdutivas.</p>
+      </div>
     </div>
+    <p class="sub" style="margin-top:8px">
+      Engajamento no Bem+Match sinaliza <b>prontidão e comprometimento</b> — reduz tempo de contratação e melhora adaptação.
+    </p>
   </div>
 </section>
 
@@ -205,15 +262,25 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 <section id="gamificacao" class="section">
   <div class="container">
     <h2>Gamificação (MatchPoints)</h2>
-    <p class="sub">Pontos para incentivar evolução e engajamento.</p>
+    <p class="sub">Pontos simples para incentivar evolução contínua dos candidatos e sinalizar engajamento para as empresas.</p>
     <div class="grid-2">
       <div class="card">
         <h3>Como ganhar</h3>
-        <ul><li>Completar perfil</li><li>Concluir trilhas</li><li>Participar de entrevistas</li></ul>
+        <ul style="margin:0;padding-left:18px">
+          <li>Completar perfil e testes iniciais</li>
+          <li>Aplicar e comparecer a entrevistas</li>
+          <li>Concluir módulos das trilhas</li>
+          <li>Manter streaks semanais de aprendizado</li>
+          <li>Dar/receber feedbacks</li>
+        </ul>
       </div>
       <div class="card">
         <h3>Como usar</h3>
-        <ul><li>Destaque no app</li><li>Acesso a microcertificações</li><li>Benefícios no Bem+Match</li></ul>
+        <ul style="margin:0;padding-left:18px">
+          <li>Destaque no app</li>
+          <li>Acesso a conteúdos e microcertificações</li>
+          <li>Benefícios do Bem+Match</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -222,59 +289,113 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 <!-- PLANOS -->
 <section id="planos" class="section">
   <div class="container">
-    <h2>Planos para empresas e candidatos</h2>
-    <p class="sub">Escolha o formato ideal. Sem burocracia.</p>
+    <h2>Planos focados em preencher vagas e evoluir carreiras</h2>
+    <p class="sub">Escolha o formato ideal. Sem burocracia, sem multa escondida.</p>
+
     <div class="plan-note">
-      Plano gratuito de degustação disponível para empresas.
+      <b>Plano Gratuito para Empresas (degustação):</b> 1 vaga por 7 dias, até 5 perfis com contato parcial e sem banco de talentos.
+      <br>Indicado para conhecer o fluxo. Para <b>preencher</b> com contato completo e indicações sem limite, use o <b>One-Shot</b>.
     </div>
+
+    <!-- TABELA EMPRESAS -->
     <div id="planos-empresas" class="table-box">
-      <h3>Empresas</h3>
-      <div class="table-scroll">
+      <h3>Compare planos para empresas</h3>
+      <p class="sub" style="margin-top:0">No mobile, arraste para o lado ⇢</p>
+      <div class="table-scroll" role="region" aria-label="Tabela comparativa de planos para empresas">
         <table class="compare highlight-col-3">
-          <thead><tr><th>Recursos</th><th>Gratuito</th><th>One-Shot</th><th>Assinatura</th></tr></thead>
+          <thead>
+            <tr>
+              <th>Recursos</th>
+              <th>
+                <div class="head-plan">Gratuito (7 dias)</div>
+                <span class="price-big">R$ 0</span>
+              </th>
+              <th>
+                <div class="head-plan">One-Shot <span class="pill">Recomendado</span></div>
+                <span class="price-big">R$ 400 <span class="small">/vaga</span></span>
+              </th>
+              <th>
+                <div class="head-plan">Assinatura</div>
+                <span class="price-big">R$ 150 <span class="small">/mês</span></span>
+                <span class="small">ou R$ 1.500/ano</span>
+              </th>
+            </tr>
+          </thead>
           <tbody>
-            <tr><td>Vagas ativas</td><td>1 vaga</td><td>1 vaga</td><td>Ilimitadas</td></tr>
-            <tr><td>Perfis & contato</td><td>Até 5 • parcial</td><td>Ilimitados • completo</td><td>Ilimitados • completo</td></tr>
-            <tr class="price-row"><td>Preço</td><td>R$0</td><td>R$400/vaga</td><td>R$150/mês</td></tr>
+            <tr><td class="col-plan">Vagas ativas</td><td>1 vaga</td><td>1 vaga</td><td>Ilimitadas</td></tr>
+            <tr><td class="col-plan">Duração</td><td>7 dias</td><td>Até preencher (máx. 3 meses)</td><td>Recorrente</td></tr>
+            <tr><td class="col-plan">Perfis & contato</td><td>Até 5 sugeridos • contato parcial</td><td>Ilimitados • contato completo</td><td>Ilimitados • contato completo</td></tr>
+            <tr><td class="col-plan">Indicações automáticas</td><td>Básicas</td><td>Sem limite</td><td>Sem limite</td></tr>
+            <tr><td class="col-plan">Banco de Talentos</td><td>—</td><td>—</td><td>Incluso (busca + convites)</td></tr>
+            <tr><td class="col-plan">Relatórios</td><td>—</td><td>—</td><td>Básicos do funil</td></tr>
+            <tr class="price-row"><td class="col-plan">Preço</td><td><b>R$ 0</b></td><td><b>R$ 400 / vaga</b></td><td><b>R$ 150 / mês</b> <span class="small">ou R$ 1.500/ano</span></td></tr>
+            <tr class="cta-row">
+              <td></td>
+              <td><a class="btn ghost" href="#contato">Ativar gratuito</a></td>
+              <td><a class="btn primary" href="#contato">Publicar One-Shot</a></td>
+              <td><a class="btn primary" href="#contato">Assinar</a></td>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
+
+    <!-- TABELA CANDIDATOS -->
     <div id="planos-candidato" class="table-box">
-      <h3>Candidatos & Profissionais</h3>
-      <div class="table-scroll">
+      <h3>Compare planos para candidatos & profissionais</h3>
+      <p class="sub" style="margin-top:0">No mobile, arraste para o lado ⇢</p>
+      <div class="table-scroll" role="region" aria-label="Tabela comparativa de planos para candidatos">
         <table class="compare">
-          <thead><tr><th>Recursos</th><th>Gratuito</th><th>Premium</th></tr></thead>
+          <thead>
+            <tr>
+              <th>Recursos</th>
+              <th>
+                <div class="head-plan">Gratuito</div>
+                <span class="price-big">R$ 0</span>
+              </th>
+              <th>
+                <div class="head-plan">Premium</div>
+                <span class="price-big">R$ 14,90 <span class="small">/mês</span></span>
+                <span class="small">ou R$ 149/ano</span>
+              </th>
+            </tr>
+          </thead>
           <tbody>
-            <tr><td>Acesso a vagas</td><td>Incluso</td><td>+ prioridade</td></tr>
-            <tr><td>Destaque</td><td>—</td><td>Topo da lista</td></tr>
-            <tr class="price-row"><td>Preço</td><td>R$0</td><td>R$14,90/mês</td></tr>
+            <tr><td class="col-plan">Acesso a vagas</td><td>Incluso</td><td>Incluso + prioridade</td></tr>
+            <tr><td class="col-plan">Destaque nas buscas</td><td>—</td><td>Sim (topo da lista)</td></tr>
+            <tr><td class="col-plan">Relatório de carreira</td><td>—</td><td>Completo (pontos fortes & recomendações)</td></tr>
+            <tr><td class="col-plan">Trilhas de capacitação</td><td>Básicas</td><td>Completas + microcertificações</td></tr>
+            <tr><td class="col-plan">Bem+Match (bem-estar)</td><td>Básico</td><td>Expandido (mais conteúdos & grupos)</td></tr>
+            <tr><td class="col-plan">MatchPoints (gamificação)</td><td>Acúmulo limitado</td><td>Acúmulo + resgates ampliados</td></tr>
+            <tr><td class="col-plan">Suporte</td><td>Base de ajuda</td><td>Prioritário</td></tr>
+            <tr class="price-row"><td class="col-plan">Preço</td><td><b>R$ 0</b></td><td><b>R$ 14,90 / mês</b> <span class="small">ou R$ 149/ano</span></td></tr>
+            <tr class="cta-row">
+              <td></td>
+              <td><a class="btn ghost" href="#contato">Criar conta</a></td>
+              <td><a class="btn primary" href="#contato">Ser Premium</a></td>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- SEGURANÇA -->
+<!-- Segurança / LGPD -->
 <section class="section">
   <div class="container">
-    <h2>Segurança e LGPD</h2>
+    <h2>Segurança e conformidade</h2>
+    <p class="sub">O MatchWork segue as boas práticas da <b>LGPD</b> e mantém dados em ambiente seguro.</p>
     <div class="grid-2">
-      <div class="card"><h3>Para empresas</h3><p>Proteção de dados sensíveis.</p></div>
-      <div class="card"><h3>Para candidatos</h3><p>Dados usados só para matching.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="section band">
-  <div class="container">
-    <h2>Perguntas frequentes</h2>
-    <div class="grid-2">
-      <div class="card"><h3>MatchWork é gratuito?</h3><p>Sim! Planos free para empresas e candidatos.</p></div>
-      <div class="card"><h3>Posso cancelar?</h3><p>Sim, sem multas.</p></div>
-      <div class="card"><h3>Premium vale a pena?</h3><p>Mais destaque e relatórios exclusivos.</p></div>
+      <div class="card">
+        <h3>Para empresas</h3>
+        <p>Proteção de dados sensíveis, controle de acessos e conformidade com a legislação brasileira.</p>
+      </div>
+      <div class="card">
+        <h3>Para candidatos</h3>
+        <p>Seus dados são usados apenas para fins de matching e nunca compartilhados sem autorização.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -283,28 +404,84 @@ h1{font-size:clamp(28px, 6vw, 52px);line-height:1.06;letter-spacing:-.4px;margin
 <section id="contato" class="section">
   <div class="container">
     <h2 style="text-align:center">Fale com a gente</h2>
-    <form action="https://formsubmit.co/contato@appmatchwork.com.br" method="POST">
-      <input class="input" name="nome" placeholder="Seu nome" required>
-      <input class="input" type="email" name="email" placeholder="E-mail" required>
-      <textarea class="input" name="mensagem" rows="4" placeholder="Sua mensagem" required></textarea>
-      <button class="btn primary" type="submit">Enviar</button>
+    <p class="sub">Seja empresa, candidato ou profissional já empregado, envie sua mensagem.</p>
+
+    <form action="https://formsubmit.co/contato@appmatchwork.com.br" method="POST" class="form" aria-label="Formulário de contato">
+      <input class="input" name="nome" placeholder="Seu nome" required aria-label="Seu nome">
+      <input class="input" type="email" name="email" placeholder="E-mail" required aria-label="Seu e-mail">
+      <select class="input" name="perfil" required aria-label="Seu perfil">
+        <option value="" disabled selected>Sou...</option>
+        <option value="empresa">Empresa</option>
+        <option value="candidato">Candidato ativo</option>
+        <option value="profissional">Profissional já empregado</option>
+        <option value="organizacao">Organização/Parceria</option>
+      </select>
+      <textarea class="input" name="mensagem" rows="4" placeholder="Sua mensagem" required aria-label="Sua mensagem"></textarea>
+
+      <!-- FormSubmit options -->
+      <input type="hidden" name="_subject" value="Novo contato — Site MatchWork">
+      <input type="hidden" name="_template" value="box">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://appmatchwork.com.br/#contato-ok">
+      <input type="text" name="_honey" style="display:none">
+
+      <button class="btn primary" type="submit" style="width:max-content" aria-label="Enviar formulário de contato">Enviar</button>
     </form>
+    <p id="contato-ok" class="sub" style="margin-top:12px;display:none">Obrigado! Sua mensagem foi enviada.</p>
   </div>
 </section>
 
 <footer class="section" style="padding:26px 0;border-top:1px solid var(--line);color:#71779a;text-align:center">
   <div class="container">
-    © 2025 MatchWork • CNPJ 00.000.000/0001-00 • Joinville – SC • contato@appmatchwork.com.br • WhatsApp (47) 99963-9417
+    © 2025 MatchWork — Indaial, Santa Catarina — suporte@matchwork.com.br <br>
+    <a href="privacy.html">Política de Privacidade</a> • <a href="terms.html">Termos de Uso</a>
   </div>
 </footer>
 
-<!-- Sticky CTA -->
+<!-- STICKY FOOTER CTA (mobile) -->
 <div class="sticky-cta">
-  <a class="btn ghost" href="#planos">Ver planos</a>
-  <a class="btn primary" href="#contato">Quero começar grátis</a>
+  <a class="btn ghost" href="#planos" aria-label="Ver planos">Ver planos</a>
+  <a class="btn primary" href="#contato" aria-label="Falar agora com a equipe MatchWork">Falar agora</a>
 </div>
 
-<a class="whats" href="https://wa.me/5547999639417?text=Quero%20conhecer%20o%20MatchWork">WhatsApp</a>
+<!-- WhatsApp Float -->
+<a class="whats" href="https://wa.me/5547999639417?text=Quero%20conhecer%20o%20MatchWork" aria-label="Falar no WhatsApp">
+  WhatsApp
+</a>
 
+<!-- Toast -->
+<div id="toast">✅ Mensagem enviada com sucesso!</div>
+
+<script>
+/* menu mobile */
+const toggle = document.querySelector('.menu-toggle');
+const links = document.querySelector('.nav-links');
+if(toggle && links){
+  toggle.addEventListener('click', ()=>{
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click', ()=>{
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+    });
+  });
+}
+
+/* Toast simples (exibição ao enviar) */
+(function(){
+  const form = document.querySelector('form[action^="https://formsubmit.co/"]');
+  const toast = document.getElementById('toast');
+  if(form && toast){
+    form.addEventListener('submit', ()=>{
+      setTimeout(()=>{
+        toast.style.display='block';
+        setTimeout(()=>toast.style.display='none', 4000);
+      }, 800);
+    });
+  }
+})();
+</script>
 </body>
 </html>
