@@ -61,7 +61,7 @@ a{text-decoration:none;color:var(--brand)}
 .pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:30px}
 .plan{background:#fff;border:2px solid var(--line);border-radius:16px;padding:26px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,.05);position:relative}
 .plan.recommended{border-color:var(--brand)}
-.plan.recommended::before{content:"Recomendado";position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--brand);color:#fff;padding:4px 12px;border-radius:12px;font-size:13px;font-weight:600}
+.plan.recommended::before{content:"Mais popular";position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--brand);color:#fff;padding:4px 12px;border-radius:12px;font-size:13px;font-weight:600}
 .plan h3{margin:0 0 8px}
 .price{font-size:28px;font-weight:800;color:var(--brand);margin:10px 0}
 .plan ul{list-style:none;padding:0;margin:18px 0;text-align:left}
@@ -123,7 +123,70 @@ footer{padding:26px 0;text-align:center;border-top:1px solid var(--line);color:#
   </div>
 </header>
 
-<!-- RESTO DAS SEÇÕES (o que faz, como funciona, bem+match, planos, contato, footer) -->
+<!-- PLANOS -->
+<section id="planos" class="section">
+  <div class="container">
+    <h2>Planos para empresas</h2>
+    <p class="sub">Flexibilidade para cada necessidade de contratação.</p>
+    <div class="pricing">
+      <div class="plan">
+        <h3>Gratuito</h3>
+        <div class="price">R$ 0</div>
+        <ul>
+          <li>1 vaga por 7 dias</li>
+          <li>Até 5 perfis sugeridos</li>
+          <li>Contato parcial</li>
+        </ul>
+        <a class="btn primary" href="#contato">Quero testar</a>
+      </div>
+      <div class="plan recommended">
+        <h3>One-Shot</h3>
+        <div class="price">R$ 400/vaga</div>
+        <ul>
+          <li>1 vaga até ser ocupada (máx. 3 meses)</li>
+          <li>Perfis ilimitados • contato completo</li>
+          <li>Maior visibilidade</li>
+        </ul>
+        <a class="btn primary" href="#contato">Contratar</a>
+      </div>
+      <div class="plan">
+        <h3>Assinatura</h3>
+        <div class="price">R$ 150/mês</div>
+        <ul>
+          <li>Vagas ilimitadas</li>
+          <li>Perfis ilimitados • contato completo</li>
+          <li>Acesso ao Banco de Talentos</li>
+        </ul>
+        <a class="btn primary" href="#contato">Assinar</a>
+      </div>
+    </div>
+
+    <h2 style="margin-top:60px">Planos para candidatos</h2>
+    <p class="sub">Mais chances de destaque e evolução profissional.</p>
+    <div class="pricing">
+      <div class="plan">
+        <h3>Gratuito</h3>
+        <div class="price">R$ 0</div>
+        <ul>
+          <li>Acesso a todas as vagas</li>
+          <li>Participação em testes</li>
+          <li>Uso do Bem+Match</li>
+        </ul>
+        <a class="btn primary" href="#contato">Quero começar</a>
+      </div>
+      <div class="plan recommended">
+        <h3>Premium</h3>
+        <div class="price">R$ 14,90/mês</div>
+        <ul>
+          <li>Acesso prioritário a vagas</li>
+          <li>Destaque no banco de talentos</li>
+          <li>Relatório de carreira completo</li>
+        </ul>
+        <a class="btn primary" href="#contato">Assinar Premium</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer>
