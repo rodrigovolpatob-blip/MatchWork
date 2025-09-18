@@ -8,95 +8,88 @@
 <link rel="icon" href="assets/logo-purple.PNG" type="image/png">
 <meta name="theme-color" content="#6f3aff">
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-
-<!-- GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BWLCFPYQ7J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-BWLCFPYQ7J');
-</script>
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="MatchWork — Conectando talentos, empresas e carreiras">
+<meta property="og:description" content="Empresas publicam vagas e recebem matches qualificados. Profissionais evoluem com trilhas, Bem+Match, networking e visão de mercado.">
+<meta property="og:image" content="assets/logo-purple.PNG">
+<meta property="og:url" content="https://appmatchwork.com.br/">
 
 <style>
 :root{
   --brand:#6f3aff; --brand-2:#8a67ff;
-  --ink:#121426; --muted:#646b86; --line:#e9e9f2;
-  --paper:#f8f7ff; --bg:#fff;
+  --ink:#121426; --muted:#646b86;
+  --bg:#fff; --paper:#f9f8ff;
+  --line:#e8e8f2;
 }
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+h1,h2,h3{margin:0;font-weight:700}
+a{text-decoration:none;color:var(--brand)}
 
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,system-ui,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
-a{text-decoration:none;color:var(--brand);transition:.2s}
-a:hover{color:var(--brand-2)}
+.container{max-width:1180px;margin:0 auto;padding:0 20px}
 
 /* NAV */
-.topbar{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 8px rgba(0,0,0,.04)}
-.topbar .inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+.topbar{position:sticky;top:0;background:#fff;z-index:50;border-bottom:1px solid var(--line)}
+.topbar .inner{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
 .brand img{height:58px}
 .nav-links{display:flex;gap:20px;align-items:center}
 .nav-links a{font-weight:600;color:var(--ink)}
-.btn{padding:12px 20px;border-radius:12px;font-weight:700;transition:.2s;cursor:pointer}
-.btn.primary{background:var(--brand);color:#fff}
-.btn.primary:hover{background:var(--brand-2)}
-.btn.ghost{border:2px solid var(--brand);color:var(--brand);background:#fff}
-.btn.ghost:hover{background:#f7f5ff}
+.menu-toggle{display:none}
 
 /* HERO */
-.hero{padding:100px 20px;background:linear-gradient(180deg,#fafaff 0%,#fff 100%)}
-.hero-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:40px}
-.hero h1{font-size:clamp(30px,5vw,50px);line-height:1.1;margin-bottom:16px;font-weight:900}
-.hero p{font-size:18px;color:var(--muted);margin-bottom:28px}
-.hero img{width:100%;max-width:460px;border-radius:24px;box-shadow:0 12px 32px rgba(0,0,0,.12);transition:transform .3s}
-.hero img:hover{transform:translateY(-6px)}
+.hero{padding:90px 0 50px;background:linear-gradient(135deg,#f8f7ff,#fff)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(28px,5vw,48px);line-height:1.1}
+.hero p{color:var(--muted);font-size:18px;margin:16px 0 28px}
+.mockup img{max-width:100%;border-radius:20px;box-shadow:0 12px 30px rgba(0,0,0,.1)}
+
+/* BUTTONS */
+.btn{padding:12px 20px;border-radius:12px;font-weight:700;border:2px solid var(--brand);transition:.2s}
+.btn.primary{background:var(--brand);color:#fff}
+.btn.primary:hover{background:var(--brand-2);border-color:var(--brand-2)}
+.btn.ghost{color:var(--brand);background:#fff}
+.btn.ghost:hover{background:#f4f1ff}
 
 /* SECTIONS */
-.section{padding:80px 20px}
-.section h2{text-align:center;font-size:32px;margin-bottom:12px;font-weight:800;color:var(--ink)}
-.section p.sub{text-align:center;color:var(--muted);max-width:760px;margin:0 auto 40px}
+.section{padding:70px 0}
+.section h2{text-align:center;font-size:clamp(22px,3.5vw,34px);margin-bottom:10px}
+.section p.sub{text-align:center;color:var(--muted);max-width:720px;margin:0 auto 30px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{padding:22px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 3px 12px rgba(0,0,0,.03)}
+.card h3{margin-bottom:8px}
 
-/* CARDS */
-.grid-3,.grid-2{display:grid;gap:24px}
-.grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.grid-2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
-.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:0 6px 16px rgba(0,0,0,.05);transition:transform .25s,box-shadow .25s}
-.card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(0,0,0,.1)}
-.card h3{margin-bottom:8px;color:var(--brand)}
+/* PLANS */
+.pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:30px}
+.plan{background:#fff;border:2px solid var(--line);border-radius:16px;padding:26px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,.05);position:relative}
+.plan.recommended{border-color:var(--brand)}
+.plan.recommended::before{content:"Recomendado";position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--brand);color:#fff;padding:4px 12px;border-radius:12px;font-size:13px;font-weight:600}
+.plan h3{margin:0 0 8px}
+.price{font-size:28px;font-weight:800;color:var(--brand);margin:10px 0}
+.plan ul{list-style:none;padding:0;margin:18px 0;text-align:left}
+.plan ul li{margin:8px 0;display:flex;align-items:center;gap:8px;font-size:15px}
+.plan .btn{margin-top:12px;display:block}
 
-/* PLANOS */
-.plan-cards{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:32px}
-.plan{border:2px solid var(--line);border-radius:16px;padding:32px;text-align:center;background:#fff;box-shadow:0 6px 16px rgba(0,0,0,.05);transition:.25s}
-.plan:hover{border-color:var(--brand);transform:translateY(-6px)}
-.plan h3{margin-bottom:8px;font-size:20px}
-.plan .price{font-size:28px;font-weight:900;color:var(--brand);margin:14px 0}
-.plan ul{list-style:none;text-align:left;font-size:15px;color:#444;margin:20px 0;padding-left:0}
-.plan ul li{margin:6px 0}
-.plan button{margin-top:12px;width:100%}
+/* TESTIMONIALS */
+.testimonials{background:var(--paper)}
+.testimonial-card{background:#fff;padding:22px;border-radius:14px;box-shadow:0 3px 12px rgba(0,0,0,.05)}
 
 /* FORM */
-form{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
-input,select,textarea{padding:14px;border-radius:10px;border:1px solid var(--line);font-size:15px;width:100%}
-button[type=submit]{background:var(--brand);color:#fff;font-weight:700;padding:14px;border:none;border-radius:12px;cursor:pointer;transition:.2s}
+form{max-width:600px;margin:0 auto;display:grid;gap:14px}
+input,select,textarea{padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-size:15px}
+button[type=submit]{background:var(--brand);color:#fff;border:none;padding:14px;border-radius:12px;font-weight:700}
 button[type=submit]:hover{background:var(--brand-2)}
 
 /* FOOTER */
-footer{padding:40px 20px;text-align:center;color:#777;border-top:1px solid var(--line);margin-top:60px;font-size:14px}
-footer a{color:var(--brand)}
+footer{padding:26px 0;text-align:center;border-top:1px solid var(--line);color:#767b9a;font-size:14px}
 
-/* FLOAT WA */
-.whats{position:fixed;right:16px;bottom:16px;z-index:60;background:#25D366;color:#fff;border-radius:50%;padding:14px;box-shadow:0 8px 20px rgba(0,0,0,.25);font-size:22px}
-
-/* ANIMAÇÕES */
-.fade-in{opacity:0;transform:translateY(20px);animation:fadeIn .8s forwards}
-@keyframes fadeIn{to{opacity:1;transform:translateY(0)}}
-
-/* MOBILE */
-@media (max-width:900px){
-  .hero-grid{grid-template-columns:1fr;text-align:center}
-  .hero img{margin:0 auto}
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .grid-3,.grid-2{grid-template-columns:1fr}
   .nav-links{display:none}
+  .menu-toggle{display:block}
 }
 </style>
 </head>
@@ -104,12 +97,12 @@ footer a{color:var(--brand)}
 
 <!-- NAV -->
 <div class="topbar">
-  <div class="inner">
+  <div class="container inner">
     <a class="brand" href="#"><img src="assets/logo-purple.PNG" alt="MatchWork"></a>
     <nav class="nav-links">
-      <a href="#oque">O que faz</a>
-      <a href="#funciona">Como funciona</a>
-      <a href="#bem">Bem+Match</a>
+      <a href="#o-que-faz">O que faz</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#bemplus">Bem+Match</a>
       <a href="#planos">Planos</a>
       <a class="btn primary" href="#contato">Falar agora</a>
     </nav>
@@ -118,104 +111,126 @@ footer a{color:var(--brand)}
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-grid">
-    <div class="fade-in">
-      <h1>Contratar, evoluir e acompanhar o mercado em um só lugar.</h1>
-      <p>O <b>MatchWork</b> conecta <b>empresas</b>, <b>candidatos em busca ativa</b> e <b>profissionais já empregados</b>.
-      Empresas publicam vagas e recebem <b>matches qualificados</b> em minutos.
-      Profissionais evoluem com <b>capacitação</b>, <b>Bem+Match</b>, <b>networking</b> e visão de <b>carreira</b>.</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <a class="btn primary" href="#planos">Sou empresa</a>
-        <a class="btn ghost" href="#planos">Sou candidato</a>
-      </div>
+  <div class="container hero-grid">
+    <div>
+      <h1>Contratar, evoluir e crescer em um só lugar</h1>
+      <p>O <b>MatchWork</b> conecta empresas, candidatos em busca ativa e profissionais já empregados. Contratações ágeis para empresas e evolução contínua para profissionais.</p>
+      <a class="btn primary" href="#planos">Ver planos</a>
+      <a class="btn ghost" href="#contato">Sou candidato</a>
     </div>
-    <img src="assets/mockup.PNG" alt="Mockup MatchWork" class="fade-in" style="animation-delay:.3s">
+    <div class="mockup">
+      <img src="assets/mockup.PNG" alt="App MatchWork">
+    </div>
   </div>
 </header>
 
 <!-- O QUE FAZ -->
-<section id="oque" class="section fade-in">
-  <h2>O que o MatchWork faz</h2>
-  <p class="sub">Mais que vagas: um ecossistema de empregabilidade e evolução profissional.</p>
-  <div class="grid-3">
-    <div class="card"><h3>Matching rápido</h3><p>Like/dislike dos dois lados e recomendações automáticas.</p></div>
-    <div class="card"><h3>Banco de Talentos</h3><p>Perfis de candidatos ativos e profissionais empregados.</p></div>
-    <div class="card"><h3>Carreira em movimento</h3><p>Trilhas, conteúdos e Bem+Match para evolução contínua.</p></div>
+<section id="o-que-faz" class="section">
+  <div class="container">
+    <h2>O que o MatchWork faz</h2>
+    <p class="sub">Mais que vagas: um ecossistema de empregabilidade e evolução profissional.</p>
+    <div class="grid-3">
+      <div class="card"><h3>Matching rápido</h3><p>Like/dislike dos dois lados e recomendações automáticas.</p></div>
+      <div class="card"><h3>Banco de Talentos</h3><p>Perfis de candidatos ativos e profissionais empregados.</p></div>
+      <div class="card"><h3>Carreira em movimento</h3><p>Trilhas, quizzes e Bem+Match para evolução contínua.</p></div>
+    </div>
   </div>
 </section>
 
 <!-- COMO FUNCIONA -->
-<section id="funciona" class="section fade-in" style="background:var(--paper)">
-  <h2>Como funciona</h2>
-  <p class="sub">Um fluxo único que atende empresas e profissionais.</p>
-  <div class="grid-3">
-    <div class="card"><h3>1) Cadastro</h3><p>Perfil completo, testes e publicação de vagas.</p></div>
-    <div class="card"><h3>2) Matching & Evolução</h3><p>Recomendações, trilhas e Bem+Match.</p></div>
-    <div class="card"><h3>3) Resultados</h3><p>Contratações rápidas e profissionais preparados.</p></div>
+<section id="como-funciona" class="section">
+  <div class="container">
+    <h2>Como funciona</h2>
+    <p class="sub">Um fluxo único que atende empresas e profissionais.</p>
+    <div class="grid-3">
+      <div class="card"><h3>1) Cadastro</h3><p>Perfil completo, testes e publicação de vagas.</p></div>
+      <div class="card"><h3>2) Matching & Evolução</h3><p>Recomendações, trilhas e Bem+Match.</p></div>
+      <div class="card"><h3>3) Resultados</h3><p>Contratações rápidas e profissionais preparados.</p></div>
+    </div>
   </div>
 </section>
 
 <!-- BEM+MATCH -->
-<section id="bem" class="section fade-in">
-  <h2>Bem+Match</h2>
-  <p class="sub">Bem-estar e apoio emocional integrados à jornada profissional.</p>
-  <div class="grid-2">
-    <div class="card"><h3>Para profissionais</h3><p>Conteúdos e grupos de apoio para equilíbrio emocional.</p></div>
-    <div class="card"><h3>Para empresas</h3><p>Candidatos mais preparados e engajados.</p></div>
+<section id="bemplus" class="section" style="background:var(--paper)">
+  <div class="container">
+    <h2>Bem+Match</h2>
+    <p class="sub">Bem-estar e apoio emocional integrados à jornada profissional.</p>
+    <div class="grid-2">
+      <div class="card"><h3>Para profissionais</h3><p>Conteúdos e apoio para equilíbrio emocional.</p></div>
+      <div class="card"><h3>Para empresas</h3><p>Candidatos mais preparados e engajados.</p></div>
+    </div>
   </div>
 </section>
 
 <!-- PLANOS -->
-<section id="planos" class="section fade-in" style="background:var(--paper)">
-  <h2>Planos</h2>
-  <p class="sub">Escolha o formato ideal. Sem burocracia, sem multa escondida.</p>
-  <div class="plan-cards">
-    <div class="plan">
-      <h3>Gratuito</h3>
-      <div class="price">R$ 0</div>
-      <ul><li>1 vaga por 7 dias</li><li>Até 5 perfis sugeridos</li></ul>
-      <button class="btn primary">Começar grátis</button>
+<section id="planos" class="section">
+  <div class="container">
+    <h2>Planos para empresas</h2>
+    <p class="sub">Flexibilidade para contratar como precisar.</p>
+    <div class="pricing">
+      <div class="plan"><h3>Gratuito</h3><p class="price">R$ 0</p>
+        <ul><li>1 vaga por 7 dias</li><li>Até 5 perfis sugeridos</li><li>Suporte básico</li></ul>
+        <a href="#contato" class="btn ghost">Começar grátis</a>
+      </div>
+      <div class="plan recommended"><h3>One-Shot</h3><p class="price">R$ 400 / vaga</p>
+        <ul><li>1 vaga ativa até preenchimento</li><li>Acesso ilimitado a candidatos</li><li>Contato direto</li></ul>
+        <a href="#contato" class="btn primary">Contratar agora</a>
+      </div>
+      <div class="plan"><h3>Assinatura</h3><p class="price">R$ 150/mês</p>
+        <ul><li>Vagas ilimitadas</li><li>Banco de Talentos incluso</li><li>Suporte premium</li></ul>
+        <a href="#contato" class="btn ghost">Assinar</a>
+      </div>
     </div>
-    <div class="plan">
-      <h3>One-Shot</h3>
-      <div class="price">R$ 400 / vaga</div>
-      <ul><li>1 vaga ativa</li><li>Perfis ilimitados</li><li>Contato direto</li></ul>
-      <button class="btn primary">Contratar</button>
-    </div>
-    <div class="plan">
-      <h3>Assinatura</h3>
-      <div class="price">R$ 150/mês</div>
-      <ul><li>Vagas ilimitadas</li><li>Banco de Talentos</li><li>Perfis completos</li></ul>
-      <button class="btn primary">Assinar</button>
+
+    <h2 style="margin-top:60px">Planos para candidatos</h2>
+    <div class="pricing">
+      <div class="plan"><h3>Gratuito</h3><p class="price">R$ 0</p>
+        <ul><li>Acesso a vagas</li><li>Testes básicos</li><li>Capacitação inicial</li></ul>
+        <a href="#contato" class="btn ghost">Começar grátis</a>
+      </div>
+      <div class="plan recommended"><h3>Premium</h3><p class="price">R$ 14,90/mês</p>
+        <ul><li>Destaque no app</li><li>Relatório de carreira completo</li><li>Acesso prioritário</li></ul>
+        <a href="#contato" class="btn primary">Assinar Premium</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FORM -->
-<section id="contato" class="section fade-in">
-  <h2 style="text-align:center">Fale com a gente</h2>
-  <form action="https://formsubmit.co/contato@appmatchwork.com.br" method="POST">
-    <input name="nome" placeholder="Seu nome" required>
-    <input type="email" name="email" placeholder="E-mail" required>
-    <select name="perfil" required>
-      <option value="" disabled selected>Sou...</option>
-      <option value="empresa">Empresa</option>
-      <option value="candidato">Candidato</option>
-      <option value="profissional">Profissional empregado</option>
-    </select>
-    <textarea name="mensagem" rows="4" placeholder="Sua mensagem" required></textarea>
-    <button type="submit">Enviar</button>
-  </form>
+<!-- TESTIMONIALS -->
+<section class="section testimonials">
+  <div class="container">
+    <h2>Quem já testou aprova</h2>
+    <p class="sub">Feedback de empresas e profissionais</p>
+    <div class="grid-2">
+      <div class="testimonial-card"><p>"Conseguimos contratar rápido e sem burocracia. A qualidade dos candidatos surpreendeu."</p><b>— Supermercado Campestrini</b></div>
+      <div class="testimonial-card"><p>"O app me ajudou a encontrar vagas e ainda trouxe conteúdos para meu bem-estar e carreira."</p><b>— Usuário Beta</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" class="section">
+  <div class="container">
+    <h2 style="text-align:center">Fale com a gente</h2>
+    <form action="https://formsubmit.co/contato@appmatchwork.com.br" method="POST">
+      <input type="text" name="nome" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <select name="perfil" required>
+        <option value="">Sou...</option>
+        <option value="empresa">Empresa</option>
+        <option value="candidato">Candidato</option>
+        <option value="profissional">Profissional empregado</option>
+      </select>
+      <textarea name="mensagem" rows="4" placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar mensagem</button>
+    </form>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  © 2025 MatchWork — Indaial/SC • 
-  <a href="terms.html">Termos</a> • <a href="privacy.html">Privacidade</a>
+  © 2025 MatchWork — Indaial/SC • <a href="terms.html">Termos</a> • <a href="privacy.html">Privacidade</a>
 </footer>
-
-<!-- WHATS -->
-<a class="whats" href="https://wa.me/5547999639417?text=Quero%20conhecer%20o%20MatchWork">💬</a>
 
 </body>
 </html>
