@@ -315,23 +315,23 @@ footer a{color:#d8dbf3}
   <div class="container">
     <h2>Empresas parceiras e pilotos</h2>
     <p class="sub">Quem acredita na proposta e quer contratar mais rápido.</p>
-    
+
     <div class="logos">
       <!-- Campestrini -->
       <div class="logo-box reveal">
-        <img src="https://supercampestrini.com.br/wp-content/uploads/2022/05/LOGO.png" 
+        <img src="https://supercampestrini.com.br/wp-content/uploads/2022/05/LOGO.png"
              alt="Supermercado Campestrini" loading="lazy">
       </div>
-      
+
       <!-- TAK Metalúrgica -->
       <div class="logo-box reveal" style="background:#000;">
-        <img src="https://metalurgicatak.com.br/public/assets/img/logo_branco.png" 
+        <img src="https://metalurgicatak.com.br/public/assets/img/logo_branco.png"
              alt="TAK Metalúrgica" loading="lazy">
       </div>
-      
-      <!-- CrossFit Blumenau (link corrigido) -->
+
+      <!-- CrossFit Blumenau -->
       <div class="logo-box reveal">
-        <img src="https://i.postimg.cc/9fN9Lz0K/crossfit-blumenau-logo.png" 
+        <img src="https://crossfitblumenau.com/wp-content/uploads/2024/06/Group-4.png"
              alt="CrossFit Blumenau" loading="lazy">
       </div>
     </div>
@@ -352,6 +352,46 @@ footer a{color:#d8dbf3}
     </div>
   </div>
 </section>
+
+<style>
+  .logos {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    flex-wrap:wrap;
+    margin:30px 0;
+  }
+  .logo-box {
+    flex:0 0 auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#fff;
+    border-radius:12px;
+    padding:14px 18px;
+    min-width:120px;
+    min-height:80px;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+    transition:transform .2s, box-shadow .2s;
+  }
+  .logo-box img {
+    max-height:70px;
+    max-width:170px;
+    object-fit:contain;
+    display:block;
+    filter:grayscale(15%);
+    transition:filter .2s, transform .2s;
+  }
+  .logo-box:hover {
+    transform:translateY(-3px);
+    box-shadow:0 8px 18px rgba(0,0,0,.1);
+  }
+  .logo-box:hover img {
+    filter:grayscale(0);
+    transform:scale(1.04);
+  }
+</style>
 
 <!-- SEGURANÇA -->
 <section class="section">
