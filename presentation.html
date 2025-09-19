@@ -472,8 +472,8 @@ pdfBtn.addEventListener('click', async ()=>{
 
 /* Inicializa */
 renderSlide(current);
-  <script>
-  <script>
+  
+ <script>
   const slides = document.querySelectorAll(".slide");
   const bullets = document.querySelectorAll(".bullet");
   let currentSlide = 0;
@@ -497,19 +497,19 @@ renderSlide(current);
     showSlide(newIndex);
   }
 
-  // Navegação por teclado (desktop)
+  // Navegação por teclado
   document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowRight") nextSlide();
     if (e.key === "ArrowLeft") prevSlide();
   });
 
-  // Navegação pelos bullets (cliques)
+  // Navegação pelos bullets
   bullets.forEach((bullet, index) => {
     bullet.style.cursor = "pointer";
     bullet.addEventListener("click", () => showSlide(index));
   });
 
-  // Navegação por swipe (mobile)
+  // Swipe no mobile
   let startX = 0;
   let endX = 0;
 
@@ -527,9 +527,8 @@ renderSlide(current);
     if (endX > startX + 50) prevSlide();  // swipe right
   }
 
-  // Mostra o primeiro slide ao carregar
+  // Inicia
   showSlide(currentSlide);
 </script>
-
 </body>
 </html>
