@@ -315,13 +315,21 @@ footer a{color:#d8dbf3}
   <div class="container">
     <h2>Empresas parceiras e pilotos</h2>
     <p class="sub">Quem acredita na proposta e quer contratar mais rápido.</p>
+    
     <div class="logos">
-      <div class="logo-box reveal">Campestrini</div>
-      <div class="logo-box reveal">TAK</div>
-      <div class="logo-box reveal">CrossFit BLU</div>
+      <div class="logo-box reveal">
+        <img src="https://supercampestrini.com.br/wp-content/uploads/2022/05/LOGO.png" alt="Supermercado Campestrini" loading="lazy">
+      </div>
+      <div class="logo-box reveal">
+        <img src="https://metalurgicatak.com.br/public/assets/img/logo_branco.png" alt="TAK Metalúrgica" loading="lazy">
+      </div>
+      <div class="logo-box reveal">
+        <img src="https://lookaside.fbsbx.com/lookaside/crawler/instagram/crossfitblumenau/profile_pic.jpg" alt="CrossFit Blumenau" loading="lazy">
+      </div>
       <div class="logo-box reveal">Rede Hoteleira</div>
       <div class="logo-box reveal">Indústria SC</div>
     </div>
+
     <div class="testimonials">
       <div class="quote reveal">
         <p>“Fluxo simples e assertivo. Em poucos dias já tínhamos bons perfis.”</p>
@@ -338,6 +346,67 @@ footer a{color:#d8dbf3}
     </div>
   </div>
 </section>
+
+<style>
+.logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+.logo-box {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px 18px;
+  min-width: 120px;
+  min-height: 80px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.05);
+  transition: transform .2s, box-shadow .2s;
+}
+.logo-box img {
+  max-height: 70px;
+  max-width: 160px;
+  object-fit: contain;
+  display: block;
+  filter: grayscale(20%);
+  transition: filter .2s, transform .2s;
+}
+.logo-box:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+.logo-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.1);
+}
+.testimonials {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+.quote {
+  background: #fff;
+  border: 1px solid #e5e5ef;
+  border-radius: 14px;
+  padding: 18px;
+  font-style: italic;
+  box-shadow: 0 3px 10px rgba(0,0,0,.04);
+}
+.quote .by {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+  font-style: normal;
+  font-weight: 600;
+}
+</style>
 
 <!-- SEGURANÇA -->
 <section class="section">
