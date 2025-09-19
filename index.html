@@ -236,79 +236,208 @@ footer a{color:#d8dbf3}
   </div>
 </section>
 
-<!-- PLANOS -->
-<section id="planos" class="section">
+<!-- ===================== PLANOS (cards) ===================== -->
+<style>
+  :root{
+    --mw-ink:#1b1f3a; --mw-muted:#6b6f86; --mw-line:#ececf5;
+    --mw-brand:#6f3aff; --mw-brand-2:#8a67ff; --mw-paper:#faf9ff;
+    --mw-good:#21a67a; --mw-warn:#f59e0b;
+  }
+
+  .plans-wrap{padding:64px 0;background:linear-gradient(180deg,#fff 0%,#faf9ff 100%)}
+  .plans-wrap h2{margin:0 0 8px;text-align:center;font-size:clamp(24px,3.2vw,36px);letter-spacing:-.3px;color:#171832}
+  .plans-wrap p.sub{margin:0 auto 28px;max-width:780px;text-align:center;color:var(--mw-muted)}
+  .plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+  .plan-card{
+    position:relative;background:#fff;border:1px solid var(--mw-line);border-radius:18px;padding:22px;
+    box-shadow:0 10px 30px rgba(23,24,50,.06); display:flex; flex-direction:column;
+  }
+  .plan-card.popular{border-color:#e8e1ff;background:linear-gradient(180deg,#fff 0%,#f6f2ff 100%)}
+  .plan-badge{
+    position:absolute;top:14px;right:14px;background:#efe7ff;border:1px solid #dccdff;color:#3b2db3;
+    padding:4px 10px;border-radius:999px;font-weight:800;font-size:11px;letter-spacing:.2px
+  }
+  .plan-title{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+  .plan-title h3{margin:0;font-size:20px}
+  .plan-desc{color:var(--mw-muted);font-size:14px;margin-bottom:14px}
+  .price-row{display:flex;align-items:flex-end;gap:8px;margin:8px 0 14px}
+  .price{font-size:30px;font-weight:900;color:var(--mw-brand)}
+  .price small{font-size:12px;color:var(--mw-muted);font-weight:600}
+  .feat{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:8px}
+  .feat li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#2b2f4a}
+  .feat li svg{min-width:18px; margin-top:2px}
+  .cta{margin-top:auto;display:flex;gap:10px}
+  .btn{
+    display:inline-flex;justify-content:center;align-items:center;
+    padding:12px 14px;border-radius:12px;border:2px solid var(--mw-brand);
+    font-weight:800;transition:.18s; text-align:center; width:100%;
+  }
+  .btn.primary{background:var(--mw-brand);color:#fff}
+  .btn.primary:hover{background:var(--mw-brand-2);border-color:var(--mw-brand-2)}
+  .btn.ghost{background:#fff;color:var(--mw-brand)}
+  .mini-note{margin-top:10px;font-size:12px;color:var(--mw-muted)}
+  .plans-section-title{margin-top:44px;margin-bottom:10px;font-size:18px;color:#262948}
+  /* candidatos */
+  .plans-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  /* mobile */
+  @media (max-width:980px){ .plans-grid{grid-template-columns:1fr} .plans-grid-2{grid-template-columns:1fr} }
+</style>
+
+<section id="planos" class="plans-wrap">
   <div class="container">
-    <h2>Planos para empresas</h2>
-    <p class="sub">Flexíveis, simples e sem burocracia.</p>
+    <h2>Planos focados em preencher vagas e evoluir carreiras</h2>
+    <p class="sub">Escolha o formato ideal. Sem burocracia, sem multa escondida.</p>
 
-    <div id="planos-empresas" class="plans-wrap">
-      <div class="plans-grid">
-        <div class="plan reveal">
-          <span class="badge">Entrada</span>
-          <h3>Gratuito</h3>
+    <!-- ===== Empresas ===== -->
+    <h3 id="planos-empresas" class="plans-section-title">Para empresas</h3>
+    <div class="plans-grid">
+
+      <!-- Gratuito -->
+      <article class="plan-card" aria-labelledby="emp-free">
+        <div class="plan-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h10M4 17h7" stroke="#6b6f86" stroke-width="2" stroke-linecap="round"/></svg>
+          <h3 id="emp-free">Gratuito</h3>
+        </div>
+        <p class="plan-desc">Para testar o fluxo e já receber indicações.</p>
+        <div class="price-row">
           <div class="price">R$ 0</div>
-          <div class="muted">Comece testando o fluxo</div>
-          <ul>
-            <li>✅ 1 vaga ativa por 7 dias</li>
-            <li>✅ Até 5 perfis sugeridos (parciais)</li>
-          </ul>
-          <a href="#contato" class="btn primary cta">Começar</a>
+          <small>/ sempre</small>
         </div>
-        <div class="plan reveal">
-          <span class="badge">Rápido</span>
-          <h3>One-Shot</h3>
-          <div class="price">R$ 400 / vaga</div>
-          <div class="muted">Pague por vaga ocupada (ou até 3 meses)</div>
-          <ul>
-            <li>✅ 1 vaga ativa</li>
-            <li>✅ Acesso ilimitado a perfis completos</li>
-          </ul>
-          <a href="#contato" class="btn primary cta">Publicar vaga</a>
+        <ul class="feat">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#21a67a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            1 vaga ativa (7 dias)
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#21a67a" stroke-width="2"/></svg>
+            Até 5 perfis sugeridos
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 1v22M1 12h22" stroke="#f59e0b" stroke-width="2"/></svg>
+            Contato parcial dos perfis
+          </li>
+        </ul>
+        <div class="cta">
+          <a class="btn ghost" href="#contato">Falar com time</a>
         </div>
-        <div class="plan reveal" style="border-color:var(--brand)">
-          <span class="badge">Mais popular</span>
-          <h3>Assinatura</h3>
-          <div class="price">R$ 150/mês</div>
-          <div class="muted">Para times que contratam com frequência</div>
-          <ul>
-            <li>✅ Vagas ilimitadas</li>
-            <li>✅ Perfis ilimitados • completos</li>
-            <li>✅ Acesso ao Banco de Talentos</li>
-          </ul>
-          <a href="#contato" class="btn primary cta">Assinar</a>
+      </article>
+
+      <!-- One-Shot (POPULAR) -->
+      <article class="plan-card popular" aria-labelledby="emp-oneshot">
+        <span class="plan-badge">Mais escolhido</span>
+        <div class="plan-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12h10M4 12c0-4.418 3.582-8 8-8m0 16c-4.418 0-8-3.582-8-8m14 0h2" stroke="#6f3aff" stroke-width="2" stroke-linecap="round"/></svg>
+          <h3 id="emp-oneshot">One-Shot</h3>
         </div>
-      </div>
+        <p class="plan-desc">Pague por vaga. Ideal para PMEs com demandas pontuais.</p>
+        <div class="price-row">
+          <div class="price">R$ 400</div>
+          <small>/ por vaga</small>
+        </div>
+        <ul class="feat">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#21a67a" stroke-width="2"/></svg>
+            1 vaga <b>até ocupar</b> ou <b>3 meses</b> (o que ocorrer primeiro)
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#21a67a" stroke-width="2"/></svg>
+            Perfis ilimitados • contato completo
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#21a67a" stroke-width="2"/></svg>
+            Recomendação automática por match
+          </li>
+        </ul>
+        <div class="cta">
+          <a class="btn primary" href="#contato">Quero este plano</a>
+        </div>
+        <div class="mini-note">Sem fidelidade. Recontrate quando precisar.</div>
+      </article>
+
+      <!-- Assinatura -->
+      <article class="plan-card" aria-labelledby="emp-sub">
+        <div class="plan-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="#6b6f86" stroke-width="2" stroke-linecap="round"/></svg>
+          <h3 id="emp-sub">Assinatura</h3>
+        </div>
+        <p class="plan-desc">Volume de vagas e acesso ao Banco de Talentos.</p>
+        <div class="price-row">
+          <div class="price">R$ 150</div>
+          <small>/ mês</small>
+        </div>
+        <ul class="feat">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#21a67a" stroke-width="2"/></svg>
+            Vagas ilimitadas
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#21a67a" stroke-width="2"/></svg>
+            Perfis ilimitados • contato completo
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#21a67a" stroke-width="2"/></svg>
+            Banco de Talentos incluso
+          </li>
+        </ul>
+        <div class="cta">
+          <a class="btn ghost" href="#contato">Falar com time</a>
+          <a class="btn primary" href="#contato">Assinar</a>
+        </div>
+      </article>
+
     </div>
 
-    <h2 style="margin-top:60px">Planos para candidatos</h2>
-    <p class="sub">Acelere sua evolução e aumente suas chances.</p>
+    <!-- ===== Candidatos / Profissionais ===== -->
+    <h3 id="planos-candidato" class="plans-section-title">Para candidatos e profissionais</h3>
+    <div class="plans-grid-2">
 
-    <div id="planos-candidato" class="plans-wrap">
-      <div class="plans-grid">
-        <div class="plan reveal">
-          <h3>Gratuito</h3>
+      <!-- Gratuito -->
+      <article class="plan-card" aria-labelledby="can-free">
+        <div class="plan-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="#6b6f86" stroke-width="2" stroke-linecap="round"/></svg>
+          <h3 id="can-free">Gratuito</h3>
+        </div>
+        <p class="plan-desc">Tudo para começar a participar dos matches.</p>
+        <div class="price-row">
           <div class="price">R$ 0</div>
-          <ul>
-            <li>✅ Acesso às vagas</li>
-          </ul>
-          <a href="#contato" class="btn ghost cta">Quero entrar</a>
+          <small>/ sempre</small>
         </div>
-        <div class="plan reveal" style="border-color:var(--brand)">
-          <span class="badge">Recomendado</span>
-          <h3>Premium</h3>
-          <div class="price">R$ 14,90/mês</div>
-          <ul>
-            <li>✅ Acesso prioritário às vagas</li>
-            <li>✅ Destaque no app</li>
-            <li>✅ Relatório completo de carreira</li>
-          </ul>
-          <a href="#contato" class="btn primary cta">Ser Premium</a>
+        <ul class="feat">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#21a67a" stroke-width="2"/></svg> Acesso a vagas e matches</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#21a67a" stroke-width="2"/></svg> Bem+Match incluso</li>
+        </ul>
+        <div class="cta"><a class="btn primary" href="#contato">Quero participar</a></div>
+      </article>
+
+      <!-- Premium -->
+      <article class="plan-card popular" aria-labelledby="can-premium">
+        <span class="plan-badge">Mais valor</span>
+        <div class="plan-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z" stroke="#6f3aff" stroke-width="1.5" fill="none"/></svg>
+          <h3 id="can-premium">Premium</h3>
         </div>
-      </div>
+        <p class="plan-desc">Mais visibilidade para acelerar seu próximo passo.</p>
+        <div class="price-row">
+          <div class="price">R$ 14,90</div>
+          <small>/ mês</small>
+        </div>
+        <ul class="feat">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#21a67a" stroke-width="2"/></svg> Destaque no app</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#21a67a" stroke-width="2"/></svg> Acesso prioritário às vagas</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#21a67a" stroke-width="2"/></svg> Relatório de carreira completo</li>
+        </ul>
+        <div class="cta"><a class="btn primary" href="#contato">Quero ser Premium</a></div>
+      </article>
+
     </div>
+
+    <!-- Observações -->
+    <p class="mini-note" style="text-align:center;margin-top:16px">
+      Valores podem variar por campanhas locais. Política do One-Shot: vaga ativa até ser ocupada ou por 3 meses, o que ocorrer primeiro.
+    </p>
   </div>
 </section>
+<!-- ================== /PLANOS (cards) ================== -->
 
 <!-- PROVA SOCIAL / PARCEIROS -->
 <section id="prova" class="band section">
