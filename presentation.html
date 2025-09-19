@@ -27,7 +27,6 @@
 <script defer src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
 
 <style>
-  /* tamanho “slide” responsivo */
   .slide-viewport { width: 100vw; height: 100vh; }
   .dot { width: 10px; height: 10px; border-radius: 9999px; }
   .btn-ghost { background: rgba(0,0,0,.35); }
@@ -38,16 +37,12 @@
 </head>
 <body class="antialiased text-slate-900">
 
-<!-- CONTROLES FIXOS (navegação + PDF + contadores) -->
+<!-- CONTROLES FIXOS -->
 <div id="controls" class="pointer-events-none fixed inset-x-0 bottom-6 flex justify-center">
   <div class="pointer-events-auto glass flex items-center gap-3 rounded-full px-4 py-2 text-white">
-    <button id="prevBtn" class="px-2 py-2 rounded-lg btn-ghost">
-      ←
-    </button>
+    <button id="prevBtn" class="px-2 py-2 rounded-lg btn-ghost">←</button>
     <div id="dots" class="flex items-center gap-2"></div>
-    <button id="nextBtn" class="px-2 py-2 rounded-lg btn-ghost">
-      →
-    </button>
+    <button id="nextBtn" class="px-2 py-2 rounded-lg btn-ghost">→</button>
   </div>
 </div>
 
@@ -62,13 +57,10 @@
   Use as setas do teclado (← →) ou clique nas bolinhas
 </div>
 
-<!-- CONTAINER DOS SLIDES -->
+<!-- SLIDES ROOT -->
 <div id="slidesRoot" class="slide-viewport relative overflow-hidden"></div>
 
 <script>
-/* =============================
-   SLIDES (conteúdo + fundos)
-   ============================= */
 const slides = [
   {
     title: 'Capa',
@@ -77,15 +69,10 @@ const slides = [
       <div class="flex flex-col items-center justify-center h-full text-center space-y-8 text-white">
         <div class="space-y-6">
           <h1 class="text-5xl md:text-7xl font-bold">MatchWork</h1>
-          <p class="text-2xl md:text-3xl font-medium max-w-4xl mx-auto">
-            Conectando talentos, empresas e carreiras
-          </p>
-          <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
-            Empregabilidade + Capacitação + Bem-estar
-          </p>
+          <p class="text-2xl md:text-3xl font-medium max-w-4xl mx-auto">Conectando talentos, empresas e carreiras</p>
+          <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">Empregabilidade + Capacitação + Bem-estar</p>
         </div>
-      </div>
-    `
+      </div>`
   },
   {
     title: 'Problema',
@@ -94,28 +81,19 @@ const slides = [
       <div class="h-full flex flex-col justify-center space-y-8 px-4">
         <h2 class="text-4xl md:text-5xl font-bold text-center text-primary mb-4">O Problema</h2>
         <div class="grid gap-4 max-w-5xl mx-auto">
-          <div class="p-6 md:p-8 bg-white/90 border border-red-200 rounded-2xl shadow">
-            <p class="text-lg md:text-xl font-medium text-center">📊 Mercado de trabalho brasileiro é burocrático e ineficiente</p>
-          </div>
-          <div class="p-6 md:p-8 bg-white/90 border border-red-200 rounded-2xl shadow">
-            <p class="text-lg md:text-xl font-medium text-center">🏢 PME's têm dificuldade em contratar rápido e encontrar talentos qualificados</p>
-          </div>
-          <div class="p-6 md:p-8 bg-white/90 border border-red-200 rounded-2xl shadow">
-            <p class="text-lg md:text-xl font-medium text-center">👥 Profissionais e jovens têm pouca capacitação prática e sofrem com estresse</p>
-          </div>
-          <div class="p-6 md:p-8 bg-white/90 border border-red-200 rounded-2xl shadow">
-            <p class="text-lg md:text-xl font-medium text-center">🎯 Falta de orientação de carreira e apoio ao bem-estar profissional</p>
-          </div>
+          <div class="p-6 bg-white/90 border border-red-200 rounded-2xl shadow"><p class="text-xl text-center">📊 Mercado de trabalho burocrático e ineficiente</p></div>
+          <div class="p-6 bg-white/90 border border-red-200 rounded-2xl shadow"><p class="text-xl text-center">🏢 PME's têm dificuldade em contratar rápido</p></div>
+          <div class="p-6 bg-white/90 border border-red-200 rounded-2xl shadow"><p class="text-xl text-center">👥 Profissionais têm pouca capacitação prática</p></div>
+          <div class="p-6 bg-white/90 border border-red-200 rounded-2xl shadow"><p class="text-xl text-center">🎯 Falta de apoio ao bem-estar profissional</p></div>
         </div>
-      </div>
-    `
+      </div>`
   },
   {
     title: 'Nossa Solução',
     background: 'bg-gradient-to-br from-white to-accent/20',
     html: `
       <div class="h-full flex flex-col justify-center space-y-6 px-4">
-        <h2 class="text-4xl md:text-5xl font-bold text-center text-primary">Nossa Solução — MatchWork</h2>
+        <h2 class="text-5xl font-bold text-center text-primary">Nossa Solução — MatchWork</h2>
         <div class="grid md:grid-cols-2 gap-4 max-w-6xl mx-auto mt-2">
           ${[
             '🔗 Plataforma que conecta candidatos, empresas e profissionais',
@@ -124,411 +102,250 @@ const slides = [
             '🧠 Testes vocacionais e comportamentais',
             '📚 Capacitação contínua integrada',
             '💚 Bem+Match (bem-estar e equilíbrio emocional)'
-          ].map(t => `
-            <div class="p-5 md:p-6 bg-primary/10 border border-primary/30 rounded-2xl shadow hover:bg-primary/15 transition">
-              <p class="text-base md:text-lg font-medium">${t}</p>
-            </div>
-          `).join('')}
+          ].map(t=>`<div class="p-6 bg-primary/10 border border-primary/30 rounded-2xl shadow"><p>${t}</p></div>`).join('')}
         </div>
-      </div>
-    `
+      </div>`
   },
   {
     title: 'Diferenciais',
     background: 'bg-gradient-to-br from-white to-slate-100',
     html: `
       <div class="h-full flex flex-col justify-center space-y-6 px-4">
-        <h2 class="text-4xl md:text-5xl font-bold text-center text-primary">Diferenciais</h2>
+        <h2 class="text-5xl font-bold text-center text-primary">Diferenciais</h2>
         <div class="space-y-4 max-w-5xl mx-auto">
           ${[
             '🔄 Ecossistema completo: vagas + capacitação + bem-estar',
             '🏪 Foco em PMEs com planos acessíveis',
-            '🤝 Inclusão social acessível para jovens em formação',
+            '🤝 Inclusão social para jovens em formação',
             '📊 Dados e relatórios de impacto detalhados'
-          ].map((t,i) => `
-            <div class="p-6 bg-gradient-to-r ${i%2? 'from-accent/20 to-primary/20':'from-primary/20 to-accent/20'} border border-primary/30 rounded-2xl shadow">
-              <p class="text-lg md:text-xl font-medium text-center">${t}</p>
-            </div>
-          `).join('')}
+          ].map((t,i)=>`
+            <div class="p-6 bg-gradient-to-r ${i%2? 'from-accent/20 to-primary/20':'from-primary/20 to-accent/20'} rounded-2xl shadow">
+              <p class="text-xl text-center">${t}</p>
+            </div>`).join('')}
         </div>
-      </div>
-    `
+      </div>`
   },
-   {
-  title: 'Modelos de Receita',
-  background: 'bg-gradient-to-br from-white to-slate-100',
-  html: `
-    <div class="h-full flex flex-col justify-center space-y-6 px-4">
-      <h2 class="text-4xl md:text-5xl font-bold text-center text-primary">Modelos de Receita</h2>
-      <div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-        <div>
-          <h3 class="text-xl md:text-2xl font-bold text-center text-accent mb-3">Para Empresas</h3>
-          ${[
-            '🆓 Gratuito (vaga teste limitada)',
-            '🎯 One-Shot (até preencher vaga ou 3 meses)',
-            '💼 Assinatura mensal (vagas ilimitadas)',
-            '🎓 Parcerias CPA/CPL com universidades e instituições de ensino'
-          ].map(t => `
-            <div class="p-5 bg-accent/10 border border-accent/30 rounded-2xl mb-3">
-              <p class="font-medium">${t}</p>
-            </div>
-          `).join('')}
+  {
+    title: 'Modelos de Receita',
+    background: 'bg-gradient-to-br from-white to-slate-100',
+    html: `
+      <div class="h-full flex flex-col justify-center space-y-6 px-4">
+        <h2 class="text-5xl font-bold text-center text-primary">Modelos de Receita</h2>
+        <div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          <div>
+            <h3 class="text-2xl font-bold text-accent mb-3 text-center">Para Empresas</h3>
+            ${[
+              '🆓 Gratuito (vaga teste limitada)',
+              '🎯 One-Shot (até preencher vaga ou 3 meses)',
+              '💼 Assinatura mensal (vagas ilimitadas)',
+              '🎓 Parcerias CPA/CPL com universidades'
+            ].map(t=>`<div class="p-5 bg-accent/10 border border-accent/30 rounded-2xl mb-3"><p>${t}</p></div>`).join('')}
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-primary mb-3 text-center">Para Candidatos</h3>
+            ${[
+              '🆓 Gratuito (acesso básico)',
+              '⭐ Premium (R$14,90/mês)',
+              '📚 Cursos e certificações extras'
+            ].map(t=>`<div class="p-5 bg-primary/10 border border-primary/30 rounded-2xl mb-3"><p>${t}</p></div>`).join('')}
+          </div>
         </div>
-        <div>
-          <h3 class="text-xl md:text-2xl font-bold text-center text-primary mb-3">Para Candidatos</h3>
-          ${[
-            '🆓 Gratuito (acesso básico)',
-            '⭐ Premium (R$14,90/mês)',
-            '📚 Cursos e certificações extras (Marketplace educacional)'
-          ].map(t => `
-            <div class="p-5 bg-primary/10 border border-primary/30 rounded-2xl mb-3">
-              <p class="font-medium">${t}</p>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-    </div>
-  `
-   },
+      </div>`
+  },
   {
     title: 'Impacto Social',
     background: 'bg-gradient-to-br from-white to-emerald-50',
     html: `
       <div class="h-full flex flex-col justify-center space-y-6 px-4">
-        <h2 class="text-4xl md:text-5xl font-bold text-center text-primary">Impacto Social</h2>
-        <p class="text-lg md:text-xl text-center text-slate-600 font-medium -mt-2">Case inicial: Ceará</p>
+        <h2 class="text-5xl font-bold text-center text-primary">Impacto Social</h2>
+        <p class="text-xl text-center text-slate-600 font-medium -mt-2">Case inicial: Ceará</p>
         <div class="grid md:grid-cols-2 gap-4 max-w-6xl mx-auto">
           ${[
             '🎓 Educação e empregabilidade como motor de transformação',
             '🤝 Parcerias com secretarias e universidades',
             '🏢 Conexão com empresas locais',
             '🚀 Expansão nacional após validação'
-          ].map(t => `
-            <div class="p-6 bg-emerald-500/15 border border-emerald-500/40 rounded-2xl shadow hover:shadow-xl transition">
-              <p class="text-base md:text-lg font-medium text-center">${t}</p>
-            </div>
-          `).join('')}
+          ].map(t=>`<div class="p-6 bg-emerald-500/15 border rounded-2xl shadow"><p>${t}</p></div>`).join('')}
         </div>
-      </div>
-    `
+      </div>`
   },
   {
     title: 'Mercado',
     background: 'bg-gradient-to-br from-white to-slate-100',
     html: `
       <div class="h-full flex flex-col justify-center space-y-6 px-4">
-        <h2 class="text-4xl md:text-5xl font-bold text-center text-primary">Mercado</h2>
+        <h2 class="text-5xl font-bold text-center text-primary">Mercado</h2>
         <div class="space-y-4 max-w-5xl mx-auto">
-          <div class="p-6 md:p-8 bg-primary/10 border border-primary/30 rounded-2xl shadow">
-            <p class="text-lg md:text-xl font-medium text-center">📈 TAM: HRTech e EdTech no Brasil em forte crescimento</p>
-          </div>
-          <div class="p-6 md:p-8 bg-accent/10 border border-accent/30 rounded-2xl shadow">
-            <p class="text-lg md:text-xl font-medium text-center">🏆 Concorrentes: Gupy, LinkedIn, Catho</p>
-          </div>
-          <div class="p-6 md:p-8 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl shadow">
-            <p class="text-lg md:text-xl font-medium text-center">💎 Nosso diferencial: integração de empregabilidade, bem-estar e capacitação</p>
-          </div>
+          <div class="p-6 bg-primary/10 border rounded-2xl shadow"><p class="text-xl text-center">📈 TAM: HRTech e EdTech em crescimento</p></div>
+          <div class="p-6 bg-accent/10 border rounded-2xl shadow"><p class="text-xl text-center">🏆 Concorrentes: Gupy, LinkedIn, Catho</p></div>
+          <div class="p-6 bg-emerald-500/10 border rounded-2xl shadow"><p class="text-xl text-center">💎 Diferencial: empregabilidade + bem-estar + capacitação</p></div>
         </div>
-      </div>
-    `
+      </div>`
   },
   {
     title: 'Bem+Match',
     background: 'bg-gradient-to-br from-emerald-50 to-white',
     html: `
       <div class="h-full flex flex-col justify-center space-y-6 px-4">
-        <h2 class="text-4xl md:text-5xl font-bold text-center text-primary">Bem+Match</h2>
+        <h2 class="text-5xl font-bold text-center text-primary">Bem+Match</h2>
         <div class="grid md:grid-cols-2 gap-4 max-w-6xl mx-auto">
           ${[
-            '🧘 Conteúdos de bem-estar e exercícios',
-            '🎧 Podcasts e playlists motivacionais',
-            '📊 Melhora performance e engajamento',
-            '🔄 Reduz rotatividade nas empresas'
-          ].map(t => `
-            <div class="p-6 bg-emerald-500/15 border border-emerald-500/40 rounded-2xl shadow hover:shadow-xl transition">
-              <p class="text-base md:text-lg font-medium text-center">${t}</p>
-            </div>
-          `).join('')}
+            '🧘 Conteúdos de bem-estar',
+            '🎧 Podcasts motivacionais',
+            '📊 Melhora performance',
+            '🔄 Reduz rotatividade'
+          ].map(t=>`<div class="p-6 bg-emerald-500/15 border rounded-2xl shadow"><p>${t}</p></div>`).join('')}
         </div>
-      </div>
-    `
+      </div>`
   },
-      {
-  title: 'Gamificação e Capacitação',
-  background: 'bg-gradient-to-br from-white to-slate-100',
-  html: `
-    <div class="h-full flex flex-col justify-center space-y-6 px-4">
-      <h2 class="text-4xl md:text-5xl font-bold text-center text-primary">Gamificação e Capacitação</h2>
-      <div class="space-y-4 max-w-5xl mx-auto">
-        <div class="p-6 md:p-8 bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 rounded-2xl shadow">
-          <p class="text-lg md:text-xl font-medium text-center">💰 Usuários ganham coins ao concluir trilhas e testes</p>
+  {
+    title: 'Gamificação e Capacitação',
+    background: 'bg-gradient-to-br from-white to-slate-100',
+    html: `
+      <div class="h-full flex flex-col justify-center space-y-6 px-4">
+        <h2 class="text-5xl font-bold text-center text-primary">Gamificação e Capacitação</h2>
+        <div class="space-y-4 max-w-5xl mx-auto">
+          <div class="p-6 bg-gradient-to-r from-primary/20 to-accent/20 border rounded-2xl shadow"><p>💰 Coins ao concluir trilhas</p></div>
+          <div class="p-6 bg-gradient-to-r from-accent/20 to-primary/20 border rounded-2xl shadow"><p>🎁 Troca por benefícios</p></div>
+          <div class="p-6 bg-gradient-to-r from-primary/20 to-accent/20 border rounded-2xl shadow"><p>🏆 Rankings e conquistas</p></div>
         </div>
-        <div class="p-6 md:p-8 bg-gradient-to-r from-accent/20 to-primary/20 border border-accent/30 rounded-2xl shadow">
-          <p class="text-lg md:text-xl font-medium text-center">🎁 Coins trocados por benefícios e microcertificações</p>
-        </div>
-        <div class="p-6 md:p-8 bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 rounded-2xl shadow">
-          <p class="text-lg md:text-xl font-medium text-center">🏆 Sistema de conquistas e rankings</p>
-        </div>
-      </div>
-    </div>
-  `
-},
+      </div>`
+  },
   {
     title: 'Tração e Pilotos',
     background: 'bg-gradient-to-br from-emerald-50 to-primary/10',
     html: `
       <div class="h-full flex flex-col justify-center space-y-6 px-4">
-        <h2 class="text-4xl md:text-5xl font-bold text-center text-primary">Tração e Pilotos</h2>
+        <h2 class="text-5xl font-bold text-center text-primary">Tração e Pilotos</h2>
         <div class="space-y-4 max-w-5xl mx-auto">
-          <div class="p-6 md:p-8 bg-emerald-500/15 border border-emerald-500/40 rounded-2xl shadow">
-            <h3 class="text-lg md:text-xl font-bold mb-4 text-center">Interesse Inicial de Empresas</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-              <div class="p-4 bg-white/60 rounded-xl font-medium">Campestrini</div>
-              <div class="p-4 bg-white/60 rounded-xl font-medium">CrossFit Blumenau</div>
-              <div class="p-4 bg-white/60 rounded-xl font-medium">TAK Metalúrgica</div>
+          <div class="p-6 bg-emerald-500/15 border rounded-2xl shadow">
+            <h3 class="text-xl font-bold mb-4 text-center">Interesse Inicial</h3>
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+              <div class="p-4 bg-white/60 rounded-xl">Campestrini</div>
+              <div class="p-4 bg-white/60 rounded-xl">CrossFit Blumenau</div>
+              <div class="p-4 bg-white/60 rounded-xl">TAK Metalúrgica</div>
             </div>
           </div>
-          <div class="p-6 md:p-8 bg-primary/15 border border-primary/40 rounded-2xl shadow">
-            <p class="text-lg md:text-xl font-medium text-center">🆓 Pilotos gratuitos planejados para validação completa</p>
-          </div>
+          <div class="p-6 bg-primary/15 border rounded-2xl shadow"><p class="text-xl text-center">🆓 Pilotos gratuitos planejados</p></div>
         </div>
-      </div>
-    `
+      </div>`
   },
   {
     title: 'Próximos Passos',
     background: 'bg-gradient-to-br from-white to-accent/20',
     html: `
       <div class="h-full flex flex-col justify-center space-y-6 px-4">
-        <h2 class="text-4xl md:text-5xl font-bold text-center text-primary">Próximos Passos</h2>
-        <p class="text-lg md:text-2xl text-center text-accent font-bold -mt-2">FI + 12 meses</p>
+        <h2 class="text-5xl font-bold text-center text-primary">Próximos Passos</h2>
+        <p class="text-xl text-center text-accent font-bold -mt-2">FI + 12 meses</p>
         <div class="space-y-4 max-w-5xl mx-auto">
-          <div class="p-6 md:p-8 bg-primary/15 border border-primary/40 rounded-2xl shadow">
-            <p class="text-lg md:text-xl font-medium text-center">📋 14 semanas de mentoria: validação, ajustes e primeiros pilotos</p>
-          </div>
-          <div class="p-6 md:p-8 bg-accent/15 border border-accent/40 rounded-2xl shadow">
-            <p class="text-lg md:text-xl font-medium text-center">🚀 Expansão nacional no 2º semestre</p>
-          </div>
-          <div class="p-6 md:p-8 bg-emerald-500/15 border border-emerald-500/40 rounded-2xl shadow">
-            <p class="text-lg md:text-xl font-medium text-center">💰 Primeiras receitas consistentes até o fim do ano 1</p>
-          </div>
+          <div class="p-6 bg-primary/15 border rounded-2xl shadow"><p class="text-xl text-center">📋 14 semanas: validação e ajustes</p></div>
+          <div class="p-6 bg-accent/15 border rounded-2xl shadow"><p class="text-xl text-center">🚀 Expansão nacional no 2º semestre</p></div>
+          <div class="p-6 bg-emerald-500/15 border rounded-2xl shadow"><p class="text-xl text-center">💰 Primeiras receitas até fim do ano 1</p></div>
         </div>
-      </div>
-    `
+      </div>`
   },
   {
     title: 'Visão 10 Anos',
     background: 'bg-gradient-to-br from-primary/20 via-accent/20 to-emerald-100',
     html: `
       <div class="h-full flex flex-col justify-center space-y-6 px-4">
-        <h2 class="text-4xl md:text-5xl font-bold text-center text-primary">Visão 10 Anos</h2>
+        <h2 class="text-5xl font-bold text-center text-primary">Visão 10 Anos</h2>
         <div class="space-y-4 max-w-5xl mx-auto">
-          <div class="p-6 md:p-8 bg-gradient-to-r from-primary/30 to-accent/30 border border-primary/40 rounded-2xl shadow">
-            <p class="text-xl md:text-2xl font-bold text-center">🏆 Ser referência nacional em empregabilidade e capacitação</p>
-          </div>
-          <div class="p-6 md:p-8 bg-gradient-to-r from-emerald-500/30 to-primary/30 border border-emerald-500/40 rounded-2xl shadow">
-            <p class="text-xl md:text-2xl font-bold text-center">💎 Atingir R$100M+ de valuation</p>
-          </div>
-          <div class="p-6 md:p-8 bg-gradient-to-r from-accent/30 to-emerald-500/30 border border-accent/40 rounded-2xl shadow">
-            <p class="text-xl md:text-2xl font-bold text-center">🌟 Impactar milhões de profissionais e milhares de empresas</p>
-          </div>
+          <div class="p-6 bg-gradient-to-r from-primary/30 to-accent/30 border rounded-2xl shadow"><p class="text-2xl text-center">🏆 Referência nacional</p></div>
+          <div class="p-6 bg-gradient-to-r from-emerald-500/30 to-primary/30 border rounded-2xl shadow"><p class="text-2xl text-center">💎 R$100M+ valuation</p></div>
+          <div class="p-6 bg-gradient-to-r from-accent/30 to-emerald-500/30 border rounded-2xl shadow"><p class="text-2xl text-center">🌟 Impactar milhões</p></div>
         </div>
-      </div>
-    `
+      </div>`
   },
   {
-  title: 'Equipe',
-  background: 'bg-gradient-to-br from-white to-primary/10',
-  html: `
-    <div class="h-full flex flex-col justify-center items-center space-y-8 px-4">
-      <h2 class="text-4xl md:text-5xl font-bold text-center text-primary">Equipe</h2>
-      <div class="max-w-3xl mx-auto space-y-6 text-center">
-        <div class="p-10 bg-primary/15 border border-primary/40 rounded-2xl shadow space-y-4">
-          <div class="w-24 h-24 bg-primary/30 rounded-full mx-auto flex items-center justify-center text-4xl">👨‍💼</div>
-          <h3 class="text-2xl md:text-3xl font-bold">Rodrigo Volpato</h3>
-          <p class="text-base md:text-lg text-slate-600">Fundador & CEO</p>
-          <a href="https://www.instagram.com/rodrigovolpa" target="_blank" 
-             class="text-base md:text-lg text-primary font-medium hover:underline">
-             @rodrigovolpa
-          </a>
+    title: 'Equipe',
+    background: 'bg-gradient-to-br from-white to-primary/10',
+    html: `
+      <div class="h-full flex flex-col justify-center items-center space-y-8 px-4">
+        <h2 class="text-5xl font-bold text-center text-primary">Equipe</h2>
+        <div class="max-w-3xl mx-auto space-y-6 text-center">
+          <div class="p-10 bg-primary/15 border rounded-2xl shadow space-y-4">
+            <div class="w-24 h-24 bg-primary/30 rounded-full mx-auto flex items-center justify-center text-4xl">👨‍💼</div>
+            <h3 class="text-3xl font-bold">Rodrigo Volpato</h3>
+            <p class="text-lg text-slate-600">Fundador & CEO</p>
+            <a href="https://www.instagram.com/rodrigovolpa" target="_blank" class="text-lg text-primary font-medium hover:underline">@rodrigovolpa</a>
+          </div>
+          <div class="p-6 bg-accent/15 border rounded-2xl shadow">
+            <p class="text-xl text-center">🚀 Time em expansão com foco em produto, growth e parcerias</p>
+          </div>
         </div>
-        <div class="p-6 bg-accent/15 border border-accent/40 rounded-2xl shadow">
-          <p class="text-lg md:text-xl font-medium text-center">🚀 Time em expansão com foco em produto, growth e parcerias estratégicas</p>
-        </div>
-      </div>
-    </div>
-  `
-},
+      </div>`
+  },
   {
-  title: 'Call to Action',
-  background: 'bg-gradient-to-br from-primary/20 via-accent/20 to-emerald-100',
-  html: `
-    <div class="h-full flex flex-col items-center justify-center text-center space-y-8 px-4">
-      <div class="space-y-4 max-w-4xl">
-        <div class="text-6xl">🚀</div>
-        <h2 class="text-3xl md:text-4xl font-bold leading-tight text-primary">
-          Vamos juntos transformar a empregabilidade no Brasil?
-        </h2>
-      </div>
-      <div class="space-y-4">
-        <div class="p-4 bg-primary/10 border border-primary/30 rounded-2xl">
-          <p class="text-lg md:text-xl font-medium">📧 contato@appmatchwork.com.br</p>
+    title: 'Call to Action',
+    background: 'bg-gradient-to-br from-primary/20 via-accent/20 to-emerald-100',
+    html: `
+      <div class="h-full flex flex-col items-center justify-center text-center space-y-8 px-4">
+        <div class="space-y-4 max-w-4xl">
+          <div class="text-6xl">🚀</div>
+          <h2 class="text-4xl font-bold text-primary">Vamos juntos transformar a empregabilidade no Brasil?</h2>
         </div>
-        <a href="https://www.linkedin.com/company/matchworkoficial" target="_blank"
-           class="block p-4 bg-accent/10 border border-accent/30 rounded-2xl text-lg md:text-xl font-medium">
-          🔗 LinkedIn
-        </a>
-        <a href="https://www.instagram.com/matchwork.oficial" target="_blank"
-           class="block p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl text-lg md:text-xl font-medium">
-          📸 Instagram @matchwork.oficial
-        </a>
-      </div>
-      <a href="mailto:contato@appmatchwork.com.br"
-         class="inline-flex items-center justify-center text-xl px-10 py-4 bg-primary hover:bg-primary/90 text-white font-bold shadow-2xl hover:shadow-3xl transition transform hover:scale-105 rounded-xl">
-        Conectar-se conosco
-      </a>
-    </div>
-  `
-}
+        <div class="space-y-4">
+          <div class="p-4 bg-primary/10 border rounded-2xl"><p class="text-xl">📧 contato@appmatchwork.com.br</p></div>
+          <a href="https://www.linkedin.com/company/matchworkoficial" target="_blank" class="block p-4 bg-accent/10 border rounded-2xl text-xl">🔗 LinkedIn</a>
+          <a href="https://www.instagram.com/matchwork.oficial" target="_blank" class="block p-4 bg-emerald-500/10 border rounded-2xl text-xl">📸 Instagram @matchwork.oficial</a>
+        </div>
+        <a href="mailto:contato@appmatchwork.com.br" class="px-10 py-4 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl shadow-xl hover:scale-105 transition">Conectar-se conosco</a>
+      </div>`
+  }
 ];
 
-/* =============================
-   RENDER + NAVEGAÇÃO
-   ============================= */
+/* Render e Navegação */
 const root = document.getElementById('slidesRoot');
 const dotsWrap = document.getElementById('dots');
 const counterEl = document.getElementById('counter');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const pdfBtn  = document.getElementById('pdfBtn');
-
 let current = 0;
 
 function renderSlide(index){
   const s = slides[index];
-  root.innerHTML = `
-    <section class="w-screen h-screen ${s.background} transition-all duration-500">
-      <div class="max-w-7xl mx-auto h-full p-8">
-        ${s.html}
-      </div>
-    </section>`;
+  root.innerHTML = `<section class="w-screen h-screen ${s.background} transition-all duration-500"><div class="max-w-7xl mx-auto h-full p-8">${s.html}</div></section>`;
   updateDots();
-  counterEl.textContent = (index+1) + ' / ' + slides.length;
+  counterEl.textContent = (index+1)+' / '+slides.length;
 }
-
 function updateDots(){
-  dotsWrap.innerHTML = slides.map((_,i)=>`
-    <button data-goto="${i}" class="dot ${i===current?'bg-white':'bg-white/40 hover:bg-white/70'}"></button>
-  `).join('');
-  dotsWrap.querySelectorAll('button').forEach(btn=>{
-    btn.addEventListener('click', ()=>{ current = +btn.dataset.goto; renderSlide(current); });
-  });
+  dotsWrap.innerHTML = slides.map((_,i)=>`<button data-goto="${i}" class="dot ${i===current?'bg-white':'bg-white/40'}"></button>`).join('');
+  dotsWrap.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{current=+btn.dataset.goto;renderSlide(current)}));
 }
+function next(){ if(current<slides.length-1){current++;renderSlide(current);} }
+function prev(){ if(current>0){current--;renderSlide(current);} }
+prevBtn.addEventListener('click',prev);
+nextBtn.addEventListener('click',next);
+document.addEventListener('keydown',e=>{ if(e.key==='ArrowRight')next(); if(e.key==='ArrowLeft')prev(); });
 
-function next(){ if(current < slides.length-1){ current++; renderSlide(current); } }
-function prev(){ if(current > 0){ current--; renderSlide(current); } }
-
-prevBtn.addEventListener('click', prev);
-nextBtn.addEventListener('click', next);
-document.addEventListener('keydown', (e)=>{
-  if(e.key === 'ArrowRight') next();
-  if(e.key === 'ArrowLeft') prev();
-});
-
-/* =============================
-   PDF (A4 landscape)
-   ============================= */
+/* PDF */
 pdfBtn.addEventListener('click', async ()=>{
-  if (!window.jspdf || !window.html2canvas) return;
-  const { jsPDF } = window.jspdf;
-  const pdf = new jsPDF('l', 'mm', 'a4'); // A4 landscape
-  const pageW = 297, pageH = 210;
-
-  // para cada slide, renderiza offscreen e captura
+  if(!window.jspdf||!window.html2canvas) return;
+  const {jsPDF}=window.jspdf;
+  const pdf=new jsPDF('l','mm','a4');
+  const pageW=297,pageH=210;
   for(let i=0;i<slides.length;i++){
-    const s = slides[i];
-    const temp = document.createElement('div');
-    temp.style.position = 'fixed';
-    temp.style.left = '-200vw';
-    temp.style.top = '0';
-    temp.style.width = '1920px';
-    temp.style.height = '1080px';
-    temp.className = s.background;
-    temp.innerHTML = `<div class="max-w-7xl mx-auto h-full p-16">${s.html}</div>`;
+    const s=slides[i];
+    const temp=document.createElement('div');
+    temp.style.position='fixed';temp.style.left='-200vw';
+    temp.style.width='1920px';temp.style.height='1080px';
+    temp.className=s.background;
+    temp.innerHTML=`<div class="max-w-7xl mx-auto h-full p-16">${s.html}</div>`;
     document.body.appendChild(temp);
-
     await new Promise(r=>setTimeout(r,100));
-    const canvas = await html2canvas(temp, {width:1920,height:1080, scale:1, backgroundColor:null});
-    const img = canvas.toDataURL('image/png', 1.0);
-
+    const canvas=await html2canvas(temp,{width:1920,height:1080,scale:1,backgroundColor:null});
+    const img=canvas.toDataURL('image/png',1.0);
     if(i>0) pdf.addPage();
-    // cobre a página inteira
-    pdf.addImage(img, 'PNG', 0, 0, pageW, pageH);
-
+    pdf.addImage(img,'PNG',0,0,pageW,pageH);
     document.body.removeChild(temp);
   }
   pdf.save('MatchWork-Apresentacao.pdf');
 });
 
-/* Inicializa */
+/* Start */
 renderSlide(current);
-</script>
- <script>
-  const slides = document.querySelectorAll(".slide");
-  const bullets = document.querySelectorAll(".bullet");
-  let currentSlide = 0;
-
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("hidden", i !== index);
-      bullets[i].classList.toggle("bg-purple-600", i === index);
-      bullets[i].classList.toggle("bg-gray-400", i !== index);
-    });
-    currentSlide = index;
-  }
-
-  function nextSlide() {
-    let newIndex = (currentSlide + 1) % slides.length;
-    showSlide(newIndex);
-  }
-
-  function prevSlide() {
-    let newIndex = (currentSlide - 1 + slides.length) % slides.length;
-    showSlide(newIndex);
-  }
-
-  // Navegação por teclado
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowRight") nextSlide();
-    if (e.key === "ArrowLeft") prevSlide();
-  });
-
-  // Navegação pelos bullets
-  bullets.forEach((bullet, index) => {
-    bullet.style.cursor = "pointer";
-    bullet.addEventListener("click", () => showSlide(index));
-  });
-
-  // Swipe no mobile
-  let startX = 0;
-  let endX = 0;
-
-  document.addEventListener("touchstart", (e) => {
-    startX = e.changedTouches[0].screenX;
-  }, false);
-
-  document.addEventListener("touchend", (e) => {
-    endX = e.changedTouches[0].screenX;
-    handleGesture();
-  }, false);
-
-  function handleGesture() {
-    if (endX < startX - 50) nextSlide();  // swipe left
-    if (endX > startX + 50) prevSlide();  // swipe right
-  }
-
-  // Inicia
-  showSlide(currentSlide);
 </script>
 </body>
 </html>
