@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<title>Apresentação MatchWork</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body,html{
+    margin:0;padding:0;height:100%;
+    font-family:Arial,Helvetica,sans-serif;background:#fdfdfd;
+  }
+  .slide{
+    display:none;flex-direction:column;justify-content:center;
+    align-items:center;text-align:center;padding:40px;height:100vh;
+  }
+  .active{display:flex;}
+  h1,h2{margin:10px 0;}
+  .controls{
+    position:fixed;bottom:20px;left:50%;
+    transform:translateX(-50%);display:flex;gap:10px;
+  }
+  button{
+    padding:10px 16px;border:none;border-radius:8px;
+    font-weight:bold;cursor:pointer;
+  }
+  .primary{background:#6f3aff;color:#fff;}
+  .secondary{background:#e5e5ff;color:#333;}
+</style>
+</head>
+<body>
+
+<!-- SLIDES -->
+<div class="slide active" id="slide1">
+  <h1>🚀 MatchWork</h1>
+  <h2>Conectando talentos, empresas e carreiras</h2>
+  <p>Empregabilidade + Capacitação + Bem-estar</p>
+</div>
+
+<div class="slide" id="slide2">
+  <h2>📊 O Problema</h2>
+  <p>Mercado de trabalho burocrático e ineficiente</p>
+  <p>PMEs com dificuldade em contratar rápido</p>
+  <p>Profissionais sem capacitação prática</p>
+  <p>Falta de apoio ao bem-estar</p>
+</div>
+
+<div class="slide" id="slide3">
+  <h2>💡 Nossa Solução</h2>
+  <p>Plataforma que conecta candidatos, empresas e profissionais</p>
+  <p>Matching rápido, trilhas, testes e Bem+Match</p>
+</div>
+
+<div class="slide" id="slide4">
+  <h2>📈 Diferenciais</h2>
+  <p>Ecossistema completo: vagas + capacitação + bem-estar</p>
+  <p>Foco em PMEs com planos acessíveis</p>
+  <p>Inclusão social acessível para jovens</p>
+</div>
+
+<div class="slide" id="slide5">
+  <h2>💰 Modelos de Receita</h2>
+  <p>Empresas: Gratuito • One-Shot • Assinatura</p>
+  <p>Candidatos: Gratuito • Premium</p>
+</div>
+
+<div class="slide" id="slide6">
+  <h2>🌍 Impacto Social</h2>
+  <p>Educação e empregabilidade como motor de transformação</p>
+  <p>Parcerias com secretarias, universidades e empresas</p>
+</div>
+
+<div class="slide" id="slide7">
+  <h2>🚀 Próximos Passos</h2>
+  <p>14 semanas de mentoria e primeiros pilotos</p>
+  <p>Expansão nacional após validação</p>
+  <p>Primeiras receitas no ano 1</p>
+</div>
+
+<div class="slide" id="slide8">
+  <h2>🌟 Visão 10 Anos</h2>
+  <p>Ser referência nacional em empregabilidade e capacitação</p>
+  <p>Valuation R$100M+</p>
+  <p>Impactar milhões de profissionais</p>
+</div>
+
+<div class="slide" id="slide9">
+  <h2>Equipe</h2>
+  <p>👨‍💼 Rodrigo Volpato — Fundador e CEO</p>
+</div>
+
+<div class="slide" id="slide10">
+  <h2>Call to Action</h2>
+  <p>📧 contato@appmatchwork.com.br</p>
+  <p>🔗 LinkedIn + Instagram</p>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <button class="secondary" onclick="prevSlide()">⬅ Voltar</button>
+  <button class="secondary" onclick="nextSlide()">Avançar ➡</button>
+  <button class="primary" onclick="downloadPDF()">📥 Baixar PDF</button>
+</div>
+
+<!-- PDF LIB -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+
+function showSlide(i){
+  slides.forEach(s=>s.classList.remove('active'));
+  slides[i].classList.add('active');
+}
+function nextSlide(){
+  current = (current+1) % slides.length;
+  showSlide(current);
+}
+function prevSlide(){
+  current = (current-1+slides.length) % slides.length;
+  showSlide(current);
+}
+function downloadPDF(){
+  const opt = {
+    margin:       0,
+    filename:     'MatchWork-Apresentacao.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2 },
+    jsPDF:        { unit: 'pt', format: 'a4', orientation: 'landscape' }
+  };
+  html2pdf().set(opt).from(document.body).save();
+}
+</script>
+
+</body>
+</html>
